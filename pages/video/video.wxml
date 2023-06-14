@@ -1,0 +1,80 @@
+<swiper indicator-dots="{{false}}" circular="true" style="height: 100vh;" vertical bindchange="thisVideos" current="{{index}}">
+			<swiper-item class="container" wx:for="{{Videos}}"  item-id="{{item.id}}">
+				<video class="vvideo" bindended="" id="{{item.id}}" animation="{{videoAnimation}}" bindplay="onplay" bindpause="onpause" bindtimeupdate="timeUpdate" bindtap="doubleTap" show-center-play-btn="{{false}}" controls="{{false}}" enable-progress-gesture="{{false}}" autoplay="{{false}}" show-fullscreen-btn="{{false}}" src="{{item.url}}" object-fit="cover" loop="{{true}}">
+
+					<view class="tools">
+						<!-- 用户头像 -->
+						<image class='user-image' src="{{item.auth_avatar}}">
+						</image>
+						<image class="userinfo-add" wx:if="{{item.aion === 2}}" bindtap="aions" src="/static/icons/oricon.png"></image>
+						<image class="userinfo-add" wx:else bindtap="aions" src="/static/icons/blicon.png"></image>
+
+						<!-- 点赞 -->
+						<view catchtap="likeVideoOrNot" class="tag-icon">
+							<image class="icon right-icon t-icon" wx:if="{{item.liked !== true}}" src='/static/icons/love.png'></image>
+							<image class="icon right-icon l-icon" wx:if="{{item.liked !== true}}" src='/static/icons/loves.png'></image>
+							<image class="icon right-icon animated fadeIn" wx:else src="/static/icons/redlike.png"></image>
+							<view class="text">{{item.likes}}</view>
+						</view>
+						<!-- 评论 -->
+						<view catchtap='twoComment' class="tag-icon">
+							<image class="icon right-icon t-icon" src='/static/icons/message.png'></image>
+							<image class="icon right-icon l-icon" src='/static/icons/messages.png'></image>
+							<view class="text">{{item.comments}}</view>
+						</view>
+						<!-- 收藏 -->
+						<view catchtap='shareMe' class="tag-icon">
+							<image class="icon right-icon t-icon" wx:if="{{item.collectd !== true}}" src='/static/icons/tinyspot.png'></image>
+							<image class="icon right-icon l-icon" wx:if="{{item.collectd !== true}}" src='/static/icons/tinyspots.png'></image>
+							<image class="icon right-icon animated fadeIn" wx:else src="/static/icons/yellow.png"></image>
+							<view class="text">{{item.collects}}</view>
+						</view>
+						<!-- 分享 -->
+						<view catchtap='sharetap' class="tag-icon">
+							<image class="icon right-icon t-icon" src='/static/icons/share.png' catchtap=''></image>
+							<image class="icon right-icon l-icon" src='/static/icons/shares.png'></image>
+						</view>
+					</view>
+
+
+
+					<!-- 播放暂停按钮 -->
+					<image src='/static/icons/pay.png' wx:if="{{!play}}" class="bottompay"></image>
+					<image src='/static/icons/pays.png' wx:if="{{!play}}" class="bottompay"></image>
+
+					<!-- 进度条 -->
+					<view class="jindu-back"></view>
+					<view class="jindu" style='width: {{percent}}%'></view>
+
+					<view class="box" wx:if="{{show}}">
+						<view class="ch-txt">单选题</view>
+						<view class='body'>
+							<view class="ch-title">{{problem}}</view>
+							<view style="margin-top: 100rpx;">
+								<view class="ch-content" style="{{currentIndex === indew && isSelected ? 'background: #18549A;color: #FFFFFF;' : ''}}{{currentIndex === indew && !isSelected ? 'background: #D12923;color: #FFFFFF;' : ''}}" wx:for="{{content}}" wx:for-item="itemw" wx:for-index="indew" wx:key="indew" data-index="{{indew}}" catchtap="Chooseanswer">
+									<view class="ch-intext">{{[indew]}}.{{itemw}}</view>
+									<image wx:if="{{isSelected}}" style="width: 38rpx;height: 38rpx;margin-right: 40rpx;" src="/static/icons/YES.png"></image>
+									<image wx:if="{{!isSelected}}" style="width: 38rpx;height: 38rpx;margin-right: 40rpx;" src="/static/icons/NO.png"></image>
+								</view>
+							</view>
+						</view>
+					</view>
+
+					<view class="redenvelope" wx:if="{{redshow}}">
+						<image class="redicon" src="/static/icons/redenvelope.png"></image>
+						<view class="red-title">获得兑换券</view>
+						<view class="red-conter">33.9</view>
+						<view class="red-win">中奖啦！</view>
+					</view>
+
+				</video>
+
+								<!-- 视频描述  -->
+								<view class='container-words'>
+					<view>@{{index}}{{item.auth_username}}</view>
+					<view class='video-desc'>{{item.title}}<text wx:for="{{item.label}}" wx:for-item="itemc" wx:for-index="indexc" wx:key="indexc">#{{itemc[indexc]}}</text>
+					</view>
+				</view>
+			</swiper-item>
+		</swiper>
+		<van-loading type="spinner" size="44px" custom-class="loading" wx:if="{{loadings}}" color="#1989fa" vertical>加载中...</van-loading>

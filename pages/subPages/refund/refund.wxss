@@ -1,0 +1,113 @@
+/* pages/Aftersale/refund/refund.wxss */
+page {
+	background: #f0f0f0;
+}
+
+.refund_cont {
+	display: flex;
+	justify-content: center;
+	padding: 20rpx 0rpx;
+	background: #FFFFFF;
+}
+
+.refund_img {
+	width: 152rpx;
+	height: 152rpx;
+	/* background: #F23741; */
+	margin-right: 26rpx;
+}
+
+
+.refund_title {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	width: 523rpx;
+	font-size: 26rpx;
+	font-family: PingFang SC;
+	font-weight: 400;
+	color: #666666;
+}
+
+.refund_txt {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	width: 513rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC;
+	font-weight: 400;
+	color: #999999;
+	margin-top: 15rpx;
+}
+
+.refund_zhocont {
+	margin-top: 20rpx;
+	width: 750rpx;
+	height: 408rpx;
+	background: #FFFFFF;
+}
+
+.link {
+	width: 750rpx;
+	height: 2rpx;
+	background: #EEEEEE;
+}
+
+.refund_text {
+	font-size: 28rpx;
+	font-weight: 400;
+	color: #1f1f1f;
+}
+
+.refund_cell {
+	padding: 16rpx 26rpx;
+	display: flex;
+	align-items: center;
+}
+
+.refund_cell_sm {
+	padding: 16rpx 26rpx;
+	display: flex;
+}
+
+.refund_money {
+	font-size: 32rpx;
+	font-family: PingFang SC;
+	font-weight: 600;
+	color: #ED213A;
+}
+
+.refund_money text {
+	font-size: 27rpx;
+	font-family: PingFang SC;
+	font-weight: 500;
+}
+
+.refund_Upload {
+	padding: 0rpx 24rpx;
+	margin-top: 20rpx;
+	width: 750rpx;
+	height: 282rpx;
+	background: #FFFFFF;
+}
+
+.upload_text {
+	font-size: 28rpx;
+	font-family: PingFang SC;
+	font-weight: 400;
+	padding: 32rpx 0rpx;
+}
+
+.refund_input {
+	width: 515rpx;
+	height: 200rpx;
+	padding: 20rpx;
+}
+
+.upload_img {
+	height: 160rpx;
+	width: 160rpx;
+}

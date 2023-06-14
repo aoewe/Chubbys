@@ -1,0 +1,84 @@
+<view>
+	<!-- <view class="g-header">
+		<view class="b-title">购物车<span class="spannum">({{shoppingnumber}})</span></view>
+		<view class="b-bang">编辑</view>
+	</view> -->
+	<!-- 购物车商品 -->
+	<view class="cart-list" wx:for="{{cartData.normal}}">
+		<view class="cart-block">
+			<van-checkbox icon-size="18" checked-color="#FF4701" value="{{ item.checked }}" data-index="{{index}}" bind:change="changeCheck" />
+			<van-icon name="shop-o" /><text class="sp-title">{{item.name}}</text>
+			<van-icon name="arrow" size="13px" />
+		</view>
+		<van-swipe-cell wx:for="{{item.list}}" async-close wx:for-item="item2" wx:for-index="index2" wx:key="index2" data-id="{{item2.id}}" data-index="{{index2}}" data-type="1" bind:close="onDelete" right-width="{{ 48 }}">
+			<view class="item" style="margin-bottom: {{index2+1===cartData.normal.length?'0':''}};">
+				<van-checkbox icon-size="18" checked-color="#FF4701" value="{{ item.checked || item2.checked}}" data-index="{{index}}" data-inner-index="{{index2}}" bind:change="onlychangeCheck" />
+				<van-image src="{{item2.product_pic}}" fit="cover" catchtap="toDetail" data-id="{{item2.product_id}}" lazy-load />
+				<view class="info">
+					<view class="ellipsis-text">{{item2.product_name}}</view>
+					<!-- <view class="attr" data-id="{{item.product_id}}" data-cartid="{{item.id}}" catchtap="chechAttr"></view> -->
+					<text wx:for="{{item2.product_attr}}" wx:key="index">{{item.value}}</text>
+
+					<view class="price-sum">
+						<text class="integral" wx:if="{{item2.integral*1>0}}">{{item.integral}}</text>
+						<text class="price" wx:else>{{item2.price}}</text>
+						<van-stepper button-size="18" class="stepprt" disable-input integer data-index="{{index}}" data-inner-index="{{index2}}" value="{{ item2.number }}" bind:change="changeNum" />
+					</view>
+				</view>
+			</view>
+			<view slot="right" class="delete-btn">
+				<van-icon size="40rpx" color="#1d1d1d" name="delete-o" />
+			</view>
+		</van-swipe-cell>
+	</view>
+	<!-- 过期商品 -->
+	<view class="invalid">
+		<block wx:for="{{cartData.invalid}}" wx:key="index">
+			<view class="item" style="margin-bottom: {{index+1===cartData.invalid.length?'0':''}};">
+				<text class="invalid-text">失效</text>
+				<van-image src="{{item.product_pic}}" fit="cover" lazy-load />
+				<view class="info">
+					<view class="ellipsis-text">{{item.product_name}}</view>
+					<view>
+						<text>宝贝已不可售</text><text data-id="{{item.id}}" data-index="{{index}}" data-type="0" bind:tap="onDelete">清除商品</text>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+	<view class="loading" wx:if="{{loading}}">
+		<van-loading type="spinner">加载中...</van-loading>
+	</view>
+	<!-- 底部 -->
+	<view class="footer" wx:if="{{cartData.normal[0].list.length}}">
+		<view class="check-all">
+			<van-checkbox icon-size="18" checked-color="#FF4701" value="{{ isAll }}" bind:change="checkAll" />全选
+		</view>
+		<view class="right" wx:if="{{!isDel}}">
+			<view class="sum">
+				<view>
+					合计:
+					<text hidden="{{priceTotal+integralTotal>0}}">--</text>
+					<text class="price" hidden="{{!priceTotal>0}}">{{priceTotal}}</text>
+					<text wx:if="{{priceTotal>0 && integralTotal>0 }}"> + </text>
+					<text class="integral" hidden="{{!integralTotal>0}}">{{integralTotal}}</text>
+				</view>
+			</view>
+			<view class="btn" bindtap="submit">结算({{checkNum}})</view>
+		</view>
+		<view class="right" wx:else>
+			<view class="btn" style="background-color: #f64242;" bindtap="delAll">删除({{checkNum}})</view>
+		</view>
+	</view>
+	<!-- 空 -->
+	<view class="empty-cart" wx:if="{{!cartData.normal.length && !cartData.invalid.length}}">
+		<view>
+			<navigator hover-class="_active" url="../mallPage/mallList/mallList?type=2">
+				<van-image lazy-load src="http://system.btzni.com/images/pbanner.png" />
+			</navigator>
+			<navigator hover-class="_active" url="../mallPage/welfareMall/welfareMall">
+				<van-image lazy-load src="http://system.btzni.com/images/fbanner.png" />
+			</navigator>
+		</view>
+	</view>
+</view>

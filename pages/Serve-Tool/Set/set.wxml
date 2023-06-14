@@ -1,0 +1,33 @@
+<view>
+  <view class="content">
+    <navigator class="cont-list" url="/pages/Serve-Tool/Headimg/Headimg">
+      <view class="cont-txt">修改头像</view>
+      <view class="cont-left">
+        <image binderror="imgError" style="width: 64rpx;height: 64rpx;border-radius: 50%;" src="{{userInfo.avatar}}" />
+        <van-icon name="arrow" />
+      </view>
+    </navigator>
+    <navigator class="cont-list" url="/pages/Address/GetAddress/getAddress">
+      <view class="cont-txt">收货地址</view>
+      <view class="cont-left">
+        <van-icon name="arrow" />
+      </view>
+    </navigator>
+    <navigator class="cont-list" url="../SwitchAccount/swacc">
+      <view class="cont-txt">切换账号</view>
+      <view class="cont-left">
+        <van-icon name="arrow" />
+      </view>
+      </navigator>
+      <navigator class="cont-list" url="../upPayPaw/upPayPaw">
+        <view class="cont-txt">支付密码</view>
+        <view class="cont-left">
+          <van-icon name="arrow" />
+        </view>
+			</navigator>
+			
+			<view class="btn">
+		<van-button custom-class="external-class" color="linear-gradient(0deg, #EC6601, #FFDC03);" bindtap="exit" size="round" round>退出登录</van-button>
+	</view>
+  </view>
+</view>

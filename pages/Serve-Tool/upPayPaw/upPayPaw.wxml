@@ -1,0 +1,48 @@
+<!--pages/children/payPassword/payPassword.wxml-->
+<view wx:if="{{!showCode}}" class="password">
+  <view class="text">棒多多</view>
+  <view>
+    <input placeholder="输入新的支付密码" model:value="{{payPassword}}" type="password" bindinput="changePassword" />
+  </view>
+  <view>
+    <input placeholder="确认支付密码" model:value="{{payPasswordagain}}" type="password" bindinput="changePasswordTwo" />
+  </view>
+    <van-button color="#2A9F93" bindtap="sendCode" size="round" round custom-class="external-class">修改</van-button>
+</view>
+<view wx:if="{{showCode}}" style="width: 100%;height:100%">
+  <view class="codepage">
+    <view class="textline1">输入短信验证码</view>
+    <view class="textline2">验证码已发送至{{mobile}}</view>
+    <view class="code-group">
+      <view class="code-item">
+        <input type="text" value="{{codeList[0]}}" bindinput="setCode" data-num="0" focus="{{inputFocus0}}" />
+      </view>
+      <view class="code-item" bindtap="setCode" data-num="1">
+        <input type="text" value="{{codeList[1]}}" bindinput="setCode" data-num="1" focus="{{inputFocus1}}" />
+      </view>
+      <view class="code-item" bindtap="setCode" data-num="2">
+        <input type="text" value="{{codeList[2]}}" bindinput="setCode" data-num="2" focus="{{inputFocus2}}" />
+      </view>
+      <view class="code-item" bindtap="setCode" data-num="3">
+        <input type="text" value="{{codeList[3]}}" bindinput="setCode" data-num="3" focus="{{inputFocus3}}" />
+      </view>
+      <view class="code-item" bindtap="setCode" data-num="4">
+        <input type="text" value="{{codeList[4]}}" bindinput="setCode" data-num="4" focus="{{inputFocus4}}" />
+      </view>
+      <view class="code-item" bindtap="setCode" data-num="5">
+        <input type="text" value="{{codeList[5]}}" bindinput="setCode" data-num="5" focus="{{inputFocus5}}" />
+      </view>
+    </view>
+    <view class="textline3" wx:if="{{time>0}}">{{time}}秒后可重新发送</view>
+    <view class="textline3" wx:else bindtap="sendgain">获取验证码</view>
+    <view style="height: 360rpx;"></view>
+    <view class="keyboard-group">
+      <view wx:for="{{keyboardList}}" wx:key="index" class="keyboard-item">
+        <view wx:if="{{item.name=='del'}}" bindtap="delOne">
+          <image style="width: 60rpx;height: 60rpx;margin: 15rpx 0;" src="../../../static/imgs/del.png"></image>
+        </view>
+        <view wx:else bindtap="addOne" data-num="{{item.name}}">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+</view>

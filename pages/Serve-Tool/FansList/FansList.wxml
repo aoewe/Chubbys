@@ -1,0 +1,23 @@
+<view class="list">
+  <view class="item" wx:for="{{list}}" wx:key="index">
+    <van-image lazy-load round width="102rpx" height="102rpx" src="{{item.avatar}}" />
+    <view>
+			<view class="head-flex">
+				<view class="head-txt user">{{item.username}}</view>
+				<view class="head-flex" wx:if="{{item.vip_type === 0}}">
+				<image class="head-grad-icon" src="/static/icons/grade.png"></image>
+				<view class="head-grad-text">普通</view>
+			</view>
+    </view>
+		<view>{{item.mobile}}</view>
+
+  </view>
+</view>
+<view class="loading">
+  <van-loading wx:if="{{loading}}" type="spinner" />
+</view>
+<view class="cnt-text" wx:if="{{list.length===total && list.length>5}}" style="padding-bottom: {{bottom}}rpx;">已全部加载</view>
+<view class="no-content" wx:if="{{!list.length && !loading}}">
+  <image src="../../../static/imgs/nocontent.png"></image>
+</view>
+</view>

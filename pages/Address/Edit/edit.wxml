@@ -1,0 +1,32 @@
+<!-- <view class="map_box">
+  <map name="map" markers="{{[markers]}}" scale='12' latitude="{{poi.lat}}" longitude="{{poi.lng}}"></map>
+</view> -->
+<view class="box">
+  <view class="address">
+    <view class="receiving" hover-class="hover" catchtap="clickOpenLinked">
+      <view>
+        <text class="address-text">地址</text>
+        <view wx:if="{{!params.address}}">选择收货地址</view>
+        <view wx:else class="location-view">
+          <view class="district" style="color: #000000;">{{params.address}}</view>
+        </view>
+      </view>
+      <van-icon name="arrow" />
+    </view>
+    <view class="house-number">
+      <text>详细地址</text>
+      <input type="text" value="{{params.door_num}}" bindinput="changeDoornum" placeholder="请输入详细地址，例：8层8088" />
+    </view>
+    <view class="switch"><text>设置默认地址</text>
+      <van-switch size="24px" active-color="#299f92" checked="{{ params.sort==1?true:false }}" bind:change="checked" />
+    </view>
+  </view>
+  <view class="user">
+    <view><text>联系人</text><input value="{{params.name}}" bindinput="changeName" placeholder="收货人姓名" type="text" /></view>
+    <view><text>手机号</text><input maxlength="11" value="{{params.mobile}}" bindinput="changeMobile" placeholder="收货人手机号" type="text" /></view>
+    <view class="btn" bindtap="submit">
+      <van-button round color="#299f92">保存</van-button>
+    </view>
+  </view>
+</view>
+<linked-picker bind:trigger-linked-flag="close" linked-flag="{{linkedFlag}}" linked-datas="{{cityJosn}}" bind:trigger-linked-confirm="onLinkedConfirm"></linked-picker>

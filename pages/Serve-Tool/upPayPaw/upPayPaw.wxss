@@ -1,0 +1,128 @@
+page{
+  background-color: #ffffff;
+}
+.password {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+}
+
+.text {
+  font-size: 110rpx;
+font-family: PingFang SC;
+font-weight: bold;
+color: #2A9F93;
+margin: 20rpx 0;
+border-bottom: 0rpx solid #ccc !important;
+}
+
+.password>view {
+  height: 100rpx;
+  width: 690rpx;
+  line-height: 100rpx;
+  margin: 20rpx 0;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.password>view>input {
+  height: 100rpx;
+  font-size: 30rpx;
+  line-height: 100rpx;
+}
+
+.password>view:last-child {
+  background: #B7312A;
+  border-radius: 50rpx;
+  text-align: center;
+  border: 0;
+  margin-top: 40rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+  color: #ffffff;
+  font-size: 30rpx;
+}
+
+.codepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+.keyboard-group {
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  bottom: 0;
+  padding-bottom: constant(safe-area-inset-bottom);
+	padding-bottom: env(safe-area-inset-bottom);
+}
+
+.keyboard-item {
+  width: 249rpx;
+  text-align: center;
+  height: 90rpx;
+  border: 1rpx solid #ccc;
+  line-height: 90rpx;
+  border-bottom: 0;
+  border-left: 0;
+  transition: all .3s;
+}
+
+.keyboard-item:active {
+  background-color: #eee;
+  transition: all 0s;
+}
+
+.code-group {
+  display: flex;
+  justify-content: space-around;
+  margin: 50rpx 0;
+}
+
+.code-item {
+  width: 90rpx;
+  height: 90rpx;
+  background: #ddd;
+  border-radius: 8rpx;
+  line-height: 90rpx;
+  text-align: center;
+}
+
+.code-item>input {
+  width: 90rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+}
+
+.logo {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.logo>image {
+  width: 230rpx;
+  height: 230rpx;
+}
+
+.textline1 {
+  font-size: 35rpx;
+  padding: 0 30rpx;
+  line-height: 100rpx;
+}
+
+.textline2 {
+  font-size: 24rpx;
+  padding: 0 30rpx;
+  color: #888;
+}
+
+.textline3 {
+  font-size: 24rpx;
+  padding: 0 30rpx;
+  color: #B7312A
+}

@@ -1,0 +1,65 @@
+<wxs module="m2">
+	var toFloat = function (num) {
+		return parseFloat(num)
+	}
+	module.exports.toFloat = toFloat;
+</wxs>
+<van-tabs animated duration="0.5" z-index="999" sticky swipeable class="nav-tab" active="{{ active }}" bind:change="onChange">
+	<van-tab wx:for="{{tabs}}" wx:key="index" name="{{item.name}}" title="{{item.title}}">
+		<view class="list">
+			<view class="item" style="background-color: {{gitem.order_status==4?'#eeeeee':''}};" wx:for="{{list}}" wx:for-item="gitem" wx:for-index="gidx" wx:key="gidx">
+				<view class="up_flex">
+					<view class="up_time">下单时间:<text>{{gitem.create_time}}</text></view>
+					<text class="status-t {{gitem.order_status==4?'invalid-status-t':''}}">{{gitem.order_status===0 ?'待支付':gitem.order_status===1 && gitem.pay_status===1 ?'待发货':gitem.order_status===2 && gitem.pay_status!==2 && gitem.pay_status!==3?'已发货':gitem.order_status===3?'已完成':gitem.pay_status===2?'退款中':gitem.pay_status===3?'退款成功':gitem.order_status===5?'新人待绑定':'已失效'}}</text>
+				</view>
+				<navigator  hover-class="none" url="{{ gitem.order_status === 5 ? '../../Serve-Tool/Newborn/Newborn?id='+gitem.id: '../orderDetails/orderDetails?id='+gitem.id + '&order_sn=' + gitem.order_sn}}">
+					<view class="info">
+					<van-image width="180rpx" height="180rpx" fit="cover" lazy-load src="{{gitem.detail[0].good_img}}" />
+					<view>
+						<view><text class="title">{{gitem.detail[0].good_name}}</text>
+						</view>
+						<view>
+							<text class="attr">
+								<text wx:for="{{gitem.detail[0].good_attr}}" wx:key="index">规格 {{item.value}}</text>
+							</text>
+							<text>x1</text>
+						</view>
+					</view>
+				</view>
+				<view class="prices" wx:if="{{gitem.pay_status === 3 || gitem.pay_status === 2}}">
+					<view wx:if="{{gitem.pay_status === 2}}" class="refund_view">退款中<text>退款金额 ¥{{gitem.order_money}}</text></view>
+					<view wx:if="{{gitem.pay_status === 3}}" class="refund_view">退款成功<text>退款金额 ¥{{gitem.order_money}}</text></view>
+
+				</view>
+				<view class="price" wx:else>
+					<view class="prone">共{{gitem.detail[0].buy_cnt}}件商品</view>
+					<view>价格:<text>{{m2.toFloat(gitem.order_money)}}</text></view>
+				</view>
+				<view class="status">
+					<van-button catchtap="toTowPay" data-item="{{gitem}}" wx:if="{{gitem.order_status===0 && type!=1}}" color="linear-gradient(0deg, #EC6601, #FFDC03);" round>立即支付</van-button>
+					<view class="status-b" wx:if="{{gitem.pay_status===3}}" catchtap="deleteOrder">
+						<view class="white_status_bottom" >删除记录</view>
+					</view>
+					<view class="status-b" wx:if="{{gitem.order_status===1}}">
+						<view class="status_bottom" >查看详情</view>
+					</view>
+					<view class="status-b" wx:if="{{gitem.order_status===2 && gitem.pay_status !== 3 && gitem.pay_status !== 2}}">
+						<van-button data-id="{{gitem.shipping_sn}}" catchtap="toLogistics">查看物流</van-button>
+						<van-button catchtap="confirmOrder" data-id="{{gitem.id}}" color="#2A9F93">确认收货</van-button>
+					</view>
+					<view class="status-b" wx:if="{{gitem.order_status===3}}">
+						<van-button data-id="{{gitem.shipping_sn}}" catchtap="toLogistics">查看物流</van-button>
+					</view>
+				</view>
+				</navigator>
+			</view>
+			<view class="loading" wx:if="{{loading}}">
+				<van-loading type="spinner" color="#2A9F93" />
+			</view>
+		</view>
+	</van-tab>
+</van-tabs>
+<view class="no-content" wx:if="{{list.length<1 && !loading}}">
+	<image src="/static/imgs/nocontent.png"></image>
+</view>
+<view wx:if="{{list.length===total&&list.length>=4}}" class="cnt-text">已全部加载</view>

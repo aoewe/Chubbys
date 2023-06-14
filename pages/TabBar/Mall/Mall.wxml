@@ -1,0 +1,96 @@
+<view>
+	<!-- <navigator url="../../Shande/payment/index">
+	</navigator> -->
+	<image class="i-header" src="{{banner}}" />
+
+	<view class="i-center">
+		<image class="i-title" src="{{commodity[0].title}}" />
+		<view>
+			<view class="i-block" style="border: 2px solid {{bgColor[0].color[0]}};">
+			</view>
+			<swiper indicator-dots="{{false}}" autoplay="{{true}}" duration="{{duration}}" previous-margin="210rpx" next-margin="90rpx" circular bindchange="bindchange">
+				<block wx:for="{{commodity[0].products}}" wx:key="index">
+					<swiper-item class="swiper-item">
+						<navigator url="../../Product/details/details?id={{item.id}}&no=1&newp=1" class="{{swiperIndex == index ? 'active' : 'quiet'}}">
+							<view class="i-blocki" style="background:{{bgColor[0].color[0]}};">
+								<van-image width="304rpx" height="304rpx" fit="cover" lazy-load slot="loading" type="spinner" size="20" vertical src="{{item.main_pic}}" />
+								<view class="id-text">{{item.product_name}}</view>
+								<view class="ia-money" style="margin: auto;margin-bottom: 20rpx;background:{{bgColor[0].color[1]}};">￥<text>{{item.price}}</text></view>
+							</view>
+						</navigator>
+					</swiper-item>
+				</block>
+			</swiper>
+			<view class="indicator">
+				<view wx:for="{{commodity[0].products}}" wx:key="index" class="dot {{index==swiperIndex ? 'dots' : ''}}"></view>
+			</view>
+			<navigator url="/pages/Product/Special/special?product_type=2&no=1&newp=1" class="i-goleft">点击查看更多<image class="DoubleArrow" src="/static/icons/DoubleArrow.png"></image>
+			</navigator>
+		</view>
+		<image class="i-title" src="{{commodity[1].title}}" />
+		<view class="odd" style="background: {{bgColor[2].color[3]}}">
+			<spand class="line"></spand>
+			<spand class="line2"></spand>
+			<spand class="line3"></spand>
+			<spand class="line4"></spand>
+			<view style="padding-top: 15rpx;">
+				<navigator class="i-blocka" style="background: {{bgColor[1].color[1]}};" url="../../Product/details/details?id={{commodity[1].products[0].id}}&no=2&newp=1">
+					<van-image class="i-image" width="318rpx" fit="cover" height="318rpx" lazy-load slot="loading" type="spinner" size="20" vertical src="{{commodity[1].products[0].main_pic}}" />
+					<view>
+						<view class="ia-text" style="-webkit-line-clamp: 4;">{{commodity[1].products[0].product_name}}</view>
+						<view class="ia-money" style="background: {{bgColor[1].color[2]}};color: {{bgColor[1].color[5]}};">￥<text>{{commodity[1].products[0].price}}</text></view>
+					</view>
+				</navigator>
+			</view>
+		</view>
+		<view style="display: flex;">
+			<navigator class="i-blocke" style="border: 14rpx solid {{bgColor[2].color[3]}};background: {{bgColor[1].color[1]}};" url="../../Product/details/details?id={{commodity[1].products[1].id}}&no=2&newp=1">
+				<spand class="line5"></spand>
+				<van-image width="304rpx" height="304rpx" fit="cover" lazy-load slot="loading" type="spinner" size="20" vertical src="{{commodity[1].products[1].main_pic}}" />
+				<view class="ias-text">{{commodity[1].products[1].product_name}}</view>
+				<view class="ie-money">￥<text>{{commodity[1].products[1].price}}</text></view>
+			</navigator>
+			<navigator class="i-blocke" style="border: 14rpx solid {{bgColor[2].color[3]}};background: {{bgColor[1].color[1]}};" url="../../Product/details/details?id={{commodity[1].products[2].id}}&no=2&newp=1">
+				<spand class="line5"></spand>
+				<van-image width="304rpx" height="304rpx" fit="cover" lazy-load slot="loading" type="spinner" size="20" vertical src="{{commodity[1].products[2].main_pic}}" />
+				<view class="ias-text">{{commodity[1].products[2].product_name}}</view>
+				<view class="ie-money">￥<text>{{commodity[1].products[2].price}}</text></view>
+			</navigator>
+		</view>
+		<navigator url="/pages/Product/Special/special?product_type=3&no=2&newp=1" class="i-goleft border" style="margin-top: 40rpx;">点击查看更多<image class="DoubleArrow" src="/static/icons/DoubleArrow.png"></image>
+		</navigator>
+		<image class="i-title" src="{{commodity[2].title}}" />
+		<navigator style="margin-bottom:40rpx;" wx:for="{{commodity[2].products}}" wx:key="index" url="../../Product/details/details?id={{item.id}}&no=1&newp=0">
+			<image class="i-backage" src="/static/icons/backage.png" />
+			<view class="b-image" style="border: 14rpx solid {{bgColor[2].color[3]}};">
+				<van-image width="564rpx" height="364rpx;" fit="cover" lazy-load slot="loading" type="spinner" size="20" vertical src="{{item.main_pic}}" />
+			</view>
+			<view class="ic-flex" >
+				<view>
+					<view class="ic-text" style="color: {{bgColor[2].color[7]}};">{{item.product_name}}</view>
+					<view class="ic-money" style="color: {{bgColor[2].color[7]}};">惊喜价:¥<text>{{item.price}}</text></view>
+				</view>
+				<view>
+					<image class="i-bj" src="/static/icons/bj.png" />
+					<!-- <text class="ic-goby">立即购买</text> -->
+				</view>
+			</view>
+		</navigator>
+		<navigator url="/pages/Product/Special/special?product_type=4&no=1&newp=0" class="i-goleft border" style="margin-top: 70rpx;">点击查看更多<image class="DoubleArrow" src="/static/icons/DoubleArrow.png"></image>
+		</navigator>
+		<image class="i-title" style="margin-top: 80rpx;" src="{{commodity[3].title}}" />
+		<view style="display:flex;flex-wrap: wrap;">
+			<navigator class="i-blockd" style="background: {{bgColor[3].color[0]}};border: 1px solid {{bgColor[3].color[3]}};" wx:for="{{commodity[3].products}}" wx:key="index" url="../../Product/details/details?id={{item.id}}&no=0&newp=1">
+				<van-image width="304rpx" height="304rpx" fit="cover" lazy-load slot="loading" type="spinner" size="20" vertical src="{{item.main_pic}}" />
+				<view class="id-text">{{item.product_name}}</view>
+				<view class="ia-money" style="margin: auto;">￥<text>{{item.price}}</text></view>
+			</navigator>
+		</view>
+		<navigator url="/pages/Product/Special/special?product_type=1&no=0&newp=1" class="i-goleft">点击查看更多<image class="DoubleArrow" src="/static/icons/DoubleArrow.png"></image>
+		</navigator>
+
+		<navigator url="../../Product/list/list?colse={{true}}">
+			<image class="i-title border" style="margin: 80rpx;width: 360rpx;height: 126rpx;" src="{{showProduct}}" />
+		</navigator>
+	</view>
+</view>

@@ -1,0 +1,131 @@
+/* pages/Serve-Tool/Newborn/Newborn.wxss */
+
+.Backgroundimage {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	z-index: 1;
+}
+
+.newpeople {
+	position: absolute;
+	z-index: 2;
+	left: 25%;
+	top: 110rpx;
+	width: 372rpx;
+	height: 92rpx;
+}
+
+.view_rectangle {
+	position: relative;
+	left: 20rpx;
+	top: 665rpx;
+	width: 702rpx;
+	height: 510rpx;
+	z-index: 2;
+}
+
+.rectangle {
+	position: absolute;
+	width: 702rpx;
+	height: 510rpx;
+	z-index: -1;
+}
+
+.commodity_flex {
+	display: flex;
+}
+
+.commodity {
+	width: 232rpx;
+	height: 232rpx;
+	background: #BBBBBB;
+	border-radius: 8rpx;
+	margin: 24rpx 16rpx;
+}
+
+.commodity_title {
+	width: 387rpx;
+	font-size: 30rpx;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: #000000;
+	margin-top: 63rpx;
+	height: 90rpx;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: normal;
+}
+
+.commodity_bottom {
+	margin-top: 26rpx;
+	width: 418rpx;
+	height: 72rpx;
+	background: #FF512F;
+	border-radius: 36rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC;
+	font-weight: bold;
+	color: #FFFFFF;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.below_title {
+	font-size: 26rpx;
+	font-family: PingFang SC;
+	font-weight: bold;
+	color: #333333;
+	text-align: center;
+	margin-top: 20rpx;
+}
+
+.below_icon {
+	width: 92rpx;
+	height: 92rpx;
+}
+
+.below_flex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 19rpx;
+}
+
+.below_block {
+	text-align: center;
+	font-size: 22rpx;
+	font-family: PingFang SC;
+	font-weight: bold;
+	color: #666666;
+}
+
+.Single {
+	width: 58rpx;
+	height: 30rpx;
+	margin: 0rpx 10rpx;
+}
+
+.RQcode {
+	position: absolute;
+	z-index: 1;
+	bottom: 85rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC;
+	font-weight: bold;
+	color: #333333;
+	left: 40%;
+}
+
+.RQcode_s {
+	width: 140rpx;
+	height: 140rpx;
+	position: absolute;
+	z-index: 2;
+	bottom: 40rpx;
+	left: 70%;
+}

@@ -1,0 +1,21 @@
+<wxs src="../../utils/comm.wxs" module="comm"></wxs>
+
+<view class="red-header" wx:if="{{type == 3}}">
+<navigator url="/pages/AddWithdrawal/withdrawal" class="red-Cash">提现</navigator>
+</view>
+<view style="height: 60rpx;"></view>
+<view class="box" wx:if="{{list.length > 0}}">
+  <view class="conter-list" wx:for="{{list}}" wx:key="index">
+    <view>
+      <view class="black" >
+        <text>{{item.explain}}</text>
+      </view>
+
+      <view class="black cont-time">{{comm.formatDate(item.create_time)}}</view>
+    </view>
+    <view class="{{item.reduce_balance > 0 ? 'reduce_balance' : 'nreduce_balance'}}" >{{ item.reduce_balance >= 0 ? '+' + item.reduce_balance : item.reduce_balance }}</view>
+  </view>
+</view>
+	<view wx:else class="no-content">
+  <image src="/static/imgs/nocontent.png"></image>
+</view>

@@ -1,0 +1,57 @@
+<wxs module="m2">
+	var toFloat = function (num) {
+		return parseFloat(num)
+	}
+	module.exports.toFloat = toFloat;
+</wxs>
+
+		<view class="list">
+			<view class="item"  wx:for="{{list}}" wx:for-item="item" wx:for-index="gidx" wx:key="gidx">
+				<view class="up_flex">
+					<view class="up_time"><image src="/static/icons/house.png"></image><text>{{item.create_time}}</text></view>
+					<view class="up_time" wx:if="{{item.pay_status === 2}}"><image src="/static/icons/return.png"></image><text>退款中</text></view>
+					<view class="up_time" wx:if="{{item.pay_status === 3}}"><image src="/static/icons/return.png"></image><text>退款成功</text></view>
+				</view>
+				<navigator  hover-class="none" url="{{item.order_status === 5 ? '../../Serve-Tool/Newborn/Newborn?id='+item.id : '../orderDetails/orderDetails?id='+item.id + '&order_sn=' + item.order_sn}}">
+					<view class="info">
+					<!-- <van-image width="180rpx" height="180rpx" fit="cover" lazy-load src="{{item.detail[0].good_img}}" /> -->
+					<image class="spimag" src="{{item.detail[0].good_img}}"></image>
+					<view>
+						<view><text class="title">{{item.detail[0].good_name}}</text>
+						</view>
+						<view>
+							<text class="attr">
+								<text wx:for="{{item.detail[0].good_attr}}" wx:for-item="gitem" wx:for-index="gidx" wx:key="gidx">规格 {{gitem.value}}</text>
+							</text>
+							<text>x1</text>
+						</view>
+					</view>
+				</view>
+				<view class="prices" wx:if="{{item.pay_status === 3 || item.pay_status === 2}}">
+					<view wx:if="{{item.pay_status === 2}}" class="refund_view">退款中<text>退款金额 ¥{{item.order_money}}</text></view>
+					<view wx:if="{{item.pay_status === 3}}" class="refund_view">退款成功<text>退款金额 ¥{{item.order_money}}</text></view>
+
+				</view>
+				<view class="price" wx:else>
+					<view class="prone">共{{item.detail[0].buy_cnt}}件商品</view>
+					<view>价格:<text>{{m2.toFloat(item.order_money)}}</text></view>
+				</view>
+				<view class="status">
+					<van-button catchtap="toTowPay" data-item="{{item}}" wx:if="{{item.order_status===0 && type!=1}}" color="linear-gradient(0deg, #EC6601, #FFDC03);" round>立即支付</van-button>
+					<view class="status-b" wx:if="{{item.pay_status===3}}" catchtap="deleteOrder">
+						<view class="white_status_bottom" >删除记录</view>
+					</view>
+					<view class="status-b" wx:if="{{item.order_status===1}}">
+						<view class="status_bottom" >查看详情</view>
+					</view>
+				</view>
+				</navigator>
+			</view>
+			<view class="loading" wx:if="{{loading}}">
+				<van-loading type="spinner" color="#2A9F93" />
+			</view>
+		</view>	
+<view class="no-content" wx:if="{{list.length<1 && !loading}}">
+	<image src="/static/imgs/nocontent.png"></image>
+</view>
+<view wx:if="{{list.length===total&&list.length>=4}}" class="cnt-text">已全部加载</view>

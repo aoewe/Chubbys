@@ -1,0 +1,40 @@
+<view class="list">
+  <view class="item" bindtap="{{isGood?'selAddress':''}}" data-item="{{item}}" wx:for="{{list}}" wx:key="index">
+    <view>
+      <view class="info">
+        <text>{{item.name}}<text>{{item.mobile}}</text></text>
+        <text>{{item.province_name+' '+item.city_name+' '+item.district_name}}</text>
+        <text>{{item.door_num}}</text>
+      </view>
+      <view class="binding" bindtap="isbinding" data-id="{{item.id}}">绑定地址</view>
+    </view>
+    <view>
+      <view>
+        <view catchtap="defaultAddress" data-id="{{item.id}}" data-index="{{index}}" class="check {{item.sort===1?'active':''}}">
+          <van-icon name="success" />
+        </view>
+        默认地址
+      </view>
+      <text catchtap="delUserAddress" data-id="{{item.id}}">删除地址</text>
+    </view>
+  </view>
+</view>
+<view class="loading">
+  <van-loading wx:if="{{loading}}" type="spinner" color="#299f92" />
+</view>
+<view class="no-content" wx:if="{{list.length<1 && !loading}}">
+  <image src="../../../static/imgs/nocontent.png"></image>
+</view>
+<view class="bottom"></view>
+<navigator hover-class="none" url="../Edit/edit" class="btn">
+  <van-button round color="#299f92" custom-class="external-class">添加新地址</van-button>
+</navigator>
+
+<van-popup show="{{ show }}" custom-class="popup" round bind:close="onClose">
+<view style="margin-bottom: 60rpx;">提示！</view>
+<view>收货地址绑定成功</view>
+<view class="inclose">
+<view class="close" bindtap="onClose">关闭</view>
+<view class="closes" bindtap="goOrder">查看订单</view>
+</view>
+</van-popup>

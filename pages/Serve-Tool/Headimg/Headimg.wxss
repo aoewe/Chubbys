@@ -1,0 +1,65 @@
+page {
+  background-color: #ffffff;
+}
+
+.info-box {
+  border-bottom: 20rpx solid #F3F5F7;
+  padding: 0 24rpx;
+}
+.right{
+  display: flex;
+  align-items: center;
+}
+.right .van-icon{
+  margin-left: 10rpx;
+}
+.avatar image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.external-class {
+	margin: 0rpx auto;
+}
+
+.item,
+.avatar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36rpx 0;
+  font-size: 28rpx;
+  color: #666666;
+  border-bottom: 1px solid #F3F5F7;
+}
+
+.item text:last-child,
+.item view {
+  color: #333333;
+}
+
+.item view .van-icon {
+  margin-left: 20rpx;
+  font-size: 30rpx;
+}
+
+.item:last-child {
+  padding-bottom: 96rpx;
+}
+
+input {
+  direction: rtl;
+  text-align: right;
+  color: #333333;
+}
+
+.btn {
+  margin: 50rpx auto;
+  text-align: center;
+}
+
+button {
+  width: 694rpx !important;
+  font-weight: 400 !important;
+}

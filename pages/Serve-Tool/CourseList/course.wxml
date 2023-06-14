@@ -1,0 +1,19 @@
+<view>
+				<view class="product-list">
+				<navigator wx:for="{{products}}" wx:key="index" class="product-item" url="{{'../Coursedetails/Coursedetails?id='+item.id + '&title=' + item.product_info.product_name}}">
+					<image src="{{item.product_info.main_pic}}" mode="aspectFill" class="product-image" />
+					<view class="info">
+						<view class="ellipsis-text">{{item.product_info.product_name}}</view>
+					</view>
+				</navigator>
+
+				<view class="loading">
+					<van-loading type="spinner" wx:if="{{loading}}"></van-loading>
+					<text wx:if="{{products.length===total && products.length>5}}">已全部加载</text>
+				</view>
+				<view class="no-content" wx:if="{{!loading && !products.length}}">
+					<image src="../../../static/imgs/nocontent.png"></image>
+				</view>
+			</view>
+
+</view>

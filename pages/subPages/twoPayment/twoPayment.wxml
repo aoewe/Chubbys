@@ -1,0 +1,36 @@
+<view class="payment-content">
+  <view>剩余支付时间{{time}}</view>
+  <view>
+    <text>{{info.order_money}}</text>
+  </view>
+  <view>{{info.good_name}}</view>
+</view>
+
+<view class="bottom safe">
+  <view class="forget-password" bindtap="toUpPassword">忘记支付密码？</view>
+  <van-button color="linear-gradient(0deg, #EC6601, #FFDC03);" bindtap="pay">确认支付</van-button>
+</view>
+<!-- 钱包支付面板 -->
+<view class="payment">
+  <view class="mode" catchtap="selectPay" data-index="1">
+    <view>
+      <image src="../../../static/imgs/qbzf.png"></image>
+      <text>钱包支付</text>
+    </view>
+    <image src="../../../static/imgs/active1.png" wx:if="{{paymentMethod==1}}"></image>
+    <view data-index="1" class="select" wx:else></view>
+  </view>
+  <view class="mode" catchtap="selectPay" data-index="3">
+    <view>
+      <image src="../../../static/imgs/hb.png"></image>
+      <text>红包支付</text>
+    </view>
+    <image src="../../../static/imgs/active1.png" wx:if="{{paymentMethod==3}}"></image>
+    <view data-index="3" class="select" wx:else></view>
+  </view>
+</view>
+<view>
+  <view wx:if="{{showPassword}}">
+    <password-input show="{{showPassword}}" top="{{0}}" type="{{paymentMethod}}" payPrice="{{info.payment_money}}" bind:closePay="closePay" bind:payOrderNext="payOrderNext"></password-input>
+  </view>
+</view>

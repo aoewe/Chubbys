@@ -1,0 +1,34 @@
+<view class="content">
+<view class="service_phone"  bindtap="Customer">联系电话</view>
+	<image class="whitebakcage" src="/static/imgs/whitebakcage.png"></image>
+	<view class="whitebakcages">
+		<view class="block_flex">
+		<view>
+			<view class="blue_block">咨询微信</view>
+			<view class="black_text">经按识别二维码</view>
+		</view>
+		<image class="crowd_code" show-menu-by-longpress="true" src="/static/imgs/1.png"></image>
+		</view>
+	<image class="line" src="/static/imgs/Dottedline.png"></image>
+	</view>
+	<view class="whitebakcages">
+		<view class="block_flex">
+			<image class="crowd_code" show-menu-by-longpress="true" src="/static/imgs/3.png"></image>
+		<view>
+			<view class="blue_block">售前微信</view>
+			<view class="black_text">经按识别二维码</view>
+		</view>
+		</view>
+	<image class="line" src="/static/imgs/Dottedline.png"></image>
+	</view>
+	<view class="whitebakcages">
+		<view class="block_flex">
+		<view>
+			<view class="blue_block">售后微信</view>
+			<view class="black_text">经按识别二维码</view>
+		</view>
+		<image class="crowd_code" show-menu-by-longpress="true" src="/static/imgs/2.png"></image>
+		</view>
+	<image class="line" src="/static/imgs/Dottedline.png"></image>
+	</view>
+</view>

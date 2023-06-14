@@ -1,0 +1,28 @@
+<view class="page" data-weui-theme="{{theme}}">
+	<view class="page__hd">
+		<view class="page__title"></view>
+		<view class="page__desc"></view>
+	</view>
+	<view class="page__bd page__bd_spacing" wx:if="{{id == 1 }}">
+		<view class="icon-box">
+			<i class="weui-icon-success weui-icon_msg"></i>
+			<view class="icon-box__ctn">
+				<h3 class="icon-box__title">支付成功</h3>
+				<!-- <view class="icon-box__desc">欢迎使用{{shname}}</view> -->
+			</view>
+		</view>
+	</view>
+  <view class="page__bd page__bd_spacing" wx:if="{{id == 2 }}">
+		<view class="icon-box">
+			<i class="weui-icon-warn weui-icon_msg"></i>
+			<view class="icon-box__ctn">
+				<h3 class="icon-box__title">支付失败</h3>
+				<!-- <view class="icon-box__desc">欢迎使用{{shname}}</view> -->
+			</view>
+		</view>
+	</view>
+</view>
+  <navigator open-type="exit" target="miniProgram">
+  <button class="weui-btn" type="primary" open-type="launchApp" app-parameter="{{msg}}" binderror="launchAppError" >返回商家</button>
+</navigator>
+

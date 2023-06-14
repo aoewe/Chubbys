@@ -1,0 +1,20 @@
+<view>
+	<view class="fk-title">反馈内容</view>
+		<textarea class="fk-textarea" model:value="{{content}}" maxlength="500" placeholder="请填写反馈内容">
+			<view class="fk-absolute">{{content.length}}/500</view>
+		</textarea>
+	<view class="fk-title">上传图片</view>
+	<view class="fk-uploader">
+		<van-uploader max-count="3" file-list="{{ fileList }}" preview-full-image="true" deletable="{{ true }}" bind:after-read="afterRead" bind:delete="deletefile">
+		</van-uploader>
+	</view>
+	<view class="btn">
+		<van-button custom-class="external-class" bindtap="register" size="round" bindtap="submit" round>确定提交</van-button>
+	</view>
+</view>
+
+<van-popup show="{{ show }}" custom-class="popup" round bind:close="onClose">
+<view style="margin-bottom: 60rpx;">提交成功！</view>
+<view>感谢你的反馈，我们会尽快处理，祝您生活愉快！</view>
+<view class="close" bindtap="onClose">关闭</view>
+</van-popup>

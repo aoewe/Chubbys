@@ -1,0 +1,155 @@
+page {
+  background: #F3F5F7;
+}
+
+.map_box {
+  width: 100%;
+}
+
+.map_box map {
+  width: 100%;
+}
+
+.box {
+  padding: 24rpx;
+  font-size: 28rpx;
+  position: absolute;
+  /* top: 200rpx; */
+  width: 702rpx;
+}
+
+.address {
+  z-index: 9999;
+  background: #ffffff;
+  border-radius: 20rpx;
+}
+
+.receiving,
+.house-number,
+.user view:first-child {
+  position: relative;
+  transition: all 0.5s ease-in;
+}
+
+.hover {
+  opacity: 0.8;
+  background: #eeeeee;
+  border-radius: 20rpx;
+  transition: 0.5s;
+}
+
+.receiving::after,
+.house-number::after,
+.user view:first-child::after {
+  content: '';
+  width: 512rpx;
+  right: 24rpx;
+  height: 1rpx;
+  background: #eeeeee;
+  position: absolute;
+  bottom: 0;
+}
+
+.receiving,
+.switch,
+.house-number {
+  min-height: 80rpx;
+  align-items: center;
+  padding: 0 24rpx;
+}
+
+.location-view {
+  flex-direction: column;
+  padding: 20rpx 0;
+  width: 450rpx;
+}
+
+.location-view view {
+  color: #000000 !important;
+}
+
+.location-view .district {
+  color: #837a7a;
+  font-size: 26rpx;
+  margin-top: 6rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+
+.address-text {
+  display: flex !important;
+  align-items: center;
+}
+
+.address .receiving,
+.switch {
+  display: flex;
+  justify-content: space-between;
+}
+
+.van-switch {
+  display: flex !important;
+  align-items: center;
+}
+
+.address .receiving view,
+.house-number {
+  display: flex;
+}
+
+.address .receiving view view {
+  color: #837a7a;
+}
+
+.receiving view text,
+.house-number text,
+.user text {
+  display: block;
+  width: 140rpx;
+}
+
+.house-number input {
+  width: 500rpx;
+}
+
+.user {
+  background: #ffffff;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+  padding: 0 24rpx;
+  padding-bottom: 20rpx;
+}
+
+.user view {
+  display: flex;
+  height: 80rpx;
+  align-items: center;
+}
+
+.btn {
+  margin-top: 40rpx;
+}
+
+.user button {
+  height: 64rpx;
+  width: 654rpx !important;
+  font-weight: 400;
+}
+
+.img_box {
+  height: 350rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.img_box image {
+  width: 100%;
+  height: 100%;
+}

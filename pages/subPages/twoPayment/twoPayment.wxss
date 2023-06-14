@@ -1,0 +1,116 @@
+page {
+  background: #F3F5F7;
+}
+
+.payment-content {
+  padding-top: 40rpx;
+  padding-bottom: 120rpx;
+  text-align: center;
+}
+
+.payment-content view:first-child {
+  color: #333333;
+  font-size: 32rpx;
+}
+
+.payment-content view:nth-child(2) {
+  padding: 16rpx;
+  color: #1D1D1D;
+  font-size: 36rpx;
+}
+
+.payment-content view:nth-child(2) text {
+  color: #1D1D1D;
+  font-size: 52rpx;
+  font-weight: bold;
+}
+
+.payment-content view:last-child {
+  margin: auto;
+  color: #666666;
+  font-size: 26rpx;
+  width: 390rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.payment {
+  box-sizing: border-box;
+  background: #ffffff;
+  margin: 0 24rpx;
+  border-radius: 12rpx;
+}
+
+.mode {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24rpx;
+  height: 124rpx;
+  overflow: hidden;
+  position: relative;
+  transition: all .6s;
+}
+
+.mode:active{
+transition: all 0s;
+background-color: #eeeeee;
+}
+
+.select {
+  box-sizing: border-box;
+  height: 44rpx;
+  width: 44rpx;
+  border: 1rpx solid #666666;
+  border-radius: 50%;
+}
+
+.mode:not(:last-child) {
+  border-bottom: 1rpx solid #F3F5F7;
+}
+
+.mode view {
+  display: flex;
+  color: #333333;
+  font-size: 32rpx;
+}
+
+.mode view image {
+  margin-right: 19rpx;
+}
+
+.mode image {
+  height: 44rpx;
+  width: 44rpx;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 12rpx;
+}
+
+.forget-password {
+  float: right;
+  padding: 35rpx 0;
+  color: #666666;
+  font-size: 26rpx;
+  transition: all .2s;
+}
+
+.forget-password:active {
+  transition: all 0;
+  background: #eeeeee;
+  border-radius: 36rpx;
+}
+
+.bottom .van-button {
+  height: 80rpx;
+  width: 714rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+}

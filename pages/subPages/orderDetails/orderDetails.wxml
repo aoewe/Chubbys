@@ -1,0 +1,133 @@
+<wxs module="m2">
+	var toFloat = function (num) {
+		return parseFloat(num)
+	}
+	module.exports.toFloat = toFloat;
+</wxs>
+<view class="nav-bar" style="margin-top:{{statusbar.top}}px;height: {{statusbar.height}}px;">
+	<view class="col" bindtap="back">
+		<van-icon name="arrow-left" />
+	</view>
+	<view wx:if="{{orderInfo.order_status===0}}" class="await">
+		<text>等待买家付款</text>
+		<text>剩{{time}}分自动关闭</text>
+	</view>
+	<view wx:if="{{orderInfo.pay_status===3 || orderInfo.pay_status === 2 || orderInfo.order_status===4}}">退款/售后</view>
+	<view wx:if="{{orderInfo.order_status===3}}">买家已签收</view>
+	<view wx:if="{{orderInfo.order_status===2 && orderInfo.pay_status !== 2}}">卖家已发货</view>
+	<view wx:if="{{orderInfo.order_status===1 && orderInfo.pay_status !== 2 && orderInfo.pay_status !== 3}}">等待卖家发货</view>
+	<view class="col"></view>
+</view>
+<view class="detail">
+	<view wx:if="{{orderInfo.is_lesson === 1}}" class="is_lesson">知识付费类商品请前往“我的-付费课程”查看。</view>
+	<view wx:if="{{orderInfo.order_status===2 && orderInfo.pay_status!==2 && orderInfo.pay_status!==3}}" class="user-info">
+		<image src="/static/imgs/yls.png"></image>
+		<!-- <image src="/static/imgs/ysz.png"></image>
+		<image src="/static/imgs/dqz.png"></image> -->
+		<view>
+			<view class="name-phone"><text class="user-name">{{orderInfo.kuaidi_name}}</text></view>
+			<view class="detailed-address">{{orderInfo.shipping_sn}}</view>
+		</view>
+		<van-button data-id="{{orderInfo.shipping_sn}}" catchtap="toLogistics" round>查看物流</van-button>
+	</view>
+
+	<view wx:if="{{orderInfo.pay_status===2 && RefundInfo.type === 0}}" class="refund_flex">
+		<view>
+			<view class="refund_type">申请中</view>
+			<view class="refund_time">{{orderInfo.update_time}}</view>
+		</view>
+	</view>
+
+	<view wx:if="{{orderInfo.pay_status===3 && RefundInfo.type === 0}}" class="refund_flex">
+		<view>
+			<view class="refund_type">退款成功</view>
+			<view class="refund_time">{{orderInfo.refund_time}}</view>
+		</view>
+		<view class="refund_money">¥ <text>{{orderInfo.order_money}}</text></view>
+	</view>
+
+	<view wx:if="{{RefundInfo.status===1 && RefundInfo.type === 1}}">
+		<view class="refund_flex">
+			<view>
+				<view class="refund_type">商家已同意</view>
+				<view class="refund_time">{{orderInfo.update_time}}</view>
+			</view>
+			<view class="refund_input" wx:if="{{!RefundInfo.shipping_sn}}" bindtap="showPopup"><text>填写物流单号</text></view>
+			<view class="refund_input" wx:else ><text>物流号:{{RefundInfo.shipping_sn}}</text></view>
+
+		</view>
+		<view class="refund_address">
+			<view class="refund_inflex">
+				<image class="Recipient" src="/static/icons/Recipient.png"></image>
+				<view class="refund_addw">
+					<view class="refund_address_flex">
+						<view>{{RefundInfo.shipping_user}}</view>
+						<view>{{RefundInfo.mobile}}</view>
+					</view>
+					<view>{{RefundInfo.address}}</view>
+				</view>
+			</view>
+			<view class="refund_bottom" data-id="{{RefundInfo.shipping_sn}}" catchtap="toLogistic">
+				<view style="margin-top: 10rpx;">查看物流</view>
+				<span>看看商品到那了</span>
+			</view>
+		</view>
+	</view>
+	<view wx:if="{{orderInfo.order_status===3}}" class="user-info">
+		<image src="/static/imgs/ycs.png"></image>
+		<view>
+			<view class="name-phone"><text class="user-name">已签收</text></view>
+			<view class="address">{{orderInfo.shipping_user}}</view>
+		</view>
+		<van-button data-id="{{orderInfo.shipping_sn}}" catchtap="toLogistics" round>查看物流</van-button>
+	</view>
+	<view wx:if="{{orderInfo.order_status!==3 && orderInfo.pay_status !== 2 && orderInfo.pay_status !== 3}}" class="user-info">
+		<image src="/static/imgs/orderdw.png"></image>
+		<view>
+			<view class="name-phone">
+				<text class="user-name">{{orderInfo.shipping_user}}</text>
+				<text class="phone">{{orderInfo.mobile}}</text>
+			</view>
+			<view class="detailed-address">{{orderInfo.address}}</view>
+		</view>
+	</view>
+	<view wx:if="{{orderInfo.order_status===4}}" class="user-info">
+		<image src="/static/imgs/jygb.png"></image>
+		<view>
+			<view class="name-phone"><text class="user-name">交易已关闭</text></view>
+			<view class="detailed-address">这件不合心意，一定会有更合心意的宝贝</view>
+		</view>
+	</view>
+	<view class="commodity-info">
+		<view class="info">
+			<van-image fit="cover" custom-class="image" lazy-load src="{{orderInfo.product_info[0].good_img}}" />
+			<view class="title-price">
+				<view><text class="commodity-name">{{orderInfo.product_info[0].good_name}}</text><text>x{{orderInfo.product_info[0].buy_cnt}}</text></view>
+				<view><text>规格 {{orderInfo.product_info[0].good_attr[0].value}}</text></view>
+			</view>
+		</view>
+		<view class="payment_btn" wx:if="{{orderInfo.pay_status !== 3  && orderInfo.pay_status !== 2 }}">
+			<view wx:if="{{orderInfo.order_status===0 || orderInfo.order_status===1 || orderInfo.order_status===2}}" round class="refund_btn" catchtap="applyRefund">退款</view>
+		</view>
+		<view class="payment">
+			<text class="payment-money p-l">实付金额</text>
+			<view>￥<text>{{m2.toFloat(orderInfo.product_info[0].good_price)}}</text></view>
+		</view>
+	</view>
+	<view class="order-info">
+		<text class="title">订单信息</text>
+		<view>
+			<text>订单编号：{{orderInfo.order_sn}}</text>
+			<text wx:if="{{orderInfo.three_order_sn}}">交易号：{{orderInfo.three_order_sn}}</text>
+			<text>创建时间：{{orderInfo.create_time}}</text>
+			<text wx:if="{{orderInfo.order_status===1 || orderInfo.order_status===3}}">付款时间：{{orderInfo.pay_time}}</text>
+			<text wx:if="{{orderInfo.order_status===2 || orderInfo.order_status===3 && orderInfo.pay_status!==3 && orderInfo.pay_status !== 2 && !orderInfo.shipping_time}}">发货时间：{{orderInfo.shipping_time}}</text>
+			<text wx:if="{{RefundInfo.reason}}">订单备注：{{RefundInfo.reason}}</text>
+		</view>
+	</view>
+</view>
+
+<van-popup show="{{ show }}" custom-class="show_input" bind:close="onClose">
+<input model:value="{{shipping_sn}}" class="placeholders"  placeholder="填写物流单号" />
+	<view class="show_btn" bindtap="setRefundSn">确定</view>
+</van-popup>

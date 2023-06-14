@@ -1,0 +1,136 @@
+<view class='search' bindtap="opens">
+	<!-- 搜索按钮 -->
+	<image src='/static/icons/search.png' style='width:45rpx;height:45rpx;'></image>
+</view>
+		<swiper indicator-dots="{{false}}"  circular="true" style="height: 100vh;" vertical bindchange="thisVideos" current="{{index}}">
+			<swiper-item class="container" wx:for="{{Videos}}" wx:key="index" item-id="{{item.id}}">
+
+
+				<!-- <view class="animation-wrapper" animation="{{animation}}">
+			<block>
+				<view class="animation-image-wrapper">
+					<image class="animation-image" src="{{serverUrl}}/{{item.coverPath}}"></image>
+				</view>
+			</block>
+		</view> -->
+				<video class="vvideo" duration="600" bindended="over" id="{{item.id}}" animation="{{videoAnimation}}" bindplay="onplay" bindpause="onpause" bindtap="doubleTap" bindtimeupdate="timeUpdate" controls="{{false}}" show-center-play-btn="{{false}}" enable-progress-gesture="{{false}}" autoplay="{{false}}" show-fullscreen-btn="{{false}}" src="{{item.url}}" object-fit="cover" loop="{{true}}">
+
+					<!-- <image class="aeet animated fadeIn" style="left: {{aniLeft}}px;top: {{aniTop}}px;" src="/static/icons/redlike.png"></image> -->
+
+
+					<!-- 播放暂停按钮 -->
+					<image src='/static/icons/pay.png' wx:if="{{!play}}" class="bottompay"></image>
+					<image src='/static/icons/pays.png' wx:if="{{!play}}" class="bottompay"></image>
+
+
+					<view class="tools">
+						<!-- 用户头像 -->
+						<image class='user-image' src="{{item.auth_avatar}}">
+						</image>
+						<image class="userinfo-add" wx:if="{{item.aion === 2}}" bindtap="aions" src="/static/icons/oricon.png"></image>
+						<image class="userinfo-add" wx:else bindtap="aions" src="/static/icons/blicon.png"></image>
+
+						<!-- 点赞 -->
+						<view catchtap="likeVideoOrNot" class="tag-icon">
+							<image class="icon right-icon t-icon" wx:if="{{item.liked !== true}}" src='/static/icons/love.png'></image>
+							<image class="icon right-icon l-icon" wx:if="{{item.liked !== true}}" src='/static/icons/loves.png'></image>
+							<image class="icon right-icon animated fadeIn" wx:else src="/static/icons/redlike.png"></image>
+							<view class="text">{{item.likes}}</view>
+						</view>
+						<!-- 评论 -->
+						<view catchtap='leaveComment' class="tag-icon">
+							<image class="icon right-icon t-icon" src='/static/icons/message.png'></image>
+							<image class="icon right-icon l-icon" src='/static/icons/messages.png'></image>
+							<view class="text">{{item.comments}}</view>
+						</view>
+						<!-- 收藏 -->
+						<view catchtap='shareMe' class="tag-icon">
+							<image class="icon right-icon t-icon" wx:if="{{item.collectd !== true}}" src='/static/icons/tinyspot.png'></image>
+							<image class="icon right-icon l-icon" wx:if="{{item.collectd !== true}}" src='/static/icons/tinyspots.png'></image>
+							<image class="icon right-icon animated fadeIn" wx:else src="/static/icons/yellow.png"></image>
+							<view class="text">{{item.collects}}</view>
+						</view>
+						<!-- 分享 -->
+						<view catchtap='sharetap' class="tag-icon">
+							<image class="icon right-icon t-icon" src='/static/icons/share.png' catchtap=''></image>
+							<image class="icon right-icon l-icon" src='/static/icons/shares.png'></image>
+						</view>
+					</view>
+
+					<image src='/static/imgs/newcExclusive.png' wx:if="{{need_band_order !== 0 && need_band_order !== null && need}}" bindtap="Goaddress" class="newcExclusive"></image>
+
+
+					<!-- 进度条  -->
+					<view class="jindu-back"></view>
+					<view class="jindu" style='width: {{percents}}%'></view>
+				</video>
+				<!-- 视频描述  -->
+				<view class='container-words'>
+					<view style="width: 600rpx;">@{{item.auth_username}}</view>
+					<view class='video-desc'>{{item.title}}<text wx:for="{{item.label}}" wx:for-item="itemi" wx:for-index="indexi" wx:key="indexi">#{{itemi[indexi]}}</text>
+					</view>
+				</view>
+
+
+				<!-- 评论  -->
+				<view class='talks-layer' animation='{{talksAnimationData}}'>
+					<view class='layer-white-space' catchtap='hideTalks'>
+					</view>
+					<view class='talks'>
+						<view class='talk-header' catchtap='hideTalks'>
+							<view class='talk-count'>{{comments.total}} 条评论</view>
+							<image src='/static/icons/close.png' class='talk-close'></image>
+						</view>
+
+						<van-loading type="spinner" size="44px" custom-class="loading" wx:if="{{loading}}" color="#1989fa" vertical>加载中...</van-loading>
+						<scroll-view wx:if="{{comments.list.length > 0 }}" class='talk-body' scroll-y="true" bindscrolltolower="onScrollLoad">
+							<block wx:for="{{comments.list}}" wx:key='{{index}}' data-s="item">
+								<view class='talk-item'>
+									<view class='talk-item-left'>
+										<image class='talk-item-face' src='{{item.user_avatar}}'></image>
+									</view>
+									<view class='talk-item-right'>
+										<text class='talk-item-nickname'>{{item.username}}</text>
+										<text class='talk-item-content'>{{item.comments}}</text>
+										<view class="talk-item-flex">
+											<text class='talk-item-time'>{{item.addtime}}</text>
+											<view class='talk-item-time' bindtap="onButtonClick" data-item="{{item}}" style="margin-left: 40rpx;">回复</view>
+										</view>
+										<van-collapse accordion value="{{ activeName }}" bind:change="onChange" wx:if="{{item.child.length > 0}}">
+											<van-collapse-item title="—— 展开回复" name='{{item.id}}'>
+												<view class="in-item" wx:for="{{item.child}}" wx:for-item="items" wx:for-index="indexs" wx:key="indexs">
+													<view class='in-item-left'>
+														<image class='in-item-face' src='{{items.user_avatar}}'></image>
+													</view>
+													<view class='talk-item-right'>
+														<text class='talk-item-nickname'>{{items.username}}</text>
+														<text class='talk-item-content'>{{items.comments}}</text>
+														<view class="talk-item-flex">
+															<text class='talk-item-time'>{{items.addtime}}</text>
+															<view class='talk-item-time' style="margin-left: 40rpx;">回复</view>
+														</view>
+													</view>
+												</view>
+											</van-collapse-item>
+										</van-collapse>
+									</view>
+								</view>
+							</block>
+						</scroll-view>
+
+						<view class="Not" wx:if="{{comments.list.length === 0 && !loading}}">
+							<image class="Nothing" src="/static/icons/Nothing.png"></image>
+							<view class="nottext">暂无更多评论</view>
+						</view>
+						<view class='talk-footer'>
+							<textarea class='talk-input' bindtap="onButtoninput" maxlength="-1" auto-height show-confirm-bar="{{false}}" focus="{{focus}}" confirm-type="send"  bindfocus="openinput" placeholder="{{placeholder}}" model:value="{{inputcomment}}" name="textarea"></textarea>
+							<!-- <image class="in-icon" bindtap="sending" src="/static/icons/ait.png"></image>
+							<image class="in-icon" src="/static/icons/emjo.png"></image> -->
+							<view></view>
+						</view>
+					</view>
+				</view>
+				<van-share-sheet show="{{ showShare }}" title="立即分享给好友" options="{{ options }}" bind:close="onClose" />
+			</swiper-item>
+		</swiper>
+		<van-loading type="spinner" size="44px" custom-class="loading" wx:if="{{loadings}}" color="#1989fa" vertical>加载中...</van-loading>

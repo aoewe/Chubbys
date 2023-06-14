@@ -1,0 +1,28 @@
+<wxs src="../../../utils/comm.wxs" module="comm"></wxs>
+<navigator hover-class="none" open-type="navigateBack" class="back" style="top: {{statusBar.top}}px;height: {{statusBar.height}}px;">
+  <view class="back-icon"></view>
+</navigator>
+<import src="courseDetails.skeleton.wxml" />
+<template is="skeleton" wx:if="{{loading}}" />
+<block wx:else>
+  <view class="video">
+    <video id="video" bindloadedmetadata="getLength" direction="90" src="{{info.knowledge_info[seeIndex].url}}" bindpause="bindpause" bindplay="bindplay" bindended="ended" bindtimeupdate="changeTime" initial-time="{{info.lesson_info[seeIndex].tag}}" controls="{{play}}" show-mute-btn show-center-play-btn="{{false}}" object-fit="contain" poster="{{info.lesson_info[seeIndex].video_pic}}">
+      <cover-image wx:if="{{!play}}" class="icon" bindtap="handelVideo" src="../../../static/imgs/play.png"></cover-image>
+    </video>
+  </view>
+  <view class="info">
+
+    <view class="circular-title">课程介绍</view>
+    <view class="card">
+      <view class="header">
+			<view>{{title}}</view>
+			<view>{{info.knowledge_info.length}}节</view>
+			</view>
+      <view class="list">
+        <view wx:for="{{info.knowledge_info}}" wx:key="index" bindtap="handelLesson" data-index="{{index}}" class="_active_ {{seeIndex===index?'current':''}}">
+          <text class="ellipsis-text lesson-title">{{item.title}}</text><text wx:if="{{seeIndex===index}}"></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>

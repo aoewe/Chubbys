@@ -1,0 +1,49 @@
+<view>
+	<image class="backgran" src="/static/icons/topb.png" />
+	<navigator hover-class="noen" open-type="navigateBack">
+		<van-icon size="44rpx" style="height: {{statusBar.height}}px;padding-left: 28px;margin-top: 160rpx;" name="cross" />
+	</navigator>
+	<navigator style="top: {{statusBar.top+statusBar.height+12}}px;" class="to-login" url="../Login/login">已有账号直接登录</navigator>
+</view>
+<view>
+	<view class="title">用户注册</view>
+	<view class="input">
+		<!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      {{array[index]}}
+      <van-icon custom-style="transform: rotate(90deg);margin-right: 40rpx;" name="play" size="20px"/>
+    </view>
+  </picker> -->
+		<input style="width:55%" type="number" maxlength="11" placeholder-class="placeholder" model:value="{{mobile}}" placeholder="输入手机号码" />
+	</view>
+	<view class="input">
+		<input type="text" placeholder-class="placeholder" model:value="{{username}}" placeholder="请输入昵称" />
+	</view>
+	<view class="input">
+		<input type="text" placeholder-class="placeholder" model:value="{{code}}" placeholder="输入验证码" />
+		<text class="code" bindtap="sendCode">{{text}}</text>
+	</view>
+	<view class="input">
+		<input type="password" placeholder-class="placeholder" model:value="{{password}}" placeholder="输入登陆密码" />
+	</view>
+	<view class="input">
+		<input type="text" style="max-width: 300rpx;" placeholder-class="placeholder" model:value="{{up_uuid}}" placeholder="请输入邀请码" />
+		<van-icon bindtap="scanCode" class="scan" name="scan" />
+	</view>
+	<view class="btn">
+		<van-button custom-class="external-class" color="linear-gradient(0deg, #EC6601, #FFDC03);" bindtap="register" size="round" round>注册</van-button>
+	</view>
+	<image class="backgranb" src="/static/icons/brnb.png" />
+</view>
+<view class="body-view">
+	<switch type="checkbox" style="transform: scale(0.7);" color="#2A9F93" checked="{{Privacy}}" bindchange="select" />
+	<span class="weui-agree__text" style="display: flex;"><text aria-hidden="true" id="js_agree_txt" bindtap="select">我已阅读并同意</text>
+		<view bindtap="openAgree" id="js_agree_link" class="weui-agree__link">《棒多多隐私保护声明》</view>
+	</span>
+</view>
+<van-popup custom-class="a-box" show="{{ showAgree }}" bind:close="onClose">
+	<text>棒多多隐私协议</text>
+	<view>
+		<rich-text nodes="{{articleInfo}}" />
+	</view>
+</van-popup>

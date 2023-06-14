@@ -1,0 +1,59 @@
+/* pages/Bankcard/banklist/banklist.wxss */
+.item {
+  width: 95%;
+  height: 260rpx;
+  margin: 24rpx auto;
+  background: #2A9F93;
+  border-radius: 16rpx;
+}
+
+.nav-top {
+  display: flex;
+}
+
+.nav-text {
+  margin: 30rpx 0rpx;
+  /* display: flex;
+  flex-direction: column; */
+}
+
+.nav-txt {
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+image {
+  width: 80rpx;
+  height: 80rpx;
+  margin: 34rpx 36rpx;
+  margin-right: 26rpx;
+}
+
+.number {
+  margin: 0rpx 36rpx;
+}
+
+.number text {
+  font-size: 42rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin-right: 20rpx;
+}
+
+.cont-list {
+  display: flex;
+  margin: 12rpx 24rpx;
+  align-items: center;
+  background: #FFFFFF;
+}
+
+.cont-txt {
+  margin-left: 24rpx;
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #1D1D1D;
+}

@@ -1,0 +1,30 @@
+<!--pages/Invite/invite.wxml-->
+<view>
+  <view class="top">
+    <navigator open-type="navigateBack">
+      <van-icon name="arrow-left" />
+    </navigator>
+    <view>邀请好友</view>
+    <navigator style="text-align: end;"></navigator>
+  </view>
+  <view class="content">
+    <view class="user-top">
+      <van-image round custom-class="head" src="{{info.avatar}}" />
+      <view>
+        <view class="textone">{{info.username}}</view>
+        <view class="texttwo">{{info.uuid}}</view>
+      </view>
+    </view>
+    <!-- <view class="user-switch">
+      <view class="{{isHidden ? 'switchs' : 'switchn'}}" bindtap="switch">个人码</view>
+      <view class="{{isHidden ? 'switchn' : 'switchs'}}" bindtap="switch">转赠码</view>
+    </view> -->
+    <view class="QRcode">
+      <image show-menu-by-longpress src="{{qrcodePath}}" />
+    </view>
+    <wh-addTips text="截屏或「常按发送邀请码给好友」" duration="3"></wh-addTips>
+
+    <view class="btn-text"><text>{{info.uuid}}</text></view>
+    <view class="btn-texts">如遇扫码失败，请将屏幕调至最亮重新扫码</view>
+  </view>
+</view>

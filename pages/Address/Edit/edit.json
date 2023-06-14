@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-switch": "@vant/weapp/switch/index",
+    "van-button": "@vant/weapp/button/index",
+    "linked-picker":"../../../components/linkedPicker/linkedPicker"
+  },
+  "navigationBarTitleText": "添加新地址"
+}

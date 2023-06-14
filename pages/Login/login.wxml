@@ -1,0 +1,26 @@
+<view>
+	<image class="backgran" src="/static/icons/logint.png" />
+	<navigator hover-class="noen" open-type="switchTab" url="">
+		<van-icon size="44rpx" style="height: {{statusBar.height}}px;padding-left: 28px;margin-top: 160rpx;" name="cross" />
+	</navigator>
+	<navigator style="top: {{statusBar.top+statusBar.height+12}}px;" class="to-login" url="../Register/register">我要注册</navigator>
+</view>
+<view>
+	<view class="title">{{type ? '用户登录':'验证码登录'}}</view>
+	<view class="input">
+		<input type="number" maxlength="11" placeholder-class="placeholder" model:value="{{mobile}}" placeholder="请输入手机号" />
+	</view>
+	<view class="input" wx:if="{{type}}">
+		<input type="password" placeholder-class="placeholder" model:value="{{password}}" placeholder="输入登陆密码" />
+	</view>
+	<view class="input" wx:else>
+		<input type="text" placeholder-class="placeholder" model:value="{{code}}" placeholder="输入验证码" />
+		<text class="code" bindtap="sendCode">{{text}}</text>
+	</view>
+	<view class="btn">
+		<van-button bindtap="submit" color="#F4010A" size="round" round custom-class="external-class">登录</van-button>
+	</view>
+	<view class="botton" bindtap="switchlogin">{{type ? '验证码登录':'用户登录'}}</view>
+
+	<image class="backgranb" src="/static/icons/loginb.png" />
+</view>

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "password-input":"../../../components/password/password"
+  },
+  "navigationBarTitleText": "支付订单",
+  "navigationBarBackgroundColor": "#F3F5F7"
+}

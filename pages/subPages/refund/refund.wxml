@@ -1,0 +1,36 @@
+<view>
+	<view class="refund_cont">
+		<image class="refund_img" src="{{OrderInfo.product_info[0].good_img}}"></image>
+		<view>
+			<view class="refund_title">{{OrderInfo.product_info[0].good_name}}</view>
+			<view class="refund_txt" wx:for="{{OrderInfo.product_info[0].good_attr}}" wx:key="index">规格 {{item.value}}</view>
+		</view>
+	</view>
+	<view class="refund_zhocont">
+		<van-cell wx:if="{{OrderInfo.order_status === 1}}" title="退换类型" is-link value="仅退款" />
+		<van-cell wx:else title="退换类型" is-link value="退货退款" />
+		<!-- <van-cell wx:else title="退换类型" is-link value="{{refund}}" bindtap="openaction" /> -->
+		<view class="link"></view>
+		<view class="refund_cell">
+			<view class="refund_text">退款金额：</view>
+			<view class="refund_money">¥<text>{{OrderInfo.order_money}}</text></view>
+		</view>
+		<view class="link"></view>
+		<view class="refund_cell_sm">
+			<view class="refund_text" style="margin-top: 20rpx;">退款说明：</view>
+			<textarea class="refund_input" model:value="{{reason}}" placeholder="请输入退款说明.."></textarea>
+		</view>	
+	</view>
+
+	<view class="refund_Upload">
+		<view class="upload_text">上传凭证</view>
+		<van-uploader max-count="3" file-list="{{ fileList }}" preview-full-image="true" deletable="{{ true }}" bind:after-read="afterRead" bind:delete="deletefile">
+			<image class="upload_img" src="/static/imgs/upload.png"></image>
+		</van-uploader>
+	</view>
+	<view class="btn">
+		<van-button custom-class="external-class" color="linear-gradient(0deg, #EC6601, #FFDC03);" bindtap="submit" size="round" round>提交</van-button>
+	</view>
+</view>
+
+<van-action-sheet show="{{ show }}" actions="{{ actions }}" bind:close="onClose" bind:select="onSelect" />

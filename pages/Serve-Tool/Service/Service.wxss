@@ -1,0 +1,73 @@
+/* pages/Serve-Tool/Service/Service.wxss */
+page {
+	background: #2E65E6;
+}
+
+.content {
+	/* margin-top: 100rpx; */
+}
+
+.service_phone {
+	font-size: 32rpx;
+	font-family: PingFang SC;
+	font-weight: 800;
+	color: #FFFFFF;
+	text-align: end;
+	padding: 20rpx 40rpx;
+	margin-bottom: 20rpx;
+}
+
+.whitebakcage {
+	width: 694rpx;
+	height: 1194rpx;
+	position: absolute;
+	margin: auto;
+	left: 4%;
+}
+
+.blue_block {
+	
+	width: 204rpx;
+	height: 58rpx;
+	background: #2E65E6;
+	border-radius: 16rpx;
+	font-size: 32rpx;
+	font-family: PingFang SC;
+	font-weight: 800;
+	color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.whitebakcages {
+	position: relative;
+}
+
+.block_flex {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 71rpx 5%;
+}
+
+.black_text {
+	margin-top: 27rpx;
+	font-size: 32rpx;
+	font-weight: 800;
+	color: #333333;
+}
+
+.crowd_code {
+	width: 212rpx;
+height: 212rpx;
+background: #333333;
+border: 4px solid #2E65E6;
+border-radius: 12rpx;
+}
+
+.line {
+	margin-left: 100rpx;
+	width: 554rpx;
+	height: 4rpx;
+}

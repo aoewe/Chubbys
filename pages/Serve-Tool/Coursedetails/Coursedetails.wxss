@@ -1,0 +1,317 @@
+page {
+	background-color: #FFFFFF;
+}
+
+.back {
+	z-index: 999;
+	position: fixed;
+	margin-left: 12rpx;
+	display: flex;
+	align-items: center;
+}
+
+.back .back-icon {
+	height: 54rpx;
+	width: 54rpx;
+	background-color: rgba(0, 0, 0, 0.3);
+	color: #ffffff;
+	border-radius: 50%;
+	position: relative;
+}
+
+.back .back-icon::after {
+	content: "";
+	width: 16rpx;
+	height: 16rpx;
+	border-top: 1px solid #FFFFFF;
+	border-right: 1px solid #FFFFFF;
+	transform: translate(-50%, -50%) rotate(224deg);
+	position: absolute;
+	top: 50%;
+	left: 55%;
+}
+
+.video {
+	width: 100%;
+	height: 420rpx;
+}
+
+.video video {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.video .icon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 99;
+	border-radius: 50%;
+	height: 86rpx;
+	width: 86rpx;
+	border: 4rpx solid #ffffff;
+}
+
+.info {
+	padding: 24rpx 0;
+}
+
+.title {
+	padding: 0 24rpx;
+	font-size: 30rpx;
+	font-weight: bold;
+	line-height: 40rpx;
+	margin-bottom: 40rpx;
+}
+
+.title .tip {
+	padding: 4rpx 8rpx;
+	font-size: 22rpx;
+	background-color: #0263D4;
+	border-radius: 4rpx;
+	color: #FFFFFF;
+	margin-right: 6rpx;
+	font-weight: 400;
+}
+
+.teacher,
+.teacher>view {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.circular-title {
+	margin: 0 24rpx;
+	font-size: 36rpx;
+}
+
+.teacher {
+	padding: 30rpx 24rpx 50rpx;
+}
+
+.teacher>view:first-child {
+	font-weight: bold;
+}
+
+.teacher>view:last-child {
+	font-size: 24rpx;
+	color: #0263D4;
+}
+
+.teacher .van-image {
+	margin-right: 10rpx;
+	display: flex;
+}
+
+.scroll {
+	white-space: nowrap;
+	margin: 26rpx 0;
+}
+
+.scroll .scroll-item:first-child {
+	padding-left: 24rpx;
+}
+
+.scroll .scroll-item {
+	overflow: hidden;
+	width: 180rpx;
+	display: inline-block;
+	margin-right: 16rpx;
+	white-space: initial;
+	font-size: 28rpx;
+	font-weight: bold;
+}
+
+.scroll .scroll-item .img {
+	height: 210rpx;
+	width: 180rpx;
+	border-radius: 12rpx;
+}
+
+.card {
+	border-radius: 12rpx;
+	overflow: hidden;
+	margin: 24rpx;
+}
+
+.card .header {
+	background-color: #0263D4;
+	display: flex;
+	justify-content: space-around;
+	width: 694rpx;
+	height: 80rpx;
+	background: #0263D4;
+	padding: 0rpx 20rpx;
+	border-radius: 12rpx 12rpx 0rpx 0rpx;
+	line-height: 80rpx;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 28rpx;
+}
+
+.list {
+	background-color: #F3F5F7;
+	font-size: 26rpx;
+	padding: 0 24rpx;
+	color: #333333;
+}
+
+.list view {
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	height: 82rpx;
+	align-items: center;
+	padding-left: 24rpx;
+}
+
+.list view .lesson-title {
+	max-width: 90%;
+}
+
+.list view text+text {
+	font-size: 24rpx;
+}
+
+.list view::before {
+	position: absolute;
+	top: 52%;
+	left: 0;
+	transform: translateY(-50%);
+	content: "";
+	width: 12rpx;
+	height: 12rpx;
+	background: #0263D4;
+	border-radius: 50%;
+}
+
+.info .card .list .current {
+	color: #0263D4;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	box-shadow: 0px 4rpx 8rpx 0px rgba(0, 0, 0, 0.35);
+	background-color: #FFFFFF;
+	height: 96rpx;
+	font-size: 28rpx;
+}
+
+.footer .btn:first-child {
+	margin-left: 32rpx;
+}
+
+.footer .btn {
+	width: 100%;
+	height: 84rpx;
+	background-color: #0263D4;
+	border-radius: 12rpx;
+	text-align: center;
+	color: #FFFFFF;
+	line-height: 84rpx;
+	margin-right: 32rpx;
+}
+
+._active_:active {
+	filter: opacity(0.7);
+}
+
+.sk-transparent {
+	color: transparent !important;
+}
+
+.sk-text-12-5000-948 {
+	background-image: linear-gradient(transparent 12.5000%, #EEEEEE 0%, #EEEEEE 87.5000%, transparent 0%) !important;
+	background-size: 100% 40.0000rpx;
+	position: relative !important;
+}
+
+.sk-text {
+	background-origin: content-box !important;
+	background-clip: content-box !important;
+	background-color: transparent !important;
+	color: transparent !important;
+	background-repeat: repeat-y !important;
+}
+
+.sk-text-14-2857-777 {
+	background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+	background-size: 100% 50.4000rpx;
+	position: relative !important;
+}
+
+.sk-text-14-2857-220 {
+	background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+	background-size: 100% 39.2000rpx;
+	position: relative !important;
+}
+
+.sk-text-14-2857-168 {
+	background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+	background-size: 100% 50.4000rpx;
+	position: relative !important;
+}
+
+.sk-text-32-5000-579 {
+	background-image: linear-gradient(transparent 32.5000%, #EEEEEE 0%, #EEEEEE 67.5000%, transparent 0%) !important;
+	background-size: 100% 80.0000rpx;
+	position: relative !important;
+}
+
+.sk-text-14-2857-64 {
+	background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+	background-size: 100% 36.4000rpx;
+	position: relative !important;
+}
+
+.sk-text-14-2857-279 {
+	background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+	background-size: 100% 33.6000rpx;
+	position: relative !important;
+}
+
+.sk-text-33-3333-977 {
+	background-image: linear-gradient(transparent 33.3333%, #EEEEEE 0%, #EEEEEE 66.6667%, transparent 0%) !important;
+	background-size: 100% 84.0000rpx;
+	position: relative !important;
+}
+
+.sk-image {
+	background: #EFEFEF !important;
+}
+
+.sk-pseudo::before,
+.sk-pseudo::after {
+	background: #EFEFEF !important;
+	background-image: none !important;
+	color: transparent !important;
+	border-color: transparent !important;
+}
+
+.sk-pseudo-rect::before,
+.sk-pseudo-rect::after {
+	border-radius: 0 !important;
+}
+
+.sk-pseudo-circle::before,
+.sk-pseudo-circle::after {
+	border-radius: 50% !important;
+}
+
+.sk-container {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: transparent;
+}

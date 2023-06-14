@@ -1,0 +1,17 @@
+<wxs src="../../..//utils/comm.wxs" module="comm"></wxs>
+<view class="left"></view>
+<view class="right"></view>
+<view class="loading" wx:if="{{loading}}">
+  <van-loading type="spinner"></van-loading>
+</view>
+<view class="logs box">
+  <view class="logs-box">
+    <view class="log {{index===0 &&'lately'}}" wx:for="{{info.Traces}}" wx:key="index">
+      <view class="time">{{item.AcceptTime}}</view>
+      <text user-select>{{item.AcceptStation}}</text>
+    </view>
+  </view>
+</view>
+<view class="empty" wx:if="{{!loading && !info.Traces.length}}">
+  <image src="../../../static/imgs/nocontent.png"></image>
+</view>

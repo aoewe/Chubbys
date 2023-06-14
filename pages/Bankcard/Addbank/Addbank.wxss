@@ -1,0 +1,56 @@
+/* pages/Bankcard/Addbank/Addbank.wxss */
+page {
+  background: #ffffff;
+}
+
+.text {
+  margin-top: 30rpx;
+  text-align: center;
+  font-size: 42rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #1D1D1D;
+}
+
+.head {
+  margin-top: 40rpx;
+  margin-bottom: 80rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #1D1D1D;
+}
+
+.withdrawal {
+  display: flex;
+  margin: 33rpx 80rpx;
+  align-items: center;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #1D1D1D;
+}
+
+.withdrawal text {
+  width: 110rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #1D1D1D;
+}
+
+.bankbutton {
+  margin-top: 100rpx;
+  width: 360rpx !important;
+  height: 76rpx !important;
+  background: #009882 !important;
+  border-radius: 12rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+}

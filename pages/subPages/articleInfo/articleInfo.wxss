@@ -1,0 +1,21 @@
+page{
+  background-color: #ffffff;
+}
+.box{
+  padding: 24rpx 24rpx 60rpx;
+}
+.news-img{
+  width: 100%;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+.title{
+  font-weight: bold;
+  text-align: center;
+}
+.date{
+  font-size: 28rpx;
+  color: #999999;
+  text-align: end;
+  padding: 30rpx 0 10rpx;
+}

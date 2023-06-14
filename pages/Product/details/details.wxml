@@ -1,0 +1,142 @@
+<wxs module="m2">
+	var toFloat = function (num) {
+		return parseFloat(num)
+	}
+	module.exports.toFloat = toFloat;
+</wxs>
+<view bindtap="handelBack" class="back" style="top:{{statusBar.top}}px;">
+	<van-icon size="38rpx" name="arrow-left" />
+</view>
+<!-- 轮播图 -->
+<view class="swiper_position">
+	<swiper bindchange="swiperChange" circular="false" class="main_swiper">
+		<block>
+			<swiper-item wx:for="{{detailData.banner_pic}}" wx:key="index">
+				<view class="swiper_item">
+					<van-image fit="cover" lazy-load bindtap="preview" data-imgarr="{{detailData.banner_pic}}" data-img="{{item}}" src="{{item}}" />
+				</view>
+			</swiper-item>
+		</block>
+	</swiper>
+	<view class="swiper_item_num">
+		<text wx:if="{{swiperNum}}">{{swiperNum}}</text>
+		<text wx:else>1</text>
+		<text>/</text>
+		<text>{{detailData.banner_pic.length}}</text>
+	</view>
+</view>
+
+<!-- 内容介绍 -->
+<view class="detail_content" wx:if="{{skuList[0].price}}">
+	<view class="content_text">
+		<text></text>
+		<view class="e">¥<text>{{m2.toFloat(skuList[0].price)}}</text></view>
+	</view>
+	<view class="content_text2">{{detailData.product_name}}</view>
+	<view class="content_text3">{{detailData.content}}</view>
+	<view class="content_text3">月售{{detailData.sales_volume}}</view>
+</view>
+
+<!-- 参数 选择地址 -->
+<view class="choose">
+	<view class="chooset" bindtap="opench">
+		<view class="a">参数<text wx:if="{{detailData.parameter.length > 0}}">{{detailData.parameter[0].name}} {{detailData.parameter[1].name}} {{detailData.parameter[2].name}} {{detailData.parameter[3].name}}...</text></view>
+		<van-icon name="arrow" />
+	</view>
+	<view class="chooset" bindtap="toSelAddress" wx:if="{{newp == 1}}">
+		<view class="a">配送至<text>{{address.address}}</text></view>
+		<van-icon name="arrow" />
+	</view>
+</view>
+<!-- 详细参数 -->
+<van-action-sheet bind:close="onClose" custom-class="action-sheet" show="{{ isParameter }}" description="商品参数">
+	<view class="action-flex" wx:for="{{detailData.parameter}}" wx:key="index">
+		<view class="ch-parame">{{item.name}}</view>
+		<view class="ch-isparame">{{item.value}}</view>
+	</view>
+	<view class="bottom-btn">
+		<van-button round bindtap="onClose">关闭</van-button>
+	</view>
+</van-action-sheet>
+<!-- 店铺 -->
+<view>
+	<navigator class="dp-contents" url="../list/list?id={{detailData.merchant_id}}&avatar={{detailData.merchant_avatar}}&mername={{detailData.merchant_name}}">
+		<view class="dp-content">
+			<van-image width="46" height="48" src="{{detailData.merchant_avatar}}" />
+			<view style="margin-left: 24rpx;">
+				<view class="dp-name">{{detailData.merchant_name}}</view>
+				<view class="dp-zs">在售商品{{detailData.merchant_pro_count}}件</view>
+			</view>
+		</view>
+		<view class="dp-content">
+			<view class="godp">进店逛逛</view>
+			<van-icon style="margin-left: 10rpx;" name="arrow" />
+		</view>
+	</navigator>
+
+
+</view>
+
+<!-- 图文详情 -->
+<view class="imgText">
+	<view>
+		<text>图﹒文﹒详﹒情</text>
+	</view>
+</view>
+<view class="imgText_content">
+	<view>
+		<van-image lazy-load fit="widthFix" bindtap="preview" data-imgarr="{{detailData.details_pic}}" data-img="{{item}}" wx:for="{{detailData.details_pic}}" src="{{item}}" wx:key="index"></van-image>
+	</view>
+</view>
+<view style="height:170rpx"></view>
+<!-- 底部购买 -->
+<van-goods-action>
+	<van-goods-action-icon icon="shop-o" text="店铺" bind:click="onshop" />
+	<van-goods-action-icon icon="chat-o" text="客服" bind:click="onClickIcon" />
+	<van-goods-action-icon icon="cart-o" text="购物车" bind:click="goCart" />
+	<van-goods-action-button wx:if="{{showShopping == 0}}"  text="加入购物" bind:click="SetCart" />
+	<van-goods-action-button text="立即购买" custom-class="goods_codev" color="linear-gradient(0deg, #EC6601, #FFDC03)" bind:click="goPlaceOrder" />
+</van-goods-action>
+
+<!-- 购买规格选择 -->
+<van-action-sheet bind:close="onCloseAction" show="{{ showSpecifications }}">
+	<van-icon catchtap="handelClose" class="close" name="close" />
+	<view class="specifications-info">
+		<!-- 默认展示数据 -->
+		<view class="info-top" wx:if="{{!skuData}}">
+			<van-image custom-class="main_pic" lazy-load src="{{skuList[0].main_pic}}" />
+			<view class="price-stock">
+				<text>¥{{m2.toFloat(skuList[0].price)}}</text>
+				<text>编号：{{skuList[0].goods_code}}</text>
+				<text>库存：{{skuList[0].current_cnt}}</text>
+			</view>
+		</view>
+		<!-- 选择规格后展示数据 -->
+		<view class="info-top" wx:else>
+			<van-image custom-class="main_pic" lazy-load src="{{skuData.main_pic}}" />
+			<view class="price-stock">
+				<text>¥{{m2.toFloat(skuData.price)}}</text>
+				<text>编号：{{skuData.goods_code}}</text>
+				<text>库存：{{skuData.current_cnt}}</text>
+			</view>
+		</view>
+		<view class="choice">
+			<view wx:for="{{keys}}" wx:for-index="trindex" wx:for-item="tritem" wx:key="trindex">
+				<view class="choice-title">{{tritem.name}}</view>
+				<view class="choice-info">
+					<view class="{{selValue[trindex]==item.value?'active':''}}" bindtap="changeItem" data-value="{{item.value}}" data-trindex="{{trindex}}" wx:for="{{tritem.list}}" wx:key="index">{{item.value}}</view>
+				</view>
+			</view>
+			<view class="choice-count">
+				<text>数量</text>
+				<van-stepper value="{{ selectNum }}" max="{{skuData.current_cnt}}" bind:change="changeNum" />
+			</view>
+		</view>
+	</view>
+	<view class="not-box"></view>
+	<view class="bottom-btn">
+		<van-button wx:if="{{showtype === false}}" round bindtap="editShoppingCar">加入购物车</van-button>
+		<van-button wx:if="{{showtype === true}}" round bindtap="toOrder">确定</van-button>
+	</view>
+</van-action-sheet>
+<van-card custom-class="van-card-bg" price="{{price}}" desc="{{selling_intro}}" thumb="{{ img_path }}" curSpec="{{curSpec}}" />

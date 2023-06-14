@@ -1,0 +1,12 @@
+{
+	"usingComponents": {
+		"van-image": "@vant/weapp/image/index",
+		"van-stepper": "@vant/weapp/stepper/index",
+		"van-action-sheet": "@vant/weapp/action-sheet/index",
+		"van-goods-action": "@vant/weapp/goods-action/index",
+		"van-goods-action-icon": "@vant/weapp/goods-action-icon/index",
+		"van-goods-action-button": "@vant/weapp/goods-action-button/index"
+	},
+	"navigationBarTextStyle": "white",
+	"navigationStyle": "custom"
+}

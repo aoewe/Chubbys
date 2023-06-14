@@ -1,0 +1,98 @@
+{
+	"pages": [
+		"pages/TabBar/Mall/Mall",
+		"pages/TabBar/index/index",
+		"pages/TabBar/user/user",
+		"pages/TabBar/Message/Message",
+		"pages/Login/login",
+		"pages/Register/register",
+		"pages/Product/details/details",
+		"pages/Product/list/list",
+		"pages/placeOrder/placeOrder",
+		"pages/Address/GetAddress/getAddress",
+		"pages/Address/Edit/edit",
+		"pages/Serve-Tool/Invite/invite",
+		"pages/Serve-Tool/FansList/FansList",
+		"pages/Serve-Tool/Set/set",
+		"pages/Serve-Tool/SwitchAccount/swacc",
+		"pages/Serve-Tool/Password/password",
+		"pages/Serve-Tool/Headimg/Headimg",
+		"pages/Serve-Tool/upPayPaw/upPayPaw",
+		"pages/Assetflow/assetflow",
+		"pages/Serve-Tool/Feedback/feedback",
+		"pages/Serve-Tool/Record/record",
+		"pages/Product/Special/special",
+		"pages/Bankcard/Addbank/Addbank",
+		"pages/Bankcard/Banklist/banklist",
+		"pages/AddWithdrawal/withdrawal",
+		"pages/WithdrawalRecord/Withdrawalrecord",
+		"pages/Serve-Tool/Newborn/Newborn",
+		"pages/Address/BindingAddress/Binding",
+		"pages/Message/message",
+		"pages/ShoppingCart/ShoppingCart",
+		"pages/video/video",
+		"pages/Serve-Tool/Service/Service",
+		"pages/Serve-Tool/CourseList/course",
+		"pages/Serve-Tool/Coursedetails/Coursedetails"
+	],
+	"subPackages": [
+		{
+			"root": "pages/subPages/",
+			"pages": [
+				"orderDetails/orderDetails",
+				"articleInfo/articleInfo",
+				"twoPayment/twoPayment",
+				"logistics/logistics",
+				"orderList/orderList",
+				"refund/refund",
+				"Refundlist/Refundlist",
+				"Addtransfer/addtransfer"
+			]
+		},
+		{
+      "root": "pages/Shande",
+      "pages": [
+      	"back_sand/back",
+        "payment/index"
+      ]
+    }
+	],
+	"tabBar": {
+		"color": "#999999",
+		"selectedColor": "#2A9F93",
+		"list": [
+			{
+				"pagePath": "pages/TabBar/Mall/Mall",
+				"iconPath": "/static/icons/b.png",
+				"selectedIconPath": "/static/icons/bb.png",
+				"text": "商城"
+			},
+			{
+				"pagePath": "pages/TabBar/Message/Message",
+				"iconPath": "/static/icons/d.png",
+				"selectedIconPath": "/static/icons/dd.png",
+				"text": "消息"
+			},
+			{
+				"pagePath": "pages/TabBar/user/user",
+				"iconPath": "/static/icons/c.png",
+				"selectedIconPath": "/static/icons/cc.png",
+				"text": "我的"
+			}
+		]
+	},
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTitleText": "Weixin",
+		"navigationBarTextStyle": "black"
+	},
+	"sitemapLocation": "sitemap.json",
+	"lazyCodeLoading": "requiredComponents",
+	"usingComponents": {
+		"van-button": "@vant/weapp/button/index",
+		"van-loading": "@vant/weapp/loading/index",
+		"van-icon": "@vant/weapp/icon/index",
+		"van-popup": "@vant/weapp/popup/index"
+	}
+}

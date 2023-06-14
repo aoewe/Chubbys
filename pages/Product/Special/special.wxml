@@ -1,0 +1,21 @@
+<view>
+<view class="product-list">
+  <navigator wx:for="{{products}}" wx:key="id" class="product-item" url="{{'../details/details?id='+item.id + '&no=' +  no + '&newp=' + newp}}">
+    <image src="{{item.main_pic}}" mode="aspectFill" class="product-image" />
+    <view class="info">
+      <view class="ellipsis-text">{{item.product_name}}</view>
+      <view class="dflex">
+      <text class="textone">¥<text class="texttow">{{item.price}}</text></text>
+      <!-- <view class="goby">立即购买</view> -->
+    </view>
+    </view>
+  </navigator>
+</view>
+<view class="loading">
+  <van-loading type="spinner" wx:if="{{loading}}"></van-loading>
+  <text wx:if="{{products.length===total && products.length>5}}">已全部加载</text>
+</view>
+<view class="no-content" wx:if="{{!loading && !products.length}}">
+  <image src="../../../static/imgs/nocontent.png"></image>
+</view>
+</view>

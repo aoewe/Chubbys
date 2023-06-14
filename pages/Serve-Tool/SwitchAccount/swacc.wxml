@@ -1,0 +1,15 @@
+<view>
+  <view class="content">
+    <view class="cont-list" wx:for="{{accounts}}" wx:key="index" bindtap="changing" data-index="{{index}}" data-id="{{item}}">
+      <view class="{{index==isHidden ? 'check-icon' : 'switchn'}}" >
+        <!-- <view class="'switchn" > -->
+        <van-image round custom-class="head-icon" src="{{item.avatar}}" />
+      </view>
+      <view class="cont-txt">{{item.username}}</view>
+    </view>
+    <navigator class="cont-list" url="/pages/Login/login">
+      <image style="width: 84rpx;height: 84rpx;" src="/static/icons/add.png" />
+      <view class="cont-txt">添加账号</view>
+    </navigator>
+  </view>
+</view>

@@ -1,0 +1,28 @@
+<view class="user-info">
+  <view class="info-box">
+    <view class="avatar" bindtap="upAvatar">
+      <text>头像</text>
+      <view class="right">
+        <image src="{{userInfo.avatar}}"></image>
+        <van-icon name="arrow" />
+      </view>
+    </view>
+    <view class="item">
+      <text>名称</text>
+      <view class="right">
+        <view>{{userInfo.username}}</view>
+        <van-icon name="arrow" />
+      </view>
+    </view>
+    <view class="item">
+      <text>手机号</text>
+      <view class="right">
+        <input disabled value="{{userInfo.mobile}}" />
+        <van-icon name="arrow" />
+      </view>
+    </view>
+  </view>
+  <view class="btn">
+    <van-button round bindtap="submit" custom-class="external-class" loading="{{loading}}" loading-type="spinner" loading-text="保存中..." color="#299f92">保存</van-button>
+  </view>
+</view>

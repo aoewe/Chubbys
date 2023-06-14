@@ -1,0 +1,35 @@
+<wxs src="../../utils/comm.wxs" module="comm"></wxs>
+<view>
+  <view class="content" wx:for="{{list}}" wx:key="index">
+    <view class="title">提现到账</view>
+    <view class="t-money">提现金额</view>
+    <view class="money">¥<text>{{item.amount-item.service_charge}}</text></view>
+    <view class="cont-list">
+      <view class="p">提现银行</view>
+      <text>{{item.bank_name}}({{comm.toStr(item.bank_code)}})</text>
+    </view>
+    <view class="cont-list">
+      <view class="p">提现时间</view>
+      <text>{{comm.formatDate(item.create_time)}}</text>
+    </view>
+    <view class="cont-list" wx:if="{{item.status===1}}">
+      <view class="p">到账时间</view>
+      <text >{{comm.formatDate(item.update_time)}}</text>
+    </view>
+    <view class="cont-list">
+      <view class="p">状态</view>
+      <text style="color:{{item.status===0?'#005cac':item.status===1?'#0263D4':'#cd1e2b'}}">{{item.status===0?'审核中':item.status===1?'提现成功':'提现失败' }}</text>
+    </view>
+    <view class="cont-list">
+      <view class="p">手续费</view>
+      <text>{{item.service_charge}}</text>
+    </view>
+  </view>
+  <view class="loading" wx:if="{{loading}}">
+    <van-loading type="spinner" color="#2A9F93" />
+  </view>
+</view>
+<view class="no-content" wx:if="{{list.length<1 && !loading}}">
+  <image src="/static/imgs/nocontent.png"></image>
+</view>
+<view wx:if="{{list.length===total&&list.length>=4}}" class="cnt-text">已全部加载</view>

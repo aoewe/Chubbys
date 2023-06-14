@@ -1,0 +1,24 @@
+<wxs src="../../../utils/comm.wxs" module="comm"></wxs>
+<view>
+  <view>
+    <view hover-class="none" data-item="{{item}}" bindtap="{{isSel?'onBack':'toEdit'}}" url="{{item.url}}" class="item" wx:for="{{list}}" wx:key="index">
+      <view class="nav-top">
+        <image class="bimg" src="/static/icons/YH.png"></image>
+        <view class="nav-text">
+          <view class="nav-txt">{{item.bank_name}}</view>
+          <view class="nav-txt" style="font-size: 24rpx;">银联卡</view>
+        </view>
+      </view>
+      <vieew class="number">
+        <text>****</text>
+        <text>****</text>
+        <text>****</text>
+        <text>{{comm.toStr(item.bank_card)}}</text>
+      </vieew>
+    </view>
+    <navigator class="cont-list" url="../Addbank/Addbank">
+      <image style="width: 84rpx;height: 84rpx;" src="/static/icons/add.png" />
+      <view class="cont-txt">添加银行卡</view>
+    </navigator>
+  </view>
+</view>

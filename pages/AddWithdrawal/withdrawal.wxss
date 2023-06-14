@@ -1,0 +1,115 @@
+/* pages/Withdrawal/withdrawal.wxss */
+.cont-top {
+  position: absolute;
+  left: 0;
+	display: block;
+	background: linear-gradient(0deg, #6ba0eb 0%, #0a4991 100%);
+  width: 100%;
+  height: 460rpx;
+  z-index: -999;
+}
+
+.top {
+  display: flex;
+  font-size: 34rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #FFFFFF;
+  padding: 95rpx 35rpx 51rpx 35rpx;
+  justify-content: space-between;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  margin: 0rpx 34rpx;
+  font-size: 34rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.block {
+  width: 20rpx;
+}
+
+.Mymoney {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.money {
+  margin: 0rpx 35rpx;
+  font-size: 32rpx;
+  font-family: OPPOSans;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.money text {
+  margin-left: 10rpx;
+  font-size: 64rpx;
+  font-family: OPPOSans;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.cont-block {
+  margin: auto;
+  margin-top: 64rpx;
+  margin-bottom: 35rpx;
+  width: 94%;
+  height: 513rpx;
+  background: #FFFFFF;
+  box-shadow: 0rpx 0rpx 6rpx 0rpx rgba(153, 153, 153, 0.24);
+  border-radius: 16rpx;
+}
+
+.b-drawal {
+  padding: 24rpx 35rpx;
+  padding-bottom: 60rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #1D1D1D;
+}
+
+.withdrawal {
+  display: flex;
+  margin: 0rpx 35rpx;
+  align-items: center;
+  font-size: 37rpx !important;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #1D1D1D;
+}
+
+.b-bank {
+  display: flex;
+  justify-content: space-between;
+  margin: 40rpx 35rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #1D1D1D;
+}
+
+.external-class {
+  margin: 65rpx auto 0;
+}
+
+.b-text {
+  margin: auto;
+  width: 667rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #1D1D1D;
+}
+
+.external-class {
+  width: 638rpx !important;
+  height: 80rpx !important;
+}

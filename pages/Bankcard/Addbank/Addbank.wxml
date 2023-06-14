@@ -1,0 +1,20 @@
+<!--pages/Bankcard/Addbank/Addbank.wxml-->
+<view>
+  <view class="text">添加银行卡</view>
+  <view class="head">请绑定持卡人本人的银行卡</view>
+  <view class="withdrawal">
+    <text>持卡人</text><input style="height: 90rpx;margin-left: 50rpx;" model:value="{{name}}" type="text" placeholder="请输入持卡人姓名" />
+  </view>
+  <view class="withdrawal">
+    <text>卡号</text><input style="height: 90rpx;margin-left: 50rpx;" maxlength="19" model:value="{{bank_card}}" type="number" placeholder="请输入银行卡号" />
+  </view>
+  <view class="withdrawal">
+    <text>卡类型</text><input style="height: 90rpx;margin-left: 50rpx;" model:value="{{bank_name}}" type="text" placeholder="请输入银行卡名称" />
+  </view>
+  <view class="withdrawal">
+    <text>身份证</text><input style="height: 90rpx;margin-left: 50rpx;" maxlength="18" model:value="{{id_card}}" type="idcard" placeholder="请输入身份证" />
+  </view>
+  <view>
+    <button class="bankbutton" bindtap="submit">提交</button>
+  </view>
+</view>

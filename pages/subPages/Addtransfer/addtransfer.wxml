@@ -1,0 +1,31 @@
+<view>
+  <image class="cont-top" src="/static/icons/Withdrawalb.png"></image>
+  <view class="top">
+    <navigator hover-class="none" open-type="navigateBack">
+      <van-icon name="arrow-left" />
+    </navigator>
+    <view>转帐</view>
+    <view class="block" style="text-align: end;"></view>
+  </view>
+  <view class="flex">
+    <view class="Mymoney">我的余额</view>
+    <navigator url="../TransferRecord/transfer?type=2">转帐记录</navigator>
+  </view>
+  <view class="integral">{{userInfo.balance || 0}}</view>
+  <view class="cont-block">
+    <view class="b-drawal">转帐金额</view>
+    <view class="withdrawal">
+      <text class="">¥</text><input model:value="{{balance}}" maxlength="{{userInfo.balance.length}}" bindinput="changeIntegral" placeholder-style="font-size:26rpx" placeholder="请输入转账金额" style="height: 90rpx;margin-left: 20rpx;" type="digit" auto-focus />
+    </view>
+    <view class="b-bank">
+      <view>到账账户</view>
+    </view>
+    <view class="code-input">
+      <input model:value="{{mobile}}"  style="margin: 0rpx 40rpx;" placeholder="请输入到账账户（手机号）" />
+    </view>
+    <view class="btn">
+      <van-button color="#2A9F93" bindtap="register" size="round" round custom-class="external-class">提交</van-button>
+    </view>
+  </view>
+</view>
+<password-input show="{{showPassword}}" top="{{0}}" bind:closePay="closePay" bind:payOrderNext="payOrderNext"></password-input>

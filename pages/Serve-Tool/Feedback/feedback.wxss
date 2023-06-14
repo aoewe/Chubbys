@@ -1,0 +1,50 @@
+/* pages/Serve-Tool/Feedback/feedback.wxss */
+
+page {
+	background-color: #ffffff;
+}
+
+.fk-title {
+	margin: 25rpx;
+}
+
+.fk-absolute {
+	position: absolute;
+	bottom: 0rpx;
+	left: 85%;
+	font-size: 22rpx;
+font-family: PingFang SC;
+font-weight: 500;
+color: #999999;
+}
+
+.fk-textarea {
+	margin: 20rpx auto;
+	width: 682rpx;
+	padding: 20rpx;
+	background: #f4f5f7;
+}
+
+.fk-uploader {
+	padding: 0rpx 20rpx;
+}
+
+.external-class {
+	color: #ffffff !important;
+	width: 702rpx !important;
+	height: 86rpx !important;
+	background: #0263D4 !important;
+	border-radius: 12rpx !important;
+}
+
+.popup {
+	width: 600rpx !important;
+	height: 300rpx !important;
+	padding: 20rpx 40rpx;
+}
+
+.close {
+	margin-top: 20rpx;
+	text-align: end;
+	color: #0263d4;
+}

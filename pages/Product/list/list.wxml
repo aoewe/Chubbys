@@ -1,0 +1,32 @@
+<view>
+	<view class="list-title" wx:if="{{colse !== 'true'}}">
+		<van-image style="margin: 14rpx 17rpx;" fit="cover" width="36" height="38" src="{{merchant_avatar}}" />
+		<view class="l-title">{{merchant_name}}</view>
+	</view>
+
+		<van-tabs animated duration="0.5" z-index="999" sticky swipeable active="{{ active }}" bind:change="onChange">
+			<van-tab wx:for="{{tabs}}" wx:key="index" name="{{item.name}}" title="{{item.title}}">
+				<view class="product-list">
+				<navigator wx:for="{{products}}" wx:for-item="gitem" wx:for-index="gidx" wx:key="gidx" class="product-item" url="{{'../details/details?id='+gitem.id}}">
+					<image src="{{gitem.main_pic}}" mode="aspectFill" class="product-image" />
+					<view class="info">
+						<view class="ellipsis-text">{{gitem.product_name}}</view>
+						<view class="dflex">
+							<text class="textone">¥<text class="texttow">{{gitem.price}}</text></text>
+							<!-- <view class="goby">立即购买</view> -->
+						</view>
+					</view>
+				</navigator>
+
+				<view class="loading">
+					<van-loading type="spinner" wx:if="{{loading}}"></van-loading>
+					<text wx:if="{{products.length===total && products.length>5}}">已全部加载</text>
+				</view>
+				<view class="no-content" wx:if="{{!loading && !products.length}}">
+					<image src="../../../static/imgs/nocontent.png"></image>
+				</view>
+			</view>
+			</van-tab>
+		</van-tabs>
+	
+</view>

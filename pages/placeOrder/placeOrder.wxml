@@ -1,0 +1,136 @@
+<wxs module="m2">
+  var toFloat = function (num) {
+    return parseFloat(num)
+  }
+  module.exports.toFloat = toFloat;
+</wxs>
+<!-- 头部地址 -->
+<view class="top-tabs" wx:if="{{commodityList[0].is_extract==1}}">
+  <view class="top-tab {{sendType==1?'':'active-tab'}}" bindtap="changeSendtype" data-idx="0" style="border-bottom-right-radius: {{sendType==1?20:0}}rpx;">
+    <text>物流配送</text>
+    <view></view>
+  </view>
+</view>
+<view class="address" wx:if="{{newp == 1}}">
+  <view class="sel-shipping " wx:if="{{address.name}}" catchtap="receivingAddress">
+    <view>
+      <view class="title">{{address.address}}</view>
+      <view>
+        <text style="padding-right: 20rpx;">{{address.name}}</text>
+        <text>{{address.mobile}}</text>
+      </view>
+    </view>
+    <van-icon color="#999" name="arrow" />
+  </view>
+  <view wx:else class="add-address" catchtap="goAddNewAddress">点击添加地址</view>
+</view>
+
+<!-- 商品内容 -->
+<view class="content1" wx:if="{{commodityList.length !== 0}}">
+  <view class="content_box">
+    <view class="content_commodity" wx:for="{{commodityList}}" wx:key="index">
+      <view class="content_commodity_image">
+        <image src="{{item.main_pic}}"></image>
+      </view>
+
+      <view class="content_commodity_text">
+        <view>{{item.product_name}}</view>
+        <view class="content_commodity_text_price">
+          <view>{{m2.toFloat(item.sku.price)}}</view>
+          <view>
+            <button data-idx="{{index}}" catchtap="decrease">
+              <van-icon name="minus" />
+            </button>
+            <text>{{item.selectNum}}</text>
+            <button data-idx="{{index}}" class="add-num" catchtap="increasement">
+              <van-icon name="plus" />
+            </button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 商品金额 -->
+<view class="amount" wx:if="{{commodityList.length !== 0}}">
+  <view>
+    <view>
+      <view>商品价格</view>
+      <view>{{m2.toFloat(total)}}</view>
+    </view>
+    <view>
+      <view>邮费</view>
+      <view>[包邮]</view>
+    </view>
+  </view>
+</view>
+<!-- 订单备注 -->
+<view class="orderRemarks" wx:if="{{commodityList.length !== 0}}">
+  <view style="align-items: center;">
+    <view>订单备注</view>
+    <view style="display: flex;flex: 1;"><input model:value="{{remark}}" placeholder="请输入" style="text-align: right;flex: 1;" />
+    </view>
+  </view>
+</view>
+
+<view class="orderRemarks" wx:if="{{commodityList[0].need_card === 1}}">
+	<view>填写身份证信息</view>
+	<input class="Remarks_input" model:value="{{id_card_name}}" placeholder="请输入真实姓名"/>
+	<input class="Remarks_input" type="idcard" model:value="{{id_card}}" placeholder="请输入身份证号"/>
+</view>
+
+<!-- 支付方式 -->
+<view class="pay-box">
+  <view data-type="1" bindtap="changePayType" wx:if="{{newp == 1 && showShopping != '2'}}">
+    <view>
+      <image src="../../static/imgs/qbzf.png" />钱包支付
+    </view>
+    <image src="../../static/imgs/active1.png" wx:if="{{payType==1}}"></image>
+    <view class="select" wx:else></view>
+  </view>
+	<view data-type="3" bindtap="changePayType" wx:if="{{newp == 1 && showShopping != '2'}}">
+    <view>
+      <image src="../../static/imgs/hb.png" />红包支付
+    </view>
+    <image src="../../static/imgs/active1.png" wx:if="{{payType==3}}"></image>
+    <view class="select" wx:else></view>
+	</view>
+	<view data-type="4" bindtap="changePayType" wx:if="{{showShopping == '2'}}">
+    <view>
+      <image src="../../static/imgs/YHJ.png" />兑奖券支付
+    </view>
+    <image src="../../static/imgs/active1.png" wx:if="{{payType==4}}"></image>
+    <view class="select" wx:else></view>
+  </view>
+
+	<view data-type="5" bindtap="changePayType" wx:if="{{newp == 0}}">
+    <view>
+      <image src="../../static/imgs/NewP.png" />新人卷支付
+    </view>
+    <image src="../../static/imgs/active1.png" wx:if="{{payType==5}}"></image>
+    <view class="select" wx:else></view>
+  </view>
+  <!-- <view data-type="4" bindtap="changePayType" wx:if="{{commodityList[0].category_id!==2 && commodityList[0].category_id!==1 &&commodityList[0].category_id!==3}}">
+    <view>
+      <image src="../../static/imgs/quan.png" />权益值(剩余{{userInfo.coupon}})
+    </view>
+    <image src="../../static/imgs/active1.png" wx:if="{{payType==4}}"></image>
+    <view class="select" wx:else></view>
+  </view> -->
+</view>
+<view style="height: 98rpx;"></view>
+<view class="footer">
+  <view class="total-price" catchtap="submits">
+    <text class="text1">合计:</text>
+    <text class="text2"></text>
+    <text class="text3">{{m2.toFloat(total)}}</text>
+    <text class="text4"></text>
+  </view>
+  <view wx:if="{{commodityList.length !== 0}}" catchtap="submit">提交订单</view>
+</view>
+<view>
+  <view>
+    <password-input top="{{0}}" type="{{payType}}" show="{{showPassword}}" payPrice="{{payPrice}}" bind:closePay="closePay" bind:payOrderNext="payOrderNext"></password-input>
+  </view>
+</view>

@@ -1,0 +1,11 @@
+{
+	"usingComponents": { 
+		"van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-stepper": "@vant/weapp/stepper/index",
+    "van-image": "@vant/weapp/image/index",
+		"van-icon": "@vant/weapp/icon/index"
+	},
+  "navigationBarTitleText":"购物车"
+
+}
