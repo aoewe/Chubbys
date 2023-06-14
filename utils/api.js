@@ -1,6 +1,6 @@
 // const apiurl = `http://c-api.xf-market.com`
-const apiurl = `http://csbdd.taoqiy.com`
-// const apiurl = `https://custom.taoqiy.com`
+// const apiurl = `http://csbdd.taoqiy.com`
+const apiurl = `https://custom.taoqiy.com`
 
 
 const api = {

@@ -5,7 +5,7 @@ Page({
 	data: {
 		statusBar: wx.getMenuButtonBoundingClientRect(),
 		text: '发送验证码',
-		type:false,
+		type: false,
 		Privacy: true,
 		mobile: '',
 		password: '',
@@ -14,74 +14,76 @@ Page({
 	},
 
 	onLoad(options) {
-		
+
 	},
 	onShow() {
 
 	},
 
-	
+
 
 	switchlogin() {
 		this.setData({
-			type: !this.data.type
+			type: !this.data.type,
+			code: '',
+			password: ''
 		})
 	},
-  onUnload() {
-    clearTimeout(timer)
-    time = 60
-    timer = null
-  },
-	  // 发送验证码
-		async sendCode() {
-			if (timer) return
-			const that = this
-			if (!/^[1][3-8]\d{9}$|^([6|9])\d{7}$|^[0][9]\d{8}$|^[6]([8|6])\d{5}$/.test(this.data.mobile)) return wx.showToast({
-				title: '手机号码格式错误',
+	onUnload() {
+		clearTimeout(timer)
+		time = 60
+		timer = null
+	},
+	// 发送验证码
+	async sendCode() {
+		if (timer) return
+		const that = this
+		if (!/^[1][3-8]\d{9}$|^([6|9])\d{7}$|^[0][9]\d{8}$|^[6]([8|6])\d{5}$/.test(this.data.mobile)) return wx.showToast({
+			title: '手机号码格式错误',
+			icon: 'none'
+		})
+		const params = {
+			mobile: this.data.mobile,
+			type: 3,
+		}
+		const res = await api.sendcode(params)
+		const {
+			code,
+			msg
+		} = res
+		if (code === 0) {
+			wx.showToast({
+				title: '发送成功',
 				icon: 'none'
 			})
-			const params = {
-				mobile: this.data.mobile,
-				type: 3,
-			}
-			const res = await api.sendcode(params)
-			const {
-				code,
-				msg
-			} = res
-			if (code === 0) {
-				wx.showToast({
-					title: '发送成功',
-					icon: 'none'
-				})
-				fun()
-	
-				function fun() {
-					clearTimeout(timer)
-					timer = setTimeout(() => {
-						time--
+			fun()
+
+			function fun() {
+				clearTimeout(timer)
+				timer = setTimeout(() => {
+					time--
+					that.setData({
+						text: `${time}s后重新获取`
+					})
+					if (time <= 0) {
+						clearTimeout(timer)
+						timer = null
+						time = 60
 						that.setData({
-							text: `${time}s后重新获取`
+							text: '发送验证码'
 						})
-						if (time <= 0) {
-							clearTimeout(timer)
-							timer = null
-							time = 60
-							that.setData({
-								text: '发送验证码'
-							})
-							return
-						}
-						fun()
-					}, 1000)
-				}
-			} else {
-				wx.showToast({
-					title: msg,
-					icon: 'none'
-				})
+						return
+					}
+					fun()
+				}, 1000)
 			}
-		},
+		} else {
+			wx.showToast({
+				title: msg,
+				icon: 'none'
+			})
+		}
+	},
 
 	async submit() {
 		const {
@@ -97,7 +99,7 @@ Page({
 			title: '手机号码格式错误',
 			icon: 'none'
 		})
-		if(this.data.type){
+		if (this.data.type) {
 			if (!password) return wx.showToast({
 				title: '请输入密码',
 				icon: 'none'
@@ -108,13 +110,13 @@ Page({
 				icon: 'none'
 			})
 		}
-		
 
 		const params = {
 			mobile,
 			password,
 			code
 		}
+		console.log(params);
 		const res = await api.login(params)
 		if (res.code === 0) {
 			const accounts = wx.getStorageSync('accounts') || [];

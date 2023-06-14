@@ -121,7 +121,7 @@
 </view>
 <view style="height: 98rpx;"></view>
 <view class="footer">
-  <view class="total-price" catchtap="submits">
+  <view class="total-price" >
     <text class="text1">合计:</text>
     <text class="text2"></text>
     <text class="text3">{{m2.toFloat(total)}}</text>
