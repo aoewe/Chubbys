@@ -1,10 +1,12 @@
 page {
-	background: #1a1e6a;
+	background: #f3f5f7;
 }
 
 .i-header {
-	margin-top: 70rpx;
-	width: 100%;
+	display: flex;
+	margin: 0 auto;
+	margin-top: 32rpx;
+	width: 702rpx;
 	height: 404rpx;
 }
 
@@ -29,6 +31,26 @@ page {
 	border: 2px solid #4A5FEA;
 	background: linear-gradient(0deg, #4958BC 0%, #646FB3 100%);
 	border-radius: 0rpx 40rpx 0rpx 40rpx;
+}
+
+.ia-blue_money {
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 278rpx;
+	height: 70rpx;
+	background: #EB6100;
+	border-radius: 35rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: #FFFFFF;
+}
+
+.ia-blue_money text {
+	font-size: 32rpx;
+	font-weight: bold;
 }
 
 swiper {
@@ -68,17 +90,17 @@ swiper {
 	margin: 0rpx 9rpx;
 	width: 10rpx;
 	height: 10rpx;
-	background: #9598c2;
+	background: #4D4941;
 	opacity: 0.5;
-	border-radius: 4rpx;
+	border-radius: 50%;
 }
 
 .dots {
 	margin: 0rpx 9rpx;
 	width: 12rpx;
 	height: 12rpx;
-	background: #FFFFFF;
-	border-radius: 4rpx;
+	background: #3b3b39;
+	border-radius: 50%;
 }
 
 .i-goleft {
@@ -89,7 +111,7 @@ swiper {
 	font-family: PingFang SC;
 	font-weight: 500;
 	margin-top: 20rpx;
-	color: #FFFFFF;
+	color: #333333;
 }
 
 .border {
@@ -98,8 +120,8 @@ swiper {
 
 .i-blocka {
 	margin: auto;
-	width: 678rpx;
-	height: 382rpx;
+	width: 702rpx;
+	height: 288rpx;
 	/* border: 14rpx solid #FFFFFF; */
 	border-radius: 20rpx;
 	display: flex;
@@ -107,75 +129,26 @@ swiper {
 
 .odd {
 	border-radius: 10px;
-	width: 718rpx;
-	height: 412rpx;
+	width: 702rpx;
+	height: 288rpx;
+	background: #FFFFFF;
+	border-radius: 16rpx;
 	position: relative;
 	margin: auto;
-}
-
-.line {
-	width: 73rpx;
-	height: 18rpx;
-	background: linear-gradient(180deg, #F7DE7D 0%, #F1CB30 99%);
-	border-radius: 6rpx;
-	position: absolute;
-	left: 44px;
-}
-
-.line2 {
-	right: 44px;
-	width: 73rpx;
-	height: 18rpx;
-	background: linear-gradient(180deg, #F7DE7D 0%, #F1CB30 99%);
-	border-radius: 6rpx;
-	position: absolute;
-}
-
-.line3 {
-	right: 44px;
-	width: 73rpx;
-	height: 18rpx;
-	background: linear-gradient(180deg, #F7DE7D 0%, #F1CB30 99%);
-	border-radius: 6rpx;
-	position: absolute;
-	bottom: 0;
-	right: 44px;
-}
-
-.line4 {
-	right: 44px;
-	width: 73rpx;
-	height: 18rpx;
-	background: linear-gradient(180deg, #F7DE7D 0%, #F1CB30 99%);
-	border-radius: 6rpx;
-	position: absolute;
-	bottom: 0;
-	left: 44px;
-}
-
-.line5 {
-	right: 44px;
-	width: 73rpx;
-	height: 18rpx;
-	background: linear-gradient(180deg, #F7DE7D 0%, #F1CB30 99%);
-	border-radius: 6rpx;
-	position: absolute;
-	bottom: -15rpx;
-	left: 115rpx;
 }
 
 
 .ia-text {
 	margin: 31rpx 31rpx;
-	font-size: 32rpx;
-	width: 230rpx;
-	height: 170rpx;
+	width: 390rpx;
+	height: 75rpx;
+	font-size: 28rpx;
 	font-family: PingFang SC;
-	font-weight: bold;
-	color: #FFFFFF;
+	font-weight: 500;
+	color: #333333;
 	text-align: initial;
 	display: -webkit-box;
-	-webkit-line-clamp: 3;
+	-webkit-line-clamp: 2;
 	/* 显示3行文字 */
 	-webkit-box-orient: vertical;
 	overflow: hidden;
@@ -188,7 +161,7 @@ swiper {
 	height: 69rpx;
 	font-family: PingFang SC;
 	font-weight: bold;
-	color: #FFFFFF;
+	color: #333333;
 	text-align: initial;
 	display: -webkit-box;
 	-webkit-line-clamp: 3;
@@ -209,19 +182,11 @@ swiper {
 }
 
 .ia-money {
-	margin-top: 50rpx;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 278rpx;
-	height: 70rpx;
-	background: #FFECA7;
-	border: 2px solid #FFFFFF;
-	border-radius: 35rpx;
+	margin: auto;
+	width: 300rpx;
+	text-align: initial;
 	font-size: 24rpx;
-	font-family: PingFang SC;
-	font-weight: 500;
-	color: #F6564E;
+	color: #D7000F;
 }
 
 .ia-money text {
@@ -229,28 +194,46 @@ swiper {
 	font-weight: bold;
 }
 
+.space-around {
+	display: flex;
+	justify-content: space-around;
+}
+
+.ia_bluebtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 144rpx;
+	height: 54rpx;
+	background: #EB6100;
+	border-radius: 27rpx;
+	font-size: 26rpx;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: #FFFFFF;
+}
+
 .i-blocke {
-	width: 304rpx;
+	width: 344rpx;
 	height: 520rpx;
-	background: #F6564E;
+	background: #FFFFFF;
 	border: 14rpx solid #FFFFFF;
 	border-radius: 20rpx;
 	margin: auto;
-	margin-top: 30rpx;
-	position: relative;
+	margin-top: 20rpx;
 }
 
 .ie-money {
 	font-size: 24rpx;
 	font-family: PingFang SC;
 	font-weight: 500;
-	color: #FFFFFF;
+	color: #333333;
 	text-align: initial;
 	padding: 0rpx 20rpx;
 }
 
 .ie-money text {
-	font-size: 32rpx;
+	font-size: 36rpx;
 	font-weight: bold;
 }
 
@@ -266,13 +249,15 @@ swiper {
 
 .b-image {
 	margin: auto;
-	position: relative;
-	top: 85rpx;
-	width: 564rpx;
-	height: 364rpx;
-	background: #F6564E;
-	border-radius: 16rpx;
-	border: 14rpx solid #F6564E;
+	width: 654rpx;
+	/* height: 396rpx; */
+	/* padding: 20rpx 0rpx; */
+	background: #FFFFFF;
+
+}
+
+.black_color {
+	background: #FFFFFF;
 }
 
 .i-bj {
@@ -286,8 +271,9 @@ swiper {
 }
 
 .ic-flex {
-	margin-top: 50rpx;
 	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
 	padding: 15rpx 65rpx;
 }
 
@@ -298,7 +284,7 @@ swiper {
 	font-size: 32rpx;
 	font-family: PingFang SC;
 	font-weight: bold;
-	color: #F6564E;
+	color: #333333;
 	height: 87rpx;
 	display: -webkit-box;
 	-webkit-line-clamp: 2;
@@ -313,43 +299,49 @@ swiper {
 	font-size: 24rpx;
 	font-family: PingFang SC;
 	font-weight: 500;
-	color: #F6564E;
+	color: #D7000F;
 	text-align: initial;
 }
 
+.ic-money text {
+	font-size: 32rpx;
+}
+
 .ic-goby {
-	padding-top: 80rpx;
-	position: absolute;
-	left: 242px;
-	display: block;
-	z-index: -997;
-	width: 140rpx;
-	height: 26rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 188rpx;
+	height: 64rpx;
+	background: #EB6100;
+	border-radius: 32rpx;
 	font-size: 28rpx;
 	font-family: PingFang SC;
 	font-weight: 800;
 	color: #FFFFFF;
+
 }
 
 .i-blockd {
 	width: 338rpx;
 	height: 480rpx;
 	padding-top: 10rpx;
-	background: #F6564E;
+	background: #FFFFFF;
 	border-radius: 18rpx;
 	margin: 10rpx;
-	border: 8rpx solid #F6564E;
 }
 
-swiper-item {
+.swiper-item {
 	width: 338rpx !important;
 }
 
 .i-blocki {
-	background: #F6564E;
+	width: 338rpx;
+	height: 480rpx;
+	background: #FFFFFF;
 	border-radius: 18rpx;
 	padding-top: 10rpx;
-	border: 1px solid #78F6FF;
+
 }
 
 .id-text {
@@ -360,8 +352,384 @@ swiper-item {
 	font-size: 28rpx;
 	font-family: PingFang SC;
 	font-weight: 400;
-	color: #FFFFFF;
+	color: #333333;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+.search {
+	display: flex;
+	margin-top: 165rpx;
+	align-items: center;
+}
+
+.search_in {
+	width: 628rpx;
+	background: #FFFFFF;
+	border-radius: 8rpx;
+	margin-right: 23rpx;
+}
+
+.index_shopp {
+	width: 50rpx;
+	height: 50rpx;
+}
+
+.scroll-view_H {
+	margin: auto;
+	margin-top: 24rpx;
+	width: 702rpx;
+	height: 382rpx;
+	background: #FFFFFF;
+	box-shadow: 0rpx 0rpx 11rpx 1rpx rgba(153, 153, 153, 0.24);
+	border-radius: 12rpx;
+	white-space: nowrap;
+}
+
+.fl_Points {
+	margin-bottom: 40rpx;
+}
+
+.i-ten_black {
+	display: flex;
+	flex-direction: row;
+}
+
+
+.navigator_img {
+	width: 110rpx;
+	height: 110rpx;
+}
+
+.navigator_txt {
+	font-size: 24rpx;
+	font-family: PingFang SC;
+	font-weight: 400;
+	color: #1D1D1D;
+}
+
+.Hot_sale {
+	margin: 0 auto;
+	margin-top: 28rpx;
+	width: 702rpx;
+	height: 739rpx;
+	background: #EB6100;
+	border-radius: 16rpx;
+}
+
+.host_he {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 31rpx 24rpx 24rpx 24rpx;
+}
+
+.host_hi {
+	display: flex;
+	align-items: center;
+}
+
+.hot {
+	font-size: 32rpx;
+	font-family: Source Han Serif SC;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+.host_white {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	margin: auto;
+	width: 666rpx;
+	height: 628rpx;
+	background: #FFFFFF;
+	border-radius: 16rpx;
+}
+
+.i {
+	width: 2rpx;
+	height: 28rpx;
+	background: #FFFFFF;
+	margin: 0rpx 17rpx;
+}
+
+.s {
+	font-size: 26rpx;
+	font-family: PingFang SC;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+.look {
+	font-size: 22rpx;
+	font-family: PingFang SC;
+	font-weight: 400;
+	color: #FFFFFF;
+}
+
+.host_txt {
+	width: 183rpx;
+	height: 53rpx;
+	font-size: 24rpx;
+	font-family: PingFang SC;
+	font-weight: bold;
+	color: #333333;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.host_nav {
+	padding: 8rpx;
+	padding-top: 24rpx;
+}
+
+.Rush_black {
+	margin: auto;
+	width: 702rpx;
+	height: 340rpx;
+	background: #FFFFFF;
+	border-radius: 20rpx;
+}
+
+.Rush_buy {
+	font-size: 32rpx;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: #333333;
+	margin-right: 34rpx;
+}
+
+.Rush_left {
+	font-size: 26rpx;
+	font-family: PingFang SC;
+	font-weight: bold;
+	color: #666666;
+	margin-right: 28rpx;
+}
+
+.Rush_flex {
+	display: flex;
+	justify-content: space-around;
+}
+
+.Rush_img {
+	width: 208rpx;
+	height: 208rpx;
+	border-radius: 24rpx;
+}
+
+.potions {
+	position: absolute;
+	font-size: 76rpx;
+	font-family: PingFang SC;
+	font-weight: 800;
+	color: #FF4B4E;
+	line-height: 44rpx;
+	opacity: 0.2;
+}
+
+.item {
+	display: inline-block;
+	width: 54rpx;
+	height: 34rpx;
+	background: #FF4B4E;
+	border-radius: 17rpx;
+	margin-right: 5rpx;
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	padding: 2rpx;
+}
+
+.Flash_buy {
+	
+	width: 140rpx;
+	font-size: 32rpx;
+	font-family: PingFang SC;
+	font-weight: bold;
+	color: #333333;
+	margin-left: 20rpx;
+	margin-right: 34rpx;
+}
+
+.Flash_buy text {
+	color: #FF4B4E;
+}
+
+.progress {
+	width: 230rpx !important;
+	margin: 0rpx 31rpx;
+	margin-bottom: 30rpx;
+}
+
+.Flash-money {
+	font-size: 24rpx;
+	font-family: Heiti SC;
+	font-weight: 500;
+	color: #D7000F;
+}
+
+.Flash-money text {
+	font-size: 36rpx;
+	font-family: Heiti SC;
+	font-weight: 500;
+	color: #D7000F;
+}
+
+.flash_flex {
+	display: flex;
+	align-items: center;
+}
+
+/* .space-arounds {
+	display: flex;
+	justify-content: space-between;
+	width: 310rpx;
+} */
+
+.flash-smallm{
+	font-size: 24rpx;
+font-family: Heiti SC;
+font-weight: 500;
+text-decoration: line-through;
+color: #999999;
+}
+
+.rob {
+	width: 42rpx;
+	height: 54rpx;
+}
+
+.Redeem {
+	background: #FFFFFF;
+	margin-top: 33rpx;
+}
+
+.Redeem_blue {
+	width: 8rpx;
+	height: 32rpx;
+	background: #EB6100;
+	margin-right: 13rpx;
+}
+
+.Redeem_right {
+	font-size: 36rpx;
+	font-family: Source Han Serif SC;
+	font-weight: bold;
+	color: #EB6100;
+}
+
+.Redeem_right text {
+	color: #333333;
+}
+
+.Redeem_left {
+	font-size: 26rpx;
+	font-family: PingFang SC;
+	font-weight: bold;
+	color: #666666;
+}
+
+.Redeem_look {
+	font-size: 22rpx;
+	font-family: PingFang SC;
+	font-weight: 400;
+	color: #666666;
+}
+
+.host_hiimage {
+	width: 274rpx;
+	height: 52rpx;
+	position: absolute;
+}
+
+.host_hiicon {
+	width: 36rpx;
+	height: 16rpx;
+	margin-left: 10rpx;
+}
+
+.welfare {
+	font-size: 32rpx;
+	font-family: PingFang SC;
+	font-weight: 400;
+	color: #FFFFFF;
+	position: relative;
+	left: 40rpx;
+}
+
+.welfare_look {
+	font-size: 24rpx;
+	font-family: PingFang SC;
+	font-weight: 400;
+	color: #EB6100;
+}
+
+.recommend {
+	margin-top: 73rpx;
+	margin-bottom: 41rpx;
+	background: none;
+	font-size: 32rpx;
+	font-family: Source Han Serif SC;
+	font-weight: bold;
+	color: #333333;
+}
+
+.s_item {
+	width: 20% !important;
+}
+
+.hingth_btn {
+	height: 220rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.btn_x {
+	width: 288rpx;
+	height: 94rpx;
+	background: linear-gradient(0deg, #EC6601, #FFDC03);
+	border: 2px solid #FFCF91;
+	border-radius: 55rpx;
+	margin: auto;
+	font-size: 36rpx;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: #FFFFFF;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.time {
+  color: #FF2A48;
+  text-align: center;
+  display: flex;
+  font-size: 24rpx;
+}
+
+.time>view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FF2A48;
+  color: #FFFFFF;
+  border-radius: 4rpx;
+  width: 40rpx;
+  height: 30rpx;
+  padding: 5rpx;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 34rpx;
+  margin: 0 4rpx;
 }

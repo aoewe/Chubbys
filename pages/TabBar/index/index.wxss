@@ -398,6 +398,10 @@ video {
 	/* background-color: green; */
 }
 
+.action-sheet {
+	height: 900rpx;
+}
+
 .talks {
 	position: absolute;
 	height: 900rpx;
@@ -405,8 +409,9 @@ video {
 	bottom: 0rpx;
 	background-color: #ededed;
 	border-radius: 20rpx 20rpx 0 0;
-	z-index: 1000;
+	z-index: 99;
 }
+
 
 .talk-header {
 	width: 100%;
@@ -545,12 +550,12 @@ video {
 }
 
 .talk-input {
-	padding: 10rpx 20rpx;
+	padding: 20rpx 26rpx;
 	background: #f3f3f3;
-	border-radius: 15rpx;
+	border-radius: 40rpx;
 	text-indent: 10rpx;
 	font-size: 16px;
-	max-width: 70%;
+	/* max-width: 70%; */
 	max-height: 40rpx;
 }
 
@@ -572,11 +577,7 @@ video {
 	height: 210rpx;
 }
 
-.loading {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-}
+
 
 .nottext {
 	margin-top: 32rpx;

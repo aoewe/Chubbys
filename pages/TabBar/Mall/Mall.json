@@ -1,6 +1,9 @@
 {
 	"usingComponents": {
-		"van-image": "@vant/weapp/image/index"
+		"van-image": "@vant/weapp/image/index",
+		"van-icon": "@vant/weapp/icon/index",
+		"van-search": "@vant/weapp/search/index",
+		"van-progress": "@vant/weapp/progress/index"
 	},
 	"navigationStyle": "custom"
 }

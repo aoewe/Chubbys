@@ -4,6 +4,13 @@ page {
 }
 
 
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* .header{
   position: fixed;
   font-size: 60rpx;
@@ -80,6 +87,7 @@ page {
 /* 按钮 */
 
 .btn {
+	margin: 120rpx auto 0;
   display: flex;
   justify-content: center;
 }
@@ -89,7 +97,6 @@ page {
   height: 108rpx !important;
   background: linear-gradient(0deg, #EC6601, #FFDC03) !important;
   border-radius: 54rpx;
-  margin: 120rpx auto 0;
 	color: #ffffff;
 	border-color:#ffffff  !important;
 }

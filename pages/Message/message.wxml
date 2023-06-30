@@ -1,3 +1,13 @@
-<view class="no-content">
-  <image src="/static/imgs/nocontent.png"></image>
+<view>
+	<view wx:if="{{list}}">
+		<view wx:for="{{list}}" wx:key="index">
+			<view class="list_tiem">{{item.create_time}}</view>
+			<view class="list_black">
+				{{item.content}}
+			</view>
+		</view>
+	</view>
+	<view wx:else class="no-content">
+		<image src="/static/imgs/nocontent.png"></image>
+	</view>
 </view>

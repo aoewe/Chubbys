@@ -71,6 +71,11 @@ Page({
         lable: '设置中心',
         url: '../../Serve-Tool/Set/set'
 			},
+			{
+        img: '/static/icons/5.png',
+        lable: '商户入住',
+        url: '../../Serve-Tool/Join/Join'
+			},
     ],
   },
 

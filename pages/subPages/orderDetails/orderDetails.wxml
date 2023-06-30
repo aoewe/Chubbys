@@ -106,8 +106,8 @@
 				<view><text>规格 {{orderInfo.product_info[0].good_attr[0].value}}</text></view>
 			</view>
 		</view>
-		<view class="payment_btn" wx:if="{{orderInfo.pay_status !== 3  && orderInfo.pay_status !== 2 }}">
-			<view wx:if="{{orderInfo.order_status===0 || orderInfo.order_status===1 || orderInfo.order_status===2}}" round class="refund_btn" catchtap="applyRefund">退款</view>
+		<view class="payment_btn" wx:if="{{orderInfo.pay_status !== 3  && orderInfo.pay_status !== 2 && orderInfo.order_type ===1}}">
+			<view wx:if="{{orderInfo.order_status===0 || orderInfo.order_status===1 || orderInfo.order_status===2 }}" round class="refund_btn" catchtap="applyRefund">退款</view>
 		</view>
 		<view class="payment">
 			<text class="payment-money p-l">实付金额</text>

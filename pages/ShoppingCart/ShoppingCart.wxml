@@ -4,7 +4,7 @@
 		<view class="b-bang">编辑</view>
 	</view> -->
 	<!-- 购物车商品 -->
-	<view class="cart-list" wx:for="{{cartData.normal}}">
+	<view class="cart-list" wx:for="{{cartData.normal}}" wx:key="{{index}}">
 		<view class="cart-block">
 			<van-checkbox icon-size="18" checked-color="#FF4701" value="{{ item.checked }}" data-index="{{index}}" bind:change="changeCheck" />
 			<van-icon name="shop-o" /><text class="sp-title">{{item.name}}</text>

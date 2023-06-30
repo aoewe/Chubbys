@@ -11,6 +11,7 @@ Page({
 		context_o: '',
 		context_t: '',
 		indeo: 0, //横向切换
+		videoAnimation: '',
 
 		Videos: '',
 
@@ -40,6 +41,7 @@ Page({
 		belong_id: '',
 		to_uid: '',
 
+		show: false,
 		showShare: false, //分享
 		options: [{
 				name: '微信',
@@ -65,20 +67,15 @@ Page({
 	},
 
 	onReady() {
+		
+	},
+	onLoad(params) {
 		this.animation = wx.createAnimation({
 			duration: 400,
 			timingFunction: 'ease',
 			delay: 0,
 			transformOrigin: '50% 50% 0',
 		})
-		//评论组件动画
-		this.animationTwo = wx.createAnimation({ //评论组件弹出动画
-			duration: 400, // 整个动画过程花费的时间，单位为毫秒
-			timingFunction: "ease", // 动画的类型
-			delay: 0 // 动画延迟参数
-		})
-	},
-	onLoad(params) {
 		this.getVideos()
 	},
 	onShow() {
@@ -93,6 +90,7 @@ Page({
 			data
 		} = await fetch.getRecommendVideosBat()
 		if (code === 0) {
+
 			this.setData({
 				loadings: false,
 				Videos: data,
@@ -108,7 +106,7 @@ Page({
 			const param = {
 				video_id: data[0].id,
 			}
-			
+
 
 			const {
 				code
@@ -143,7 +141,6 @@ Page({
 			video_id: event.detail.currentItemId,
 		}
 		this.setData({
-			loading: true,
 			percents: 1,
 			video_id: event.detail.currentItemId,
 			index: event.detail.current
@@ -350,8 +347,53 @@ Page({
 			code
 		} = await fetch.addCollects(params)
 	},
+
+	onClose() {
+		this.animation.scale(1).step()
+		this.setData({
+			videoAnimation: this.animation.export(),
+			show: false
+		});
+	},
+
 	//获取评论
 	async leaveComment() {
+		this.animation.scale(0.5).step()
+
+		this.setData({
+			videoAnimation: this.animation.export(),
+			show: true,
+			loading: true
+		})
+		const params = {
+			video_id: this.data.video_id,
+			uid: this.data.uuid
+		}
+		const {
+			code,
+			data
+		} = await fetch.getComments(params)
+		if (code === 0) {
+			for (let i = 0; i < data.list.length; i++) {
+				const time = new Date(data.list[i].addtime);
+				const newtiem = new Date(time * 1000);
+				const year = newtiem.getFullYear();
+				const month = newtiem.getMonth() + 1;
+				const day = newtiem.getDate();
+				const hour = newtiem.getHours();
+				const minute = newtiem.getMinutes();
+				const second = newtiem.getSeconds();
+				const times = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
+				data.list[i].addtime = times
+			}
+			this.setData({
+				loading: false,
+				comments: data
+			})
+		}
+	},
+	//获取评论
+	async leaveComments() {
 		this.animation.scale(0.5).step()
 		// 更新 video 组件的数据
 		// 设置动画内容为：使用绝对定位显示区域，高度变为100%
@@ -465,7 +507,7 @@ Page({
 		});
 		console.log(this.data.showShare);
 	},
-	onClose() {
+	isClose() {
 		this.setData({
 			showShare: false
 		});

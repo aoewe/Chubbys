@@ -15,7 +15,6 @@
 		"pages/Serve-Tool/FansList/FansList",
 		"pages/Serve-Tool/Set/set",
 		"pages/Serve-Tool/SwitchAccount/swacc",
-		"pages/Serve-Tool/Password/password",
 		"pages/Serve-Tool/Headimg/Headimg",
 		"pages/Serve-Tool/upPayPaw/upPayPaw",
 		"pages/Assetflow/assetflow",
@@ -33,7 +32,10 @@
 		"pages/video/video",
 		"pages/Serve-Tool/Service/Service",
 		"pages/Serve-Tool/CourseList/course",
-		"pages/Serve-Tool/Coursedetails/Coursedetails"
+		"pages/Serve-Tool/Coursedetails/Coursedetails",
+		"pages/Product/Rushbuy/Rushbuy",
+		"pages/Product/Seckill/Seckill",
+		"pages/Serve-Tool/Join/Join"
 	],
 	"subPackages": [
 		{
@@ -50,16 +52,15 @@
 			]
 		},
 		{
-      "root": "pages/Shande",
-      "pages": [
-      	"back_sand/back",
-        "payment/index"
-      ]
-    }
+			"root": "pages/Shande",
+			"pages": [
+				"appWxPay/appWxPay"
+			]
+		}
 	],
 	"tabBar": {
 		"color": "#999999",
-		"selectedColor": "#2A9F93",
+		"selectedColor": "#EB6100",
 		"list": [
 			{
 				"pagePath": "pages/TabBar/Mall/Mall",

@@ -7,13 +7,13 @@
 			<view class="blue_block">咨询微信</view>
 			<view class="black_text">经按识别二维码</view>
 		</view>
-		<image class="crowd_code" show-menu-by-longpress="true" src="/static/imgs/1.png"></image>
+		<image class="crowd_code" show-menu-by-longpress="true" src="/static/imgs/one.png"></image>
 		</view>
 	<image class="line" src="/static/imgs/Dottedline.png"></image>
 	</view>
 	<view class="whitebakcages">
 		<view class="block_flex">
-			<image class="crowd_code" show-menu-by-longpress="true" src="/static/imgs/3.png"></image>
+			<image class="crowd_code" show-menu-by-longpress="true" src="/static/imgs/three.png"></image>
 		<view>
 			<view class="blue_block">售前微信</view>
 			<view class="black_text">经按识别二维码</view>
@@ -27,7 +27,7 @@
 			<view class="blue_block">售后微信</view>
 			<view class="black_text">经按识别二维码</view>
 		</view>
-		<image class="crowd_code" show-menu-by-longpress="true" src="/static/imgs/2.png"></image>
+		<image class="crowd_code" show-menu-by-longpress="true" src="/static/imgs/two.png"></image>
 		</view>
 	<image class="line" src="/static/imgs/Dottedline.png"></image>
 	</view>

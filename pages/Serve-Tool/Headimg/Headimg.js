@@ -5,34 +5,21 @@ Page({
     userInfo: {},
     loading: false
   },
-  async editUser(avatar){
-    await fetch.editUser({avatar})
-    await this.getUserInfo()
-  },
-  upAvatar() {
-    const that = this
-    wx.chooseImage({
-      count: 1,
-      success(res) {
-        const info = wx.getStorageSync('USERINFO')
-        wx.uploadFile({
-          filePath: res.tempFilePaths[0],
-          name: 'file',
-          header: {
-            token: info.token,
-            uid: info.id
-          },
-          url: host + '/app/upload/uploadImg',
-          formData: {
-            path_name: 'appImg/userAvatar'
-          },
-          success(res){
-            that.editUser(JSON.parse(res.data).data)
-          }
-        })
-      }
-    })
-  },
+
+	async afterRead(event) {
+		const that = this
+		const {
+			file
+		} = event.detail;
+		const {
+			data
+		} = await fetch.uploadImg(file.url)
+		let datas = JSON.parse(data)
+		console.log(datas);
+		if (datas.code === 0) {
+			that.editUser(datas.data.url[0])
+		}
+	},
   changeName(e) {
     this.setData({
       ['userInfo.username']: e.detail.value

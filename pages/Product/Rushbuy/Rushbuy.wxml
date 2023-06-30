@@ -1,0 +1,29 @@
+<view>
+  <van-loading color="#ffe162" size="40" custom-class="loading" wx:if="{{loading}}"/>
+	<view class="rush_white" wx:else>
+		<view class="rush_up">
+			<image class="rob_red" src="/static/imgs/rob_red.png"></image>
+			<view class="Trans_block">距结束： 
+        <view class="time">
+          <view>{{list.day}}</view>天
+        <view>{{list.hour}}</view>:
+        <view>{{list.minute}}</view>:
+        <view>{{list.second}}</view>
+      </view>
+			</view>
+		</view>
+		<navigator class="i-blocka" wx:for="{{list.product_info}}" wx:key="index" url="../../Product/details/details?id={{item.id}}&no=1&newp=1&re={{true}}&activity_id={{list.id}}">
+			<image class="com_img" src="{{item.main_pic}}"></image>
+			<view>
+				<view class="ia-text">{{item.product_name}}</view>
+				<view class="Limit">限购1件</view>
+				<view>
+				<image wx:if="{{item.current_cnt !== 0}}" class="rob_yellow" src="/static/imgs/rob_yellow.png"></image>
+				<image wx:else class="rob_yellow" src="/static/imgs/rob_grey.png"></image>
+				<view class="rob_money">￥<text>{{item.price}}</text></view>
+				</view>
+			</view>
+		</navigator>
+	</view>
+<image class="rob_background" src="/static/imgs/rob_background.png"></image>
+</view>

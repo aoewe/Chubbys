@@ -1,6 +1,6 @@
-// const apiurl = `http://c-api.xf-market.com`
-// const apiurl = `http://csbdd.taoqiy.com`
-const apiurl = `https://custom.taoqiy.com`
+// const apiurl = `https://api.xf-market.com/`
+const apiurl = `http://csbdd.taoqiy.com`
+// const apiurl = `https://custom.taoqiy.com`
 
 
 const api = {
@@ -20,6 +20,7 @@ const api = {
 	editShoppingCar: `${apiurl}/app/ShoppingCar/editShoppingCar`, //添加or修改购物车
 	DeleteShoppingCar: `${apiurl}/app/ShoppingCar/DeleteShoppingCar`, //删除购物车
 	getsku: `${apiurl}/app/product/getSKU`, //产品规格
+	getSKUs: `${apiurl}/app/Activity/getSKU`, //产品规格
 	getWineComments: `${apiurl}/app/product/getComments`, //获取相关评论
 	getaddorder: `${apiurl}/app/order/addOrder`, //创建订单
 	editUserAddress: `${apiurl}/app/user/editUserAddress`, //编辑收货地址
@@ -76,6 +77,13 @@ const api = {
 	getLessonInfo: 	`${apiurl}/app/Lesson/getLessonInfo`, //获取课程详情
 	transferBalance: 	`${apiurl}/app/Capital/transferBalance`, //获取课程详情
 	getNewsList: 	`${apiurl}/app/News/getNewsList`, //消息列表
+	getNewsTypeList: 	`${apiurl}/app/news/getNewsTypeList`, //消息分类列表
+	getCategory:	`${apiurl}/app/product/getCategory`, //
+	getKillingPro: 	`${apiurl}/app/Activity/getKillingPro`, //获取秒杀专区
+	getQuota: 	`${apiurl}/app/Activity/getQuota`, //限购活动列表
+	getProductdetails: 	`${apiurl}/app/Activity/getProductdetail`, //活动商品详情
+	getActivityProduct: 	`${apiurl}/app/Activity/getActivityProduct`, //秒杀抢购
+	applyMerchant: 	`${apiurl}/app/user/applyMerchant`, //商户入住申请
 }
 
 module.exports = api

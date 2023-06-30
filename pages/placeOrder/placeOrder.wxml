@@ -103,7 +103,6 @@
     <image src="../../static/imgs/active1.png" wx:if="{{payType==4}}"></image>
     <view class="select" wx:else></view>
   </view>
-
 	<view data-type="5" bindtap="changePayType" wx:if="{{newp == 0}}">
     <view>
       <image src="../../static/imgs/NewP.png" />新人卷支付
@@ -111,11 +110,11 @@
     <image src="../../static/imgs/active1.png" wx:if="{{payType==5}}"></image>
     <view class="select" wx:else></view>
   </view>
-  <!-- <view data-type="4" bindtap="changePayType" wx:if="{{commodityList[0].category_id!==2 && commodityList[0].category_id!==1 &&commodityList[0].category_id!==3}}">
+	<!-- <view data-type="6" bindtap="changePayType" wx:if="{{newp == 1 && showShopping != '2'}}">
     <view>
-      <image src="../../static/imgs/quan.png" />权益值(剩余{{userInfo.coupon}})
+      <image src="../../static/imgs/wxpay.png" />微信支付
     </view>
-    <image src="../../static/imgs/active1.png" wx:if="{{payType==4}}"></image>
+    <image src="../../static/imgs/active1.png" wx:if="{{payType==6}}"></image>
     <view class="select" wx:else></view>
   </view> -->
 </view>

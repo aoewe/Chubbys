@@ -1,9 +1,9 @@
 const api = require('../../../utils/reques').default
 Page({
 	data: {
-		product_type:'',
-		no:'',
-		newp:'',
+		product_type: '',
+		no: '',
+		newp: '',
 		products: [],
 		total: 0,
 		loading: true,
@@ -47,6 +47,13 @@ Page({
 			data
 		} = await api.getProductList(params)
 		if (code === 0) {
+			// const userInfo = wx.getStorageSync('USERINFO');
+			// if (userInfo.mobile === '13143357862') {
+			// 	let comm = data.list
+			// 	comm.splice(0, 1)
+			// 	data.list = comm
+			// }
+
 			this.data.products.push(...data.list)
 			this.setData({
 				products: this.data.products,
@@ -58,10 +65,10 @@ Page({
 	},
 	onLoad(options) {
 		this.setData({
-			product_type: options.product_type,
-			no:options.no,
-			newp:options.newp
-		}), 
+				product_type: options.product_type,
+				no: options.no,
+				newp: options.newp
+			}),
 			this.Getlist()
 	},
 	onReachBottom() {

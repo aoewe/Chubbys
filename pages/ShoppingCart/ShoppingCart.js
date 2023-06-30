@@ -133,12 +133,8 @@ Page({
 			if (i.checked) {
 				console.log(i);
 				checkNum = i.list.length
-
 				i.list.forEach((e) => {
 					priceTotal += (e.price * 1) * (e.number || 1)
-					if (e.checked) {
-						priceTotal += (e.price * 1) * (e.number || 1)
-					}
 				})
 			} else {
 				checkNum--
@@ -194,7 +190,9 @@ Page({
 			normal
 		} = this.data.cartData
 		let PRODUCT = normal.filter((i) => i.checked)
+		console.log(PRODUCT);
 		if (PRODUCT.length) {
+			wx.setStorageSync('commodityList', '')
 			wx.setStorageSync('PRODUCT', PRODUCT)
 			wx.navigateTo({
 				url: '../placeOrder/placeOrder'

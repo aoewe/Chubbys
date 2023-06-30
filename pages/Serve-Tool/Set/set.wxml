@@ -1,7 +1,19 @@
 <view>
+	<view class="logo">
+		<image src="../../../static/imgs/logo.png"></image>
+	</view>
+	<view class="bdd">棒多多</view>
+
   <view class="content">
+		<navigator class="cont-list">
+      <view class="cont-txt">版本号</view>
+      <view class="cont-left">
+        <view style="font-size: 26rpx;">1.0.1</view>
+        <van-icon name="arrow" />
+      </view>
+    </navigator>
     <navigator class="cont-list" url="/pages/Serve-Tool/Headimg/Headimg">
-      <view class="cont-txt">修改头像</view>
+      <view class="cont-txt">信息修改</view>
       <view class="cont-left">
         <image binderror="imgError" style="width: 64rpx;height: 64rpx;border-radius: 50%;" src="{{userInfo.avatar}}" />
         <van-icon name="arrow" />
@@ -20,7 +32,7 @@
       </view>
       </navigator>
       <navigator class="cont-list" url="../upPayPaw/upPayPaw">
-        <view class="cont-txt">支付密码</view>
+        <view class="cont-txt">密码修改</view>
         <view class="cont-left">
           <van-icon name="arrow" />
         </view>
@@ -29,5 +41,6 @@
 			<view class="btn">
 		<van-button custom-class="external-class" color="linear-gradient(0deg, #EC6601, #FFDC03);" bindtap="exit" size="round" round>退出登录</van-button>
 	</view>
+	<view class="ver">版权所属 广州铭耀贸易有限公司</view>
   </view>
 </view>

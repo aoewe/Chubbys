@@ -1,0 +1,77 @@
+page {
+  background: #F3F5F7;
+}
+
+.header {
+  height: 520rpx;
+  width: 100%;
+  background: linear-gradient(to bottom, #1c589c, #c4d2e3);
+  z-index: -1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.header .box{
+  padding-top: 100rpx;
+  display: flex;
+  align-items: center;
+  height: 116rpx;
+}
+.header .box view{
+  display: flex;
+  flex-direction: column;
+  padding-left: 20rpx;
+}
+.header .box view text:first-child{
+  font-weight: bold;
+  font-size: 36rpx;
+  padding-bottom: 6rpx;
+}
+.content1 {
+  box-shadow: 0 4rpx 10rpx #999999;
+  width: 702rpx;
+  margin: -200rpx auto 0 auto;
+  height: 440rpx;
+  background: #ffffff;
+  border-bottom-left-radius: 16rpx;
+  border-bottom-right-radius: 16rpx;
+}
+
+.content1 .money {
+  font-size: 26rpx;
+  text-align: center;
+  padding: 36rpx 0;
+  border-bottom: 1px dashed #eeeeee;
+}
+
+.content1 .money text {
+  font-size: 52rpx;
+  font-weight: bold;
+}
+
+.content-top {
+  height: 20rpx;
+  width: 722rpx;
+  z-index: -1;
+  border-radius: 20rpx;
+  position: absolute;
+  background: #DEBF83;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 306rpx;
+}
+.info{
+  padding-left: 40rpx;
+  padding-top: 40rpx;
+}
+.info view{
+  margin-bottom: 36rpx;
+  color: #666666;
+  font-size: 30rpx;
+}
+.btn{
+  width: 420rpx;
+  border-radius: 40rpx;
+  background: #DCBA7A;
+  margin-top: 80rpx;
+}

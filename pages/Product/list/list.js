@@ -7,28 +7,29 @@ Page({
 		products: [],
 		total: 0,
 		loading: true,
-		colse:null,
+		colse: null,
 		tabs: [{
-      name: null,
-      title: '全部'
-    }, {
-      name: 1,
-      title: '普通'
-    }, {
-      name: 2,
-      title: '热销'
-    }, {
-      name: 3,
-      title: '兑奖'
-    }, {
-      name: 4,
-      title: '新人'
-    }],
+			name: 1,
+			title: '全部',
+		}, {
+			name: 1,
+			title: '普通',
+		}, {
+			name: 2,
+			title: '热销',
+		}, {
+			name: 3,
+			title: '兑奖',
+		}, {
+			name: 4,
+			title: '新人',
+		}],
+		no: '',
+		newp: '',
 	},
 	async Getlist() {
 		const merchant_id = this.data.merchant_id
 		const product_type = this.data.product_type
-		console.log(product_type);
 		const params = {
 			merchant_id,
 			product_type
@@ -38,7 +39,13 @@ Page({
 			data
 		} = await api.getProductList(params)
 		if (code === 0) {
-			// this.data.products.push(...data.list)
+			// const userInfo = wx.getStorageSync('USERINFO');
+			// if (userInfo.mobile === '13143357862') {
+			// 	let comm = data.list
+			// 	comm.splice(0, 1)
+			// 	data.list = comm
+			// }
+			this.data.products.push(...data.list)
 			this.setData({
 				products: data.list,
 				total: data.total,
@@ -48,22 +55,44 @@ Page({
 		}
 	},
 	onChange(e) {
-    this.setData({
-      product_type:e.detail.name,
-    })
-    this.Getlist()
-  },
+		console.log(e);
+		let no = 0
+		let newp = 1
+		if (e.detail.name === 1) {
+			no = 0;
+			newp = 1;
+		}
+		if (e.detail.name === 2) {
+			no = 1;
+			newp = 1;
+		}
+		if (e.detail.name === 3) {
+			no = 2;
+			newp = 1;
+		}
+		if (e.detail.name === 4) {
+			no = 1;
+			newp = 0;
+		}
+		this.setData({
+			product_type: e.detail.name,
+			no: no,
+			newp: newp,
+		})
+		this.Getlist()
+	},
 	onLoad(options) {
 		const type = options.id
-		console.log(type);
-		
 		this.setData({
+			product_type: 1,
+			no: 0,
+			newp: 1,
 			merchant_avatar: options.avatar,
 			merchant_name: options.mername,
 			merchant_id: type || null,
 			colse: options.colse
 		})
-			this.Getlist()
+		this.Getlist()
 	},
 	// onReachBottom() {
 	// 	if (this.data.products.length === this.data.total) return

@@ -2,41 +2,48 @@
 	<view class="b-title">消息<span class="spannum">(0)</span></view>
 	<van-search value="{{ value }}" placeholder="搜索" />
 	<view class="container">
-		<navigator class="cont-list" url="../../Message/message">
+		<navigator class="cont-list" url="../../Message/message?id=1">
 			<view style="display: flex;">
 				<image class="cont-icon" src="/static/icons/official.png" />
 				<view class="c-flex">
 					<view class="c-title">官方通知</view>
-					<view class="c-txt">暂无消息</view>
+					<view class="c-txt">{{system_new.title || '暂无消息'}}</view>
 				</view>
 			</view>
 			<view>
 			<!-- <view class="c-time">2023-06-1</view> -->
+			<van-sidebar-item badge="{{system_new.number}}" wx:if="{{system_new.number !== 0}}"/>
 		</view>
 	</navigator>
-		<navigator class="cont-list" url="../../Message/message">
+
+
+		<navigator class="cont-list" url="../../Message/message?id=2">
 			<view style="display: flex;">
 				<image class="cont-icon" src="/static/icons/msg.png" />
 				<image class="in-icon" src="/static/icons/Certified.png" />
 				<view class="c-flex" style="margin-left: 0rpx;">
 					<view class="c-title">订单消息</view>
-					<view class="c-txt">暂无消息</view>
+					<view class="c-txt">{{system_order.title || '暂无消息'}} </view>
 				</view>
 			</view>
 			<view>
 			<!-- <view class="c-time">2023-06-1</view> -->
+  <van-sidebar-item badge="{{system_order.number}}" wx:if="{{system_order.number !== 0}}"/>
 		</view>
 		</navigator>
-		<navigator class="cont-list" url="../../Message/message">
+
+		
+		<navigator class="cont-list" url="../../Message/message?id=3">
 			<view style="display: flex;">
 				<image class="cont-icon" src="/static/icons/account.png" />
 				<view class="c-flex">
 					<view class="c-title">账户信息</view>
-					<view class="c-txt">暂无消息</view>
+					<view class="c-txt">{{system_capital.title || '暂无消息'}}</view>
 				</view>
 			</view>
 			<view>
 			<!-- <view class="c-time">2023-06-1</view> -->
+			<van-sidebar-item badge="{{system_capital.number}}" wx:if="{{system_capital.number !== 0}}"/>
 		</view>
 		</navigator>
 	</view>

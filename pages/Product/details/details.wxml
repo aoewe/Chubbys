@@ -24,6 +24,20 @@
 		<text>/</text>
 		<text>{{detailData.banner_pic.length}}</text>
 	</view>
+	<view class="origin_black" wx:if="{{re}}">
+		<view class="origin_flex">
+			<image class="hand" src="/static/imgs/hand.png"></image>
+	<view class="origin_txt">此商品正在参与秒杀</view>
+		</view>
+<view class="origin_al">
+<view class="origim_ts">距结束还剩</view>
+<van-count-down use-slot time="{{ time }}" bind:change="onChange">
+						<text class="item">{{ timeData.hours }}</text>:
+						<text class="item">{{ timeData.minutes }}</text>:
+						<text class="item">{{ timeData.seconds }}</text>
+					</van-count-down>
+</view>
+	</view>
 </view>
 
 <!-- 内容介绍 -->

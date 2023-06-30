@@ -2,9 +2,13 @@ const fetch = require("../../../utils/reques").default;
 const app = getApp()
 Page({
 	data: {
+		time: 30 * 60 * 60 * 1000,
+		timeData: {},
 		statusBar: wx.getMenuButtonBoundingClientRect(),
 		showSpecifications: false,
+		re:false,
 		id: '', //当前产品id
+		activity_id:'',//活动场次ID
 		isParameter: false,
 		comments: [], //评论
 		detailData: {}, //产品数据
@@ -18,8 +22,8 @@ Page({
 		showtype: true, //加入购物车 或购买
 		product_id: '',
 		goods_code: '',
-		showShopping:1,
-		newp:1,
+		showShopping: 1,
+		newp: 1,
 	},
 	goDetails() {
 		wx.pageScrollTo({
@@ -37,6 +41,12 @@ Page({
 			urls: e.currentTarget.dataset.imgarr,
 			current: e.currentTarget.dataset.img
 		})
+	},
+
+	onChange(e) {
+		this.setData({
+			timeData: e.detail,
+		});
 	},
 
 	handelBack() {
@@ -65,6 +75,7 @@ Page({
 		obj.selectNum = this.data.selectNum
 		let commodityList = []
 		commodityList.push(obj)
+		wx.setStorageSync('PRODUCT', '')
 		wx.setStorageSync('commodityList', commodityList)
 		this.setData({
 			showSpecifications: false
@@ -82,7 +93,7 @@ Page({
 	},
 	//显示隐藏参数
 	opench() {
-		if(this.data.detailData.parameter.length > 0){
+		if (this.data.detailData.parameter.length > 0) {
 			this.setData({
 				isParameter: true
 			})
@@ -131,12 +142,47 @@ Page({
 			})
 		}
 	},
+	async getProductdetail() {
+		const {
+			code,
+			data
+		} = await fetch.getProductdetails({
+			id: this.data.id,
+			activity_id: this.data.activity_id
+		})
+		if (code === 0) {
+			this.setData({
+				detailData: data
+			})
+		}
+	},
 	//获取产品规格
 	async getSpecs() {
 		const {
 			code,
 			data
 		} = await fetch.getSKU({
+			id: this.data.id
+		})
+		if (code === 0) {
+			let selValue = this.data.selValue
+			data[0].attr.forEach(i => {
+				selValue.push(i.value)
+			})
+			this.setData({
+				skuList: data,
+				// 默认选中第一个
+				skuData: data[0],
+				selValue
+			})
+			this.getSkuList(data)
+		}
+	},
+	async getSKUs(){
+		const {
+			code,
+			data
+		} = await fetch.getSKUs({
 			id: this.data.id
 		})
 		if (code === 0) {
@@ -278,18 +324,25 @@ Page({
 	onshop() {
 		const detailData = this.data.detailData
 		wx.navigateTo({
-			url: '../list/list?id=' + detailData.id + '&avatar='+ detailData.merchant_avatar + '&mername=' + detailData.merchant_name,
+			url: '../list/list?id=' + detailData.id + '&avatar=' + detailData.merchant_avatar + '&mername=' + detailData.merchant_name,
 		})
 	},
 	onLoad: function (options) {
-		console.log(options.newp);
+		console.log(options);
 		this.setData({
 			id: options.id,
-			showShopping :	options.no,
-			newp:	options.newp
+			activity_id: options.activity_id,
+			showShopping: options.no,
+			newp: options.newp,
+			re: options.re
 		})
-		this.getSpecs()
-		this.loadDetail()
+		if (!options.re) {
+			this.getSpecs()
+			this.loadDetail()
+		} else {
+			this.getSKUs()
+			this.getProductdetail()
+		}
 		if (wx.getStorageSync('USERINFO').token) {
 			this.getUserAddress()
 		}

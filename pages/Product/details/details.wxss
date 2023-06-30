@@ -42,7 +42,7 @@ page {
 
 .swiper_item_num {
 	position: absolute;
-	bottom: 24rpx;
+	bottom: 105rpx;
 	right: 30rpx;
 	width: 80rpx;
 	height: 40rpx;
@@ -57,6 +57,63 @@ page {
 	font-weight: 600;
 	color: #FFFFFF;
 	font-size: 13px;
+}
+
+.origin_black {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	bottom: 5rpx;
+	width: 750rpx;
+	height: 100rpx;
+	background: linear-gradient(0deg, #FF512F, #FFBA1D);
+}
+
+.origin_txt {
+	font-size: 28rpx;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: #FFFFFF;
+}
+
+.origim_ts {
+	font-size: 22rpx;
+font-family: PingFang SC;
+font-weight: 500;
+color: #FFFFFF;
+margin-bottom: 5rpx;
+}
+
+
+.origin_flex {
+	display: flex;
+	align-items: center;
+}
+
+.hand {
+	position: relative;
+	width: 70rpx;
+	height: 100rpx;
+	margin-right: 16rpx;
+}
+
+.item {
+	display: inline-block;
+	width: 40rpx;
+	height: 30rpx;
+	background: #FFFFFF;
+	border-radius: 8rpx;
+	margin-right: 5rpx;
+	color: #FF512D;
+	font-size: 12px;
+	text-align: center;
+	padding: 2rpx;
+}
+
+.origin_al {
+	margin: 0rpx 17rpx;
+	text-align: center;
 }
 
 /* 内容 */
@@ -381,7 +438,7 @@ page {
 	display: flex;
 	padding: 23rpx 0rpx;
 	margin: 0rpx 20rpx;
-	border-bottom: 1rpx solid  #e0e0e0;
+	border-bottom: 1rpx solid #e0e0e0;
 }
 
 .ch-parame {

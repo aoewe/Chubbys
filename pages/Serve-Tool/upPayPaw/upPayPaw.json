@@ -1,4 +1,8 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText":"修改支付密码"
+  "usingComponents": {
+		"van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+		"van-dropdown-item": "@vant/weapp/dropdown-item/index"
+	},
+	"navigationBarTitleText":"密码修改",
+	"navigationStyle": "custom"
 }

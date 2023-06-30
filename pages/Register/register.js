@@ -121,7 +121,7 @@ Page({
   },
   async login(params) {
     const param = {
-      username: params.username,
+      mobile: params.mobile,
       password: params.password
     }
     const res = await api.login(param)
@@ -152,9 +152,6 @@ Page({
       wx.switchTab({
         url: '/pages/TabBar/Mall/Mall',
       })
-
-
-
     }
   },
 
@@ -191,7 +188,14 @@ Page({
     if (!username) return wx.showToast({
       title: '请输入用户名',
       icon: 'none'
-    })
+		})
+		if (!username.match(/^[a-zA-Z0-9\u4e00-\u9fa5]+$/)) {
+			wx.showToast({
+				title: '请输入中文、字母或数字的昵称',
+				icon: 'none'
+			});
+			return;
+		}
 
     const params = {
       code,
@@ -200,7 +204,6 @@ Page({
       up_uuid,
       mobile
 		}
-		console.log(params);
     const res = await api.register(params)
     if (res.code === 0) {
       wx.showToast({
@@ -208,10 +211,7 @@ Page({
         icon: 'none'
       })
       let timer = setTimeout(() => {
-        this.login({
-          mobile,
-          password
-        })
+        this.login(params)
         clearTimeout(timer)
       }, 500)
     } else {

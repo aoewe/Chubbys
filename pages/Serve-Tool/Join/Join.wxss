@@ -1,0 +1,95 @@
+page {
+	background: #ffff;
+}
+
+.join_header {
+	width: 100%;
+	height: 20rpx;
+	background: #F3F5F7;
+}
+
+.join_line {
+	/* display: flex; */
+	padding: 39rpx 33rpx;
+}
+
+.join_title {
+	font-size: 32rpx;
+	font-family: PingFang SC;
+	font-weight: 400;
+	color: #333333;
+	margin-right: 102rpx;
+}
+
+input {
+	font-size: 28rpx;
+	font-family: PingFang SC;
+	font-weight: 400;
+	color: #999999;
+}
+
+.join_title text {
+	font-size: 28rpx;
+	font-family: PingFang SC;
+	font-weight: 400;
+	color: #999999;
+}
+
+image {
+	width: 334rpx;
+	height: 214rpx;
+	padding: 0rpx 9rpx;
+}
+
+.jion_img {
+	display: flex;
+	justify-content: center;
+	margin-top: 39rpx;
+	background: #f3f5f7;
+}
+
+button {
+	width: 670rpx;
+	height: 86rpx;
+	background: #EB6100;
+	border-radius: 10rpx;
+	font-size: 32rpx;
+	font-family: PingFang SC;
+	font-weight: 400;
+	color: #FFFFFF;
+}
+
+.join_btn {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 120rpx;
+}
+
+
+.body-view {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20rpx;
+}
+
+.weui-agree__text {
+	font-size: 28rpx;
+	font-family: PingFang SC;
+	font-weight: 400;
+	color: #9D9C9C;
+}
+
+.body-view text {
+	padding-right: 10rpx;
+}
+
+checkbox-group {
+	display: flex;
+	justify-content: center;
+}
+
+.weui-agree__link {
+	color: #F4010A;
+}

@@ -1,0 +1,252 @@
+/* pages/Product/Seckill/Seckill.wxss */
+
+page {
+	background: #f3f5f7;
+}
+
+.seckillimg {
+	position: absolute;
+	width: 100%;
+	height: 384rpx;
+}
+
+.img_flex {
+	display: flex;
+	align-items: center;
+}
+
+van-icon {
+	position: relative;
+	top: 110rpx;
+}
+
+.seckilltitle {
+	position: relative;
+	z-index: 1;
+	width: 198rpx;
+	height: 50rpx;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 110rpx;
+}
+
+.Trans_block {
+	position: relative;
+	top: 270rpx;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 610rpx;
+	height: 50rpx;
+	background: linear-gradient(90deg, #FF9973, #FF70A1);
+	border-radius: 16rpx 16rpx 0rpx 0rpx;
+}
+
+.Trans_blockt {
+	position: relative;
+	top: -6rpx;
+	width: 522rpx;
+	height: 68rpx;
+	background: linear-gradient(90deg, #FFAB93, #FF90B1);
+	border-radius: 16rpx 16rpx 0rpx 0rpx;
+}
+
+.Trans_blocks {
+	position: relative;
+	top: -17rpx;
+	width: 434rpx;
+	height: 86rpx;
+	background: linear-gradient(90deg, #FFCDC2, #FFC1D0);
+	border-radius: 16rpx 16rpx 0rpx 0rpx;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 26rpx;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: #333333;
+}
+
+.progress {
+	width: 230rpx !important;
+	margin: 0rpx 31rpx;
+	margin-bottom: 30rpx;
+}
+
+.item {
+	display: inline-block;
+	width: 50rpx;
+	height: 46rpx;
+	background: #333333;
+	border-radius: 8rpx;
+	margin-right: 5rpx;
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	padding: 2rpx;
+}
+
+.time_flex {
+	margin-top: 39rpx;
+	display: flex;
+    justify-content: space-around;
+}
+
+.time_black {
+	text-align: center;
+	color: #333333;
+}
+
+.time_blacks {
+	text-align: center;
+	color: #FF4B4E;
+}
+
+.time_one {
+	font-size: 28rpx;
+	font-family: OPPOSans;
+	font-weight: bold;
+
+}
+
+.time_two {
+	font-size: 26rpx;
+	font-family: PingFang SC;
+	font-weight: 400;
+}
+
+
+.i-blocka {
+	margin: 24rpx auto;
+	width: 702rpx;
+	height: 288rpx;
+	/* border: 14rpx solid #FFFFFF; */
+	border-radius: 20rpx;
+	display: flex;
+	background: #FFFFFF;
+}
+
+.i-image {
+	padding: 30rpx;
+}
+
+.ia-text {
+	margin: 31rpx 31rpx;
+	width: 390rpx;
+	height: 75rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: #333333;
+	text-align: initial;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	/* 显示3行文字 */
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+swiper {
+	height: 70vh;
+}
+
+.space-around {
+	display: flex;
+	justify-content: space-around;
+}
+
+.com_img {
+	width: 224rpx;
+	height: 224rpx;
+	background: #FFFFFF;
+	border-radius: 24rpx;
+}
+
+.ia-money {
+	margin: auto;
+	width: 250rpx;
+	text-align: initial;
+	font-size: 24rpx;
+	font-family: Heiti SC;
+	font-weight: 500;
+	color: #FF4701;
+}
+
+.s {
+	margin: auto;
+	width: 250rpx;
+	text-align: initial;
+	font-size: 24rpx;
+	font-family: Heiti SC;
+	font-weight: 500;
+	color: #666666;
+}
+
+.s text {
+	font-size: 36rpx;
+	font-family: Heiti SC;
+	font-weight: 500;
+	color: #666666;
+}
+
+.ia-money text {
+	font-size: 36rpx;
+	font-family: Heiti SC;
+	font-weight: 500;
+	color: #FF4701;
+}
+
+.ia_bluebtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 140rpx;
+	height: 50rpx;
+	background: #FE1018;
+	border-radius: 25rpx;
+	font-size: 26rpx;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: #FFFFFF;
+}
+
+.ia_grey {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 140rpx;
+	height: 50rpx;
+	border-radius: 25rpx;
+	font-size: 26rpx;
+	font-family: PingFang SC;
+	font-weight: 500;
+	background: #CCCCCC;
+	color: #FFFFFF;
+}
+
+.time {
+  color: #FF2A48;
+  text-align: center;
+  display: flex;
+  font-size: 24rpx;
+}
+
+.time>view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FF2A48;
+  color: #FFFFFF;
+  border-radius: 4rpx;
+  width: 40rpx;
+  height: 30rpx;
+  padding: 5rpx;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 34rpx;
+  margin: 0 4rpx;
+}

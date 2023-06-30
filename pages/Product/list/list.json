@@ -4,5 +4,5 @@
 		"van-tab": "@vant/weapp/tab/index",
 		"van-tabs": "@vant/weapp/tabs/index"
 	},
-	"navigationBarTitleText": "宝贝"
+	"navigationBarTitleText": "全部商品"
 }

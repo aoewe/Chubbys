@@ -1,0 +1,41 @@
+<view class="pay">
+    <view class="header">
+        <view class="box" wx:if="{{isSuccess}}">
+            <icon type="success" size="60" class="pay-icon"></icon>
+            <view>
+                <text>支付成功！</text>
+                <text>{{text}}</text>
+            </view>
+        </view>
+        <view class="box" wx:if="{{isCancel&&!isSuccess}}">
+            <icon type="warn" color="#C9C9C9" size="60" class="pay-icon"></icon>
+            <view>
+                <text>您已取消支付!</text>
+            </view>
+        </view>
+        <view class="box" wx:if="{{isFail}}">
+            <icon type="cancel" size="60" class="pay-icon"></icon>
+            <view>
+                <text>支付失败！</text>
+                <text>请重新支付</text>
+            </view>
+        </view>
+    </view>
+    <view class="content1" wx:if="{{isSuccess}}">
+        <view class="content-top"></view>
+        <view class="money">￥<text>{{pay_money}}</text></view>
+        <view class="info">
+            <view>订单编号：{{order_sn}}</view>
+            <view>下单时间：{{successDate}}</view>
+            <view>支付方式：微信支付</view>
+        </view>
+    </view>
+    <view wx:if="{{!isSuccess}}">
+        <block wx:if="{{isFail || isCancel}}">
+            <button class="btn" bindtap="toPayApp">重新支付</button>
+        </block>
+    </view>
+    <block wx:if="{{isLoading}}">
+        <button class="btn" open-type="launchApp" app-parameter="{{status}}" bindlaunchapp="bindlAunchapp" binderror="launchAppError">确定</button>
+    </block>
+</view>

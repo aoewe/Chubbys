@@ -40,44 +40,76 @@ Page({
   },
   // 钱包支付输完回调
   async payOrderNext(e) {
+		if(this.data.payType == 6){
     let data = {
+			openid:e,
       ids: this.data.order_id,
       order_sn: this.data.order_sn,
-      pay_type: this.data.payType,
-      password: e.detail,
-    }
-    const res = await fetch.payOrder(data)
-    if (res.code === 0) {
-      this.setData({
-        showPassword:false
-      })
-      wx.showToast({
-        title: '支付成功',
-			})
-			if(this.data.newp == 0){
-				wx.redirectTo({
-          url: `../Serve-Tool/Newborn/Newborn?id=${this.data.order_id}`,
-        })
-			} else {
-				let timer = setTimeout(()=>{
-					wx.redirectTo({
-						url: `../subPages/orderDetails/orderDetails?id=${this.data.order_id}&isRefresh=true`,
+			pay_type: this.data.payType,
+			pay_system:'mini_program',
+		}
+		const res = await fetch.payOrder(data)
+			const r = res.data.pay_param
+			wx.requestPayment({
+				appId: r.appId,
+				nonceStr: r.nonceStr,
+				package: r.package,
+				paySign: r.paySign,
+				timeStamp: r.timeStamp,
+				signType:	r.signType,
+				success (res) {
+					wx.showToast({
+						title: '支付成功',
 					})
-					clearTimeout(timer)
-				},500)
+					let timer = setTimeout(()=>{
+						wx.redirectTo({
+							url: `../subPages/orderDetails/orderDetails?id=${this.data.order_id}&isRefresh=true`,
+						})
+						clearTimeout(timer)
+					},500)
+				},
+			})
+		} else {
+			let data = {
+				ids: this.data.order_id,
+				order_sn: this.data.order_sn,
+				pay_type: this.data.payType,
+				password: e.detail,
 			}
-    } else {
-      wx.showToast({
-        title: res.msg,
-        icon: 'none',
-        duration: 2000
-      })
-      setTimeout(function(){
-        wx.navigateTo({
-        url: '../subPages/orderList/orderList',
-        })
-        }, 2000);
-    }
+			console.log(data);
+			const res = await fetch.payOrder(data)
+			if (res.code === 0) {
+				this.setData({
+					showPassword:false
+				})
+				wx.showToast({
+					title: '支付成功',
+				})
+				if(this.data.newp == 0){
+					wx.redirectTo({
+						url: `../Serve-Tool/Newborn/Newborn?id=${this.data.order_id}`,
+					})
+				} else {
+					let timer = setTimeout(()=>{
+						wx.redirectTo({
+							url: `../subPages/orderDetails/orderDetails?id=${this.data.order_id}&isRefresh=true`,
+						})
+						clearTimeout(timer)
+					},500)
+				}
+			} else {
+				wx.showToast({
+					title: res.msg,
+					icon: 'none',
+					duration: 2000
+				})
+				setTimeout(function(){
+					wx.navigateTo({
+					url: '../subPages/orderList/orderList',
+					})
+					}, 2000);
+			}
+		}
   },
 
   closePay() {
@@ -85,7 +117,20 @@ Page({
       showPassword: false,
       codeList: []
     })
-  },
+	},
+	wxmlogin() {
+		wx.login({
+			success: async (res) => {
+				const jsCode = res.code
+				const params = {
+					jsCode
+				}
+				const id = await fetch.wxm_login(params)
+
+				this.payOrderNext(id.data.openid)
+			},
+		})
+	},
   // 提交订单
   async submit(e) {
     if (!this.data.address) {
@@ -110,7 +155,7 @@ Page({
 			id_card_name:this.data.id_card_name,
 			id_card:this.data.id_card,
       remarks: this.data.remark
-    }
+		}
     const res = await fetch.getAddOrder(data)
     if (res.code === 0) {
       this.setData({
@@ -118,44 +163,16 @@ Page({
         order_id: res.data.list[0].id,
         order_sn: res.data.list[0].order_sn,
         paytype:e.target.dataset.type
-      })
-      this.setData({
-        showPassword: true,
-      })
+			})
+			if(this.data.payType == 6){
+				this.wxmlogin()
+			} else {
+				this.setData({
+					showPassword: true,
+				})
+			}
     }
 	},
-	async submits(e) {
-
-    let list = []
-    this.data.commodityList.forEach(el => {
-      let item = {
-        goods_code: el.sku.goods_code,
-        buy_cnt: el.selectNum,
-        room_coupons: el.sku.room_coupons,
-        price: el.sku.price
-      }
-      list.push(item)
-    })
-    let data = {
-      user_address_id: this.data.address.id,
-      product: list,
-			id_card_name:this.data.id_card_name,
-			id_card:this.data.id_card,
-      remarks: this.data.remark
-    }
-    const res = await fetch.getAddOrder(data)
-    if (res.code === 0) {
-      // this.setData({
-      //   payPrice: res.data.list[0].order_money,
-      //   order_id: res.data.list[0].id,
-      //   order_sn: res.data.list[0].order_sn,
-      //   paytype:e.target.dataset.type
-      // })
-wx.navigateTo({
-	url: '/pages/Shande/payment/index?payPrice=' + res.data.list[0].order_money + '&order_sn=' + res.data.list[0].order_sn,
-})
-    }
-  },
   //头部地址
   async getUserAddress() {
     const {
@@ -280,7 +297,14 @@ wx.navigateTo({
     if (wx.getStorageSync('commodityList')) {
       this.setData({
         commodityList: wx.getStorageSync('commodityList')
-      })
+			})
+			this.total()
+		}
+		if (wx.getStorageSync('PRODUCT')) {
+      this.setData({
+        commodityList: wx.getStorageSync('PRODUCT')
+			})
+			console.log(this.data.commodityList);
 		}
     if (options.address && options.address !== 'undefined') {
       let address = options.address
@@ -292,7 +316,7 @@ wx.navigateTo({
       })
 		}
     this.getUserInfo()
-    this.total()
+    
     this.piece()
   },
   onShow: function () {

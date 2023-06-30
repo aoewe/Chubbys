@@ -69,7 +69,22 @@ page {
 
 .c-time {
 	font-size: 20rpx;
-font-family: PingFang SC;
-font-weight: 400;
-color: #999999;
+	font-family: PingFang SC;
+	font-weight: 400;
+	color: #999999;
+}
+
+.red_meg {
+	background: #FF4B4E;
+	border: 1px solid #FFFFFF;
+	border-radius: 50%;
+	font-size: 20rpx;
+	font-family: Heiti SC;
+	font-weight: 500;
+	color: #FFFFFF;
+	padding: 5rpx;
+}
+
+.action-sheet {
+	height: 900rpx;
 }

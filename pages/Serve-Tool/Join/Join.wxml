@@ -1,0 +1,53 @@
+<view class="page">
+	<view class="join_header"></view>
+	<!-- <view class="join_line">
+		<view style="display: flex;">
+			<view class="join_title">店铺名称</view>
+			<input model:value="{{title}}" placeholder="请填写" />
+		</view>
+	</view> -->
+	<view class="join_line">
+		<view class="join_title">商家属性</view>
+	</view>
+	<van-radio-group value="{{ radio }}" bind:change="onRadio" direction="horizontal">
+		<van-radio name="1" checked-color="#EB6100">个人</van-radio>
+		<van-radio name="2" checked-color="#EB6100">企业及商家</van-radio>
+	</van-radio-group>
+	<view class="join_line">
+		<view class="join_title" wx:if="{{radio == 1}}">身份证<text>(请上传经营者身份证照片)</text></view>
+		<view class="join_title" style="margin-right: 0rpx;" wx:else>营业执照<text>(请上传中国大陆商家营业执照正面照)</text></view>
+		<view class="jion_img" wx:if="{{radio == 1}}">
+			<van-uploader max-count="1" preview-size="200rpx" file-list="{{ straight }}" preview-full-image="{{true}}" deletable="{{ true }}" bind:after-read="afterstraight" bind:delete="deletestraight">
+				<image src="/static/imgs/IDcard1.png"></image>
+			</van-uploader>
+			<van-uploader max-count="1" preview-size="200rpx" file-list="{{ Reverse }}" preview-full-image="{{true}}" deletable="{{ true }}" bind:after-read="afterRead" bind:delete="deletefile">
+				<image src="/static/imgs/IDcard2.png"></image>
+			</van-uploader>
+		</view>
+		<view class="jion_img" wx:if="{{radio == 2}}">
+			<van-uploader max-count="1" preview-size="200rpx" file-list="{{ straight }}" preview-full-image="{{true}}" deletable="{{ true }}" bind:after-read="afterstraight" bind:delete="deletestraight">
+				<image src="/static/imgs/IDcard3.png"></image>
+			</van-uploader>
+		</view>
+	</view>
+	<view class="join_line">
+		<view style="display: flex;">
+			<view class="join_title" style="margin-right: 72rpx;">经营者姓名</view>
+			<input model:value="{{name}}" placeholder="请填写真实姓名" />
+		</view>
+	</view>
+	<view class="join_line">
+		<view style="display: flex;">
+			<view class="join_title">店铺电话</view>
+			<input model:value="{{phone}}" type="number" maxlength="11" placeholder="请填写真实联系方式" />
+		</view>
+	</view>
+	<view class="join_btn">
+		<button bindtap="submit">确认提交</button>
+		<view class="body-view">
+			<van-checkbox value="{{ checked }}" bind:change="onChange" checked-color="#333333"><span class="weui-agree__text" style="display: flex;"><text aria-hidden="true" id="js_agree_txt" bindtap="select">同意并遵守</text>
+					<view bindtap="openAgree" id="js_agree_link" class="weui-agree__link">《商家入驻协议》</view>
+				</span></van-checkbox>
+		</view>
+	</view>
+</view>

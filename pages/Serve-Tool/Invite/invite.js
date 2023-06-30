@@ -21,7 +21,7 @@ Page({
     const {
       uuid
     } = wx.getStorageSync('USERINFO')
-    const params = `http://cms.btzni.com/register?id=${uuid}`;
+    const params = `http://manage.xf-market.com/register?id=${uuid}`;
     const imgData = QRCode.drawImg(params, {
       typeNumber: 4, // 密度
       errorCorrectLevel: 'L', // 纠错等级

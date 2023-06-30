@@ -1,0 +1,58 @@
+<wxs src="../../../utils/comm.wxs" module="comm"></wxs>
+<view>
+	<view style="height: 384rpx;">
+		<image class="seckillimg" src="/static/imgs/seckillimg.png"></image>
+		<view class="img_flex">
+			<van-icon color="#FFFFFF" size="60rpx" name="arrow-left" bind:click="close" />
+			<image class="seckilltitle" src="/static/imgs/seckilltitle.png"></image>
+			<van-icon color="#ff4f91" size="60rpx" name="arrow-left" />
+		</view>
+		<view class="Trans_block">
+			<view class="Trans_blockt">
+				<view class="Trans_blocks">{{list[indexs].status === 1 || (list[indexs].hour==0 && list[indexs].minute==0 && list[indexs].second==0) ? '距离本场结束还剩' : '距离本场开始还剩'}}
+					<view class="time" wx:if="{{list[indexs].status === 1}}">
+						<view>{{list[indexs].h}}</view>:
+						<view>{{list[indexs].m}}</view>:
+						<view>{{list[indexs].s}}</view>
+					</view>
+					<view class="time" wx:else>
+						<view>{{list[indexs].hour}}</view>:
+						<view>{{list[indexs].minute}}</view>:
+						<view>{{list[indexs].second}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="time_flex">
+    <view wx:for="{{list}}" wx:key="index" class="{{indexs === index ? 'time_blacks' : 'time_black'}}" data-index="{{index}}" bindtap="bindswiper">
+      <view class="time_one">{{item.statustime}}</view>
+      <view class="time_two">{{item.status === 1  ? '进行中' : '未开始'}}</view>
+    </view>
+  </view>
+  <swiper current="{{indexs}}" bindchange="switchswiper" autoplay="{{false}}">
+    <swiper-item wx:for="{{list}}" wx:key="index">
+      <view class="i-blocka" wx:for="{{item.product_info}}" wx:for-item="temi" wx:for-index="ndexi" wx:key="ndexi" data-status="{{item.status}}" data-id="{{temi.id}}" data-activity_id="{{item.id}}" bindtap="Godetails">
+        <image class="com_img" src="{{temi.banner_pic[0]}}"></image>
+        <view>
+          <view class="ia-text">{{temi.product_name}}</view>
+          <view wx:if="{{temi.content !== 100}}">
+            <van-progress pivot-text="已抢{{temi.content}}%" color="#FFBBBB" percentage="{{temi.content}}" stroke-width="26rpx" text-color="#D7000F" custom-class="progress" />
+            <view class="space-around">
+              <view class="ia-money">￥<text>{{temi.price}}</text></view>
+              <view class="{{item.status === 1 || (item.hour==0 && item.minute==0 && item.second==0) ? 'ia_bluebtn' : 'ia_grey'}}">{{item.status === 1 || (item.hour==0 && item.minute==0 && item.second==0) ? '立即抢购' : '未开始'}}</view>
+            </view>
+          </view>
+          <view wx:else>
+            <van-progress pivot-text="已抢{{temi.content}}%" color="#F0F4F7" percentage="{{temi.content}}" stroke-width="26rpx" text-color="#333333" custom-class="progress" />
+            <view class="space-around">
+              <view class="s">￥<text>{{temi.price}}</text></view>
+              <view class="ia_grey">已抢完</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

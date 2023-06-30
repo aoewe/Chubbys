@@ -1,0 +1,8 @@
+{
+	"usingComponents": {
+    "van-loading": "@vant/weapp/loading/index"
+	},
+	"navigationBarBackgroundColor":"#FE6231",
+	"navigationBarTitleText":"限量抢购",
+	"navigationBarTextStyle":"white"
+}

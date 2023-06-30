@@ -66,7 +66,7 @@ Page({
 		} = await api.uploadImg(file.url)
 		let datas = JSON.parse(data)
 		that.data.fileList.push(file);
-		that.data.fList.push(datas.data.url)
+		that.data.fList.push(datas.data.url[0])
 		if (datas.code === 0) {
 			that.setData({
 				fileList: that.data.fileList,

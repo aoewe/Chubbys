@@ -450,6 +450,46 @@ const getNewsList = data => {
     resolve(request(api.getNewsList, 'post', data));
   });
 };
+const getNewsTypeList = data => {
+  return new Promise((resolve, reject) => {
+    resolve(request(api.getNewsTypeList, 'post', data));
+  });
+};
+const getCategory = data => {
+  return new Promise((resolve, reject) => {
+    resolve(request(api.getCategory, 'post', data));
+  });
+};
+const getKillingPro = data => {
+  return new Promise((resolve, reject) => {
+    resolve(request(api.getKillingPro, 'post', data));
+  });
+};
+const getQuota = data => {
+  return new Promise((resolve, reject) => {
+    resolve(request(api.getQuota, 'post', data));
+  });
+};
+const getProductdetails = data => {
+  return new Promise((resolve, reject) => {
+    resolve(request(api.getProductdetails, 'post', data));
+  });
+};
+const getSKUs = data => {
+  return new Promise((resolve, reject) => {
+    resolve(request(api.getSKUs, 'post', data));
+  });
+};
+const getActivityProduct = data => {
+  return new Promise((resolve, reject) => {
+    resolve(request(api.getActivityProduct, 'post', data));
+  });
+};
+const applyMerchant = data => {
+  return new Promise((resolve, reject) => {
+    resolve(request(api.applyMerchant, 'post', data));
+  });
+};
 export default {
   getWithdrawalList,
   confirmOrder,
@@ -522,5 +562,13 @@ export default {
 	getLessonInfo,
 	transferBalance,
 	wxm_login,
-	getNewsList
+	getNewsList,
+	getNewsTypeList,
+	getCategory,
+	getKillingPro,
+	getQuota,
+	getSKUs,
+	getProductdetails,
+	getActivityProduct,
+	applyMerchant
 }
