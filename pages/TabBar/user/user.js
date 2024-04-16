@@ -1,104 +1,66 @@
-const api = require('../../../utils/reques').default
-
+// pages/TabBar/user/user.js
 Page({
-  data: {
-    statusBar: wx.getMenuButtonBoundingClientRect(),
-    UserInfo: '',
-    orderIcon: [{
-        img: '/static/icons/FK.png',
-        lable: '待付款',
-        url: '../../subPages/orderList/orderList?active=1'
-      },
-      {
-        img: '/static/icons/FH.png',
-        lable: '待发货',
-        url: '../../subPages/orderList/orderList?active=2'
-      },
-      {
-        img: '/static/icons/SH.png',
-        lable: '待收货',
-        url: '../../subPages/orderList/orderList?active=3'
-			},
-			{
-        img: '/static/icons/TK.png',
-        lable: '售后',
-        url: '../../subPages/Refundlist/Refundlist'
-      },
-      {
-        img: '/static/icons/QB.png',
-        lable: '全部',
-        url: '../../subPages/orderList/orderList'
-      },
-    ],
-    contIcon: [
-      // {
-      //   img: '/static/icons/2.png',
-      //   lable: '用户协议',
-      //   url: '../../Bankcard/Banklist/banklist'
-			// },
-			{
-        img: '/static/icons/9.png',
-        lable: '邀请好友',
-        url: '../../Serve-Tool/Invite/invite'
-			},
-			{
-        img: '/static/icons/10.png',
-        lable: '银行卡管理',
-        url: '../../Bankcard/Banklist/banklist'
-			},
-			{
-        img: '/static/icons/8.png',
-        lable: '我的粉丝',
-        url: '../../Serve-Tool/FansList/FansList'
-			},
-			{
-        img: '/static/icons/3.png',
-        lable: '客服中心',
-        url: '../../Serve-Tool/Service/Service'
-			},
-      {
-        img: '/static/icons/4.png',
-        lable: '意见反馈',
-        url: '/pages/Serve-Tool/Feedback/feedback'
-			},
-			{
-        img: '/static/icons/11.png',
-        lable: '付费课程',
-        url: '../../Serve-Tool/CourseList/course'
-			},
-			{
-        img: '/static/icons/5.png',
-        lable: '设置中心',
-        url: '../../Serve-Tool/Set/set'
-			},
-			{
-        img: '/static/icons/5.png',
-        lable: '商户入住',
-        url: '../../Serve-Tool/Join/Join'
-			},
-    ],
-  },
 
+	/**
+	 * 页面的初始数据
+	 */
+	data: {
 
-  onShow() {
-    this.getUserInfo()
-  },
+	},
 
-  async getUserInfo() {
-    const res = await api.getUserInfo()
-    if (res.code === 0) {
-      this.setData({
-        UserInfo: res.data
-      })
-    }
-  },
+	/**
+	 * 生命周期函数--监听页面加载
+	 */
+	onLoad(options) {
 
-  exituserinfo() {
-    wx.navigateTo({
-      url: '/pages/Serve-Tool/Headimg/Headimg',
-    })
-  },
+	},
 
+	/**
+	 * 生命周期函数--监听页面初次渲染完成
+	 */
+	onReady() {
 
- 
+	},
+
+	/**
+	 * 生命周期函数--监听页面显示
+	 */
+	onShow() {
+
+	},
+
+	/**
+	 * 生命周期函数--监听页面隐藏
+	 */
+	onHide() {
+
+	},
+
+	/**
+	 * 生命周期函数--监听页面卸载
+	 */
+	onUnload() {
+
+	},
+
+	/**
+	 * 页面相关事件处理函数--监听用户下拉动作
+	 */
+	onPullDownRefresh() {
+
+	},
+
+	/**
+	 * 页面上拉触底事件的处理函数
+	 */
+	onReachBottom() {
+
+	},
+
+	/**
+	 * 用户点击右上角分享
+	 */
+	onShareAppMessage() {
+
+	}
 })

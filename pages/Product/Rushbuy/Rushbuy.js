@@ -1,8 +1,8 @@
 const api = require('../../../utils/reques').default
-var timers = null
 Page({
 
 	data: {
+		timers: null,
     list:'',
     loading:true,
 		timeData: {},
@@ -20,8 +20,7 @@ Page({
     time = time * 1000
     let timestamp = new Date().getTime()
     let times = time - timestamp
-    let playTime,
-      day = 0,
+		let day = 0,
       hour = 0,
       minute = 0,
       second = 0; //时间默认值
@@ -32,20 +31,12 @@ Page({
       hour = Math.floor(second / 3600); //整数部分代表小时；
       second %= 3600; //余数代表 剩下的秒数；
       minute = Math.floor(second / 60);
-      second %= 60;
+			second %= 60;
+			hour = hour.toString().padStart(2, '0');
+			minute = minute.toString().padStart(2, '0');
+			second = second.toString().padStart(2, '0');
     }
-    if (hour <= 9) hour = '0' + hour;
-    if (minute <= 9) minute = '0' + minute;
-    if (second <= 9) second = '0' + second;
-    if (day > 0) {
-      playTime = `${day}天 ${hour}:${minute}:${second}`;
-    }
-    if (day <= 0 && hour > 0) {
-      playTime = `${hour}:${minute}:${second}`;
-    }
-    if (day <= 0 && hour <= 0) {
-      playTime = `${minute}:${second}`;
-    }
+
     return {
       day,
       hour,
@@ -60,20 +51,8 @@ Page({
 			code,
 			data
 		} = await api.getQuota()
-		// if (code === 0) {
-		// 		const timee = new Date(data.end_time);
-		// 		const newtiems = new Date(timee * 1000);
-		// 		const hours = newtiems.getHours();
-		// 		const minutes = newtiems.getMinutes().toString().padStart(2, '0');
-		// 		const second = newtiems.getSeconds().toString().padStart(2, '0');
-		// 		const timess = Number(`${hours}${minutes}${second}1000`);
-		// 		data.end_time = timess
-		// 	this.setData({
-		// 		list: data
-		// 	})
-		// }
 		if (code === 0) {
-			timers =  setInterval(() => {
+			this.timers =  setInterval(() => {
 						const {day,hour,minute,second} = this.countDownFun(data.end_time)
 						data.day = day
 						data.hour = hour
@@ -94,6 +73,10 @@ Page({
 	},
   
   onHide(){
-    clearInterval(timers)
+		clearInterval(this.timers)
+		this.setData({
+			list: '',
+			loading:true,
+		})
   }
 })

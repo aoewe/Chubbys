@@ -41,7 +41,7 @@
 			</view>
 		</view>
 
-		<view class="Rush_black">
+		<view class="Rush_black" wx:if="{{Rushbuy.length > 0}}">
 			<navigator class="host_he" url="/pages/Product/Rushbuy/Rushbuy">
 				<view class="host_hi">
 					<view class="Rush_buy">限量抢购</view>
@@ -64,7 +64,7 @@
 			</view>
 		</view>
 
-		<view class="black_color">
+		<view class="black_color" wx:if="{{Seckill.length > 0}}">
 			<navigator class="host_he" url="/pages/Product/Seckill/Seckill">
 				<view class="host_hi">
 				<view class="potions">TIME</view>

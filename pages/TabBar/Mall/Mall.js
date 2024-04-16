@@ -1,6 +1,4 @@
 const fetch = require("../../../utils/reques").default;
-var timerone = null
-var timertow = null
 Page({
 	data: {
 		statusBar: wx.getMenuButtonBoundingClientRect(),
@@ -17,8 +15,10 @@ Page({
 		duration: 500,
 		catlisto: [],
 		catlistt: [],
-		Seckill:'',
-		Rushbuy:'',
+		Seckill: '',
+		Rushbuy: '',
+
+		timer: null
 	},
 
 	onLoad(options) {
@@ -26,13 +26,15 @@ Page({
 	},
 
 	onHide() {
-		clearInterval(timerone)
-		clearInterval(timertow)
+		clearInterval(this.timer)
+		this.setData({
+			Seckill: '',
+			Rushbuy: '',
+		})
 	},
 
-	onUnload(){
-		clearInterval(timerone)
-		clearInterval(timertow)
+	onUnload() {
+		clearInterval(this.timer)
 	},
 
 
@@ -83,26 +85,32 @@ Page({
 		const {
 			code,
 			data
-		} = await fetch.getActivityProduct({type:2})
+		} = await fetch.getActivityProduct({
+			type: 2
+		})
 		if (code === 0) {
-			timerone = setInterval(() => {
-				data.forEach((i) => {
-					const {
-						day,
-						hour,
-						minute,
-						second,
-
-					} = this.countDownFun(i.end_time)
-					i.day = day
-					i.hour = hour
-					i.minute = minute
-					i.second = second
-					this.setData({
-						Rushbuy: data,
-					})
-				}, 1000)
+			this.setData({
+				Rushbuy: data,
 			})
+			if (data.length > 0) {
+				this.timer = setInterval(() => {
+					data.forEach((i) => {
+						const {
+							day,
+							hour,
+							minute,
+							second,
+						} = this.countDownFun(i.end_time)
+						i.day = day
+						i.hour = hour
+						i.minute = minute
+						i.second = second
+						this.setData({
+							Rushbuy: data,
+						})
+					}, 1000)
+				})
+			}
 		}
 	},
 
@@ -110,30 +118,37 @@ Page({
 		const {
 			code,
 			data
-		} = await fetch.getActivityProduct({type:1})
+		} = await fetch.getActivityProduct({
+			type: 1
+		})
 		if (code === 0) {
-			timertow = setInterval(() => {
-				data.forEach((i) => {
-					const {
-						day,
-						hour,
-						minute,
-						second,
-
-					} = this.countDownFun(i.end_time)
-					i.day = day
-					i.hour = hour
-					i.minute = minute
-					i.second = second
-					this.setData({
-						Seckill: data,
-					})
-				}, 1000)
+			this.setData({
+				Seckill: data,
 			})
+			if (data.length > 0) {
+				this.timer = setInterval(() => {
+					data.forEach((i) => {
+						const {
+							day,
+							hour,
+							minute,
+							second,
+
+						} = this.countDownFun(i.end_time)
+						i.day = day
+						i.hour = hour
+						i.minute = minute
+						i.second = second
+						this.setData({
+							Seckill: data,
+						})
+					}, 1000)
+				})
+			}
 		}
 	},
 
-	countDownFun(time,t) {
+	countDownFun(time, t) {
 		time = time * 1000
 		let timestamp = new Date().getTime()
 		let times = time - timestamp
@@ -142,13 +157,16 @@ Page({
 			minute = 0,
 			second = 0;
 		if (times > 0) {
-			second = Math.floor(times / 1000); //未来时间距离现在的秒数
-			day = Math.floor(second / 86400); //整数部分代表的是天；一天有24*60*60=86400秒 ；
-			second = second % 86400; //余数代表剩下的秒数；
-			hour = Math.floor(second / 3600); //整数部分代表小时；
-			second %= 3600; //余数代表 剩下的秒数；
+			second = Math.floor(times / 1000);
+			day = Math.floor(second / 86400);
+			second = second % 86400;
+			hour = Math.floor(second / 3600);
+			second %= 3600;
 			minute = Math.floor(second / 60);
 			second %= 60;
+			hour = hour.toString().padStart(2, '0');
+			minute = minute.toString().padStart(2, '0');
+			second = second.toString().padStart(2, '0');
 		}
 
 		return {
@@ -166,17 +184,17 @@ Page({
 		})
 	},
 
-	GoShoppingCart(){
+	GoShoppingCart() {
 		wx.navigateTo({
 			url: '../../ShoppingCart/ShoppingCart',
 		})
 	},
 
 	onChange(e) {
-    this.setData({
-      timeData: e.detail,
-    });
-  },
+		this.setData({
+			timeData: e.detail,
+		});
+	},
 
 	bindchange(e) {
 		this.setData({
