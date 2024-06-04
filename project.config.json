@@ -1,9 +1,5 @@
 {
 	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": [],
-		"include": []
-	},
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
 		"ignoreUploadUnusedFiles": true,
@@ -27,8 +23,6 @@
 		"nodeModules": false,
 		"enhance": true,
 		"useMultiFrameRuntime": true,
-		"useApiHook": true,
-		"useApiHostProcess": true,
 		"showShadowRootInWxmlPanel": true,
 		"packNpmManually": false,
 		"enableEngineNative": false,
@@ -44,13 +38,15 @@
 		"condition": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.19.4",
-	"appid": "wxe4e72d7b63346538",
-	"projectname": "miniprogram-92",
 	"condition": {},
 	"editorSetting": {
 		"tabIndent": "tab",
 		"tabSize": 2
 	},
-	"cloudfunctionTemplateRoot": "cloudfunctionTemplate/"
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
+	"packOptions": {
+		"ignore": [],
+		"include": []
+	},
+	"appid": "wxe4e72d7b63346538"
 }

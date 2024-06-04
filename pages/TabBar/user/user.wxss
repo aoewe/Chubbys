@@ -1,0 +1,257 @@
+.head-picture {
+	width: 116rpx;
+	height: 116rpx;
+	background: #999999;
+	border: 3px solid #FFFFFF;
+	margin-left: 28rpx;
+}
+
+.President {
+	font-size: 24rpx;
+font-family: PingFang SC;
+font-weight: bold;
+color: #9C1F02;
+margin: 0rpx 65rpx;
+padding-bottom: 10rpx;
+}
+
+.Photo_frame {
+	position: absolute;
+	width: 160rpx;
+	height: 168rpx;
+	left: 10rpx;
+	z-index: 9;
+}
+
+.user {
+	display: flex;
+	align-items: center;
+}
+
+.identity {
+	display: inline-block;
+	color: #2A9F93;
+	font-size: 20rpx;
+	height: 32rpx;
+	line-height: 32rpx;
+	padding: 0 12rpx;
+	background: #FFFFFF;
+	border-radius: 16rpx;
+	margin-left: 16rpx;
+}
+
+.top-title {
+	position: absolute;
+	font-size: 48rpx;
+	color: #FFFFFF;
+	font-weight: bold;
+	padding-left: 28rpx;
+}
+
+.header {
+	position: static;
+}
+
+.head-flex {
+	display: flex;
+	align-items: center;
+}
+
+.head-txt {
+	margin: 5rpx 21rpx;
+	font-size: 34rpx;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: #1D1D1D;
+}
+
+.head-grad-icon {
+	width: 36rpx;
+	height: 40rpx;
+}
+
+.head-grad-text {
+	position: relative;
+	right: 8rpx;
+	z-index: -1;
+	font-size: 24rpx;
+	font-family: PingFang SC;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding: 1rpx 15rpx;
+	height: 40rpx;
+	background: #18559A;
+	border-radius: 0rpx 20rpx 20rpx 0rpx;
+}
+
+.gcolor {
+	color: #A75B0A;
+	background: #F2C985;
+}
+
+.cont-roctoping {
+	margin: auto;
+	margin-top: 58rpx;
+	width: 702rpx;
+	height: 278rpx;
+	background: #FFFFFF;
+	border-radius: 12rpx;
+}
+
+.cont-cin {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.cont-cin navigator {
+	padding: 20rpx 0rpx;
+	width: 50%;
+	display: flex;
+	justify-content: center;
+}
+
+.cont-roc {
+	padding: 20rpx 0rpx;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.link {
+	width: 1rpx;
+	height: 80rpx;
+	background: #DDDDDD;
+}
+
+.link-zho {
+	width: 702rpx;
+	height: 1rpx;
+	background: #DDDDDD;
+}
+
+.upper-black {
+	text-align: center;
+}
+
+.upper-black-io {
+	font-size: 24rpx;
+	font-family: PingFang SC;
+	font-weight: 400;
+	color: #18559A;
+}
+
+.upper-black-it {
+	font-size: 40rpx;
+	font-family: PingFang SC;
+	font-weight: 800;
+	color: #18559A;
+}
+
+.upper-black-o {
+	font-size: 28rpx;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: #373040;
+}
+
+.upper-black-t {
+	font-size: 24rpx;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: #9A92A9;
+}
+
+.upper-black_btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 26rpx;
+	font-family: PingFang SC;
+	font-weight: 400;
+	color: #FFFFFF;
+	width: 136rpx;
+	height: 68rpx;
+	background: #18559A;
+	border-radius: 22rpx;
+}
+
+.my-spping {
+	margin: auto;
+	margin-top: 24rpx;
+	width: 95%;
+	height: 240rpx;
+	background: #FFFFFF;
+	border-radius: 24rpx;
+}
+
+.my-spping .title {
+	padding: 0 34rpx;
+	padding-top: 26rpx;
+	display: flex;
+	font-size: 28rpx;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: #333333;
+	justify-content: space-between;
+}
+
+.order-icon {
+	margin-top: 30rpx;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	color: #333333;
+}
+
+.order-icons {
+	margin-top: 30rpx;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	color: #333333;
+}
+
+.item {
+	font-size: 24rpx;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.item image {
+	margin-bottom: 10rpx;
+	width: 56rpx;
+	height: 56rpx;
+}
+
+.top {
+	margin-bottom: 40rpx;
+}
+
+.conter {
+	width: 95%;
+	margin: auto;
+	margin-top: 28rpx;
+	height: 388rpx;
+	background: #FFFFFF;
+	border-radius: 24rpx;
+}
+
+.cont-txt {
+	padding-top: 36rpx;
+	padding-left: 28rpx;
+	font-size: 28rpx;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: #333333;
+}
+
+.isbotton {
+	margin-top: 100rpx;
+	background: #F4010A;
+	width: 95%;
+	height: 88rpx;
+	font-family: PingFang SC;
+	color: #FFFFFF;
+	border-radius: 12rpx;
+}
