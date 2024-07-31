@@ -63,6 +63,12 @@
 		"selectedColor": "#EB6100",
 		"list": [
 			{
+				"pagePath": "pages/TabBar/index/index",
+				"iconPath": "/static/icons/b.png",
+				"selectedIconPath": "/static/icons/bb.png",
+				"text": "商城"
+			},
+			{
 				"pagePath": "pages/TabBar/Mall/Mall",
 				"iconPath": "/static/icons/b.png",
 				"selectedIconPath": "/static/icons/bb.png",

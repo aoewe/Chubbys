@@ -76,10 +76,15 @@ Page({
 			delay: 0,
 			transformOrigin: '50% 50% 0',
 		})
-		this.getVideos()
+		
+	},
+	onUnload() {
+		this.setData({
+			Videos:[]
+		})
 	},
 	onShow() {
-
+		this.getVideos()
 
 	},
 	// 获取视频推荐列表
